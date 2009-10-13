@@ -13,8 +13,22 @@
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 		<?php wp_head(); ?>
+		<!--[if IE]>
+		<script src="<?php bloginfo('template_url'); ?>/scripts/html5.js"></script>
+		<![endif]-->
 	</head>
 	<body <?php body_class(); ?>>
 	<div id="wrapper">
-		<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
-		<p><?php bloginfo('description'); ?></p>
+		<header role="banner">
+			<div>
+				<h1><a href="<?php echo get_option('home'); ?>/"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" width="230" height="68" /></a></h1>
+				<nav role="navigation">
+					<ul>
+						<li><a href="<?php bloginfo('url'); ?>/articles/">Articles</a></li>
+						<li><a href="<?php bloginfo('url'); ?>/notes/">Notes</a></li>
+						<li><a href="<?php bloginfo('url'); ?>/auteurs/">Auteurs</a></li>
+					</ul>
+				</nav>	
+				<p><a rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss_url'); ?>">RSS</a></p>
+			</div>
+		</header>

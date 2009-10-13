@@ -11,6 +11,7 @@ Tags:
 /* Références
 Gris texte : #494949
 Vert lien : #597a04
+Vert titre : #83a10f
 */
 
 /* YUI 3 Reset
@@ -19,9 +20,53 @@ Code licensed under the BSD License: http://developer.yahoo.net/yui/license.txt
 version: 3.0.0, build: 1549 */
 html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
 
+/* HTML5 */
+header,footer,nav,article{display:block;}
+
 /* Fonts */
-body,code{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;}
+body,code{font:0.88em/1.71em Verdana, Helvetica, sans-serif;color:#494949;}
 a{color:#597a04;}
+#conetnt a:hover,
+#conetnt a:focus,
+#sidebar a:hover,
+#sidebar a:focus{text-decoration:none;color:#fff;background:#597a04;}
 
 /* Layout */
 #wrapper{width:946px;margin:0 auto;}
+#content{float:left;width:705px;margin-right:20px;border-top:7px solid #494949;}
+#sidebar{float:left;width:221px;margin-top:-6px;}
+
+/* Common */
+input[type=submit],button,label{cursor:pointer;}
+
+/* Header */
+body{background:url(i/strip-shadow.png) no-repeat 50% 19px;}
+#wrapper > header:first-child{position:relative;height:239px;margin-bottom:78px;padding-top:19px;background:url(i/header-large.jpg) no-repeat 0 0;}
+#wrapper > header:first-child div{height:83px;padding-top:9px;background:url(i/header-strip.png) repeat-x 0 0;}
+#wrapper > header:first-child h1{float:left;width:260px;}
+#wrapper > header:first-child h1 a{display:block;height:70px;padding:4px 0 0 16px;}
+#wrapper > header:first-child h1 a img{display:block;}
+#wrapper > header:first-child nav{float:right;width:274px;padding-top:7px;}
+#wrapper > header:first-child nav li{float:left;}
+#wrapper > header:first-child nav li a{overflow:hidden;float:left;width:90px;height:62px;text-indent:-9999px;background:url(i/nav.png) no-repeat 10px 0;border-right:1px dashed #dbd2c3;}
+#wrapper > header:first-child nav li:first-child a{border-left:1px dashed #dbd2c3;}
+#wrapper > header:first-child nav li + li a{background-position:10px -62px;}
+#wrapper > header:first-child nav li + li + li a{background-position:10px -124px;}
+#wrapper > header:first-child p a[rel=alternate]{overflow:hidden;position:absolute;top:0;left:445px;display:block;width:62px;height:69px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 0;}
+
+/* Content */
+#content > h1{line-height:1.81em;font-size:1.14em;color:#999289;}
+#content article{overflow:hidden;padding:20px 0;border-top:1px dashed #dbd2c3;}
+#content article > header:first-child{float:left;width:220px;margin-right:20px;}
+#content article > header:first-child h1{line-height:1.30em;font-size:2.14em;font-family:Georgia, serif;color:#83a10f;}
+#content article > header:first-child h1 a{text-decoration:none;}
+#content article > header:first-child h1 a:hover,
+#content article > header:first-child h1 a:focus{color:#fff;background:#83a10f;}
+#content article .content{float:left;width:464px;}
+
+/* Sidebar */
+aside > div{background:#ece4d6;}
+#searchform{padding:6px 6px 12px;text-align:right;}
+#searchform .screen-reader-text{position:absolute;left:-9999px;}
+#searchform input[type=text]{width:191px;margin-bottom:8px;padding:3px;text-align:left;font-size:1.4em;border:6px solid #494949;}
+#searchform input[type=submit]{margin-right:6px;padding:3px 5px;background:#c9c3b8;border:1px solid #494949;}
