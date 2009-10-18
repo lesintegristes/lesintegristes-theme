@@ -20,34 +20,37 @@ get_header(); ?>
 		
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
-				<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-				<p><?php the_time('F jS, Y') ?> par <?php the_author() ?></p>
+				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
+				<p class="author">Par <strong><?php the_author() ?></strong></p>
 			</header>
 			<div class="content">
-				<?php the_content('Lire la suite de cet article'); ?>
-				<p><?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
+				<?php the_content(""); ?>
+				<?php   ?>
 			</div>
+			<footer>
+				<p class="read-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lire la suite</a></p>
+				<p class="comments"><?php comments_popup_link('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></p>
+				<?php //edit_post_link('Modifier', '<p>', '</p>'); ?>
+			</footer>
 		</article>
 		
-	<?php
-		else:
-		?>
-		
+	<?php else: ?>
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
-				<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-				<p><?php the_time('F jS, Y') ?> par <?php the_author() ?></p>
+				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
+				<p class="author">Par <strong><?php the_author() ?></strong></p>
 			</header>
 			<div class="content">
-				<p><?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
+				<p><?php comments_popup_link('0 commentaires', '1 commentaire', '% commentaires'); ?></p>
 			</div>
 		</article>
-		
 	<?php
 		endif;
 		$posts_num++;
 		endwhile; ?>
-
+	
 	<?php next_posts_link('&laquo; Older Entries') ?> | <?php previous_posts_link('Newer Entries &raquo;') ?>
 
 <?php else : ?>

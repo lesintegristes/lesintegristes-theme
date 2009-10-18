@@ -4,9 +4,9 @@
  * @subpackage Starkers
  */
 
-get_header();
-?>
+get_header(); ?>
 
+	<section id="content" role="main">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<?php previous_post_link('&laquo; %link') ?> | <?php next_post_link('%link &raquo;') ?>
@@ -55,7 +55,8 @@ get_header();
 	<?php endwhile; else: ?>
 
 		<p>Sorry, no posts matched your criteria.</p>
+<?php endif; ?>		
+	</section>
 
-<?php endif; ?>
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

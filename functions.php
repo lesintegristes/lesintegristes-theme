@@ -14,4 +14,9 @@ if ( function_exists('register_sidebar') ) {
 		'after_title' => '</h2>',
 	));
 }
+
+
+function lesintegristes_get_short_month() {
+	
+}
 ?>
