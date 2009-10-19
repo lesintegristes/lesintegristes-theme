@@ -61,7 +61,7 @@ strong{font-weight:bold;}
 #wrapper{width:946px;margin:0 auto;}
 #content{float:left;width:591px;margin-right:18px;padding-left:111px;border-top:6px solid #494949;}
 .home #content{width:705px;padding-left:0;}
-#sidebar{float:left;width:223px;margin-top:-6px;background:#ece4d6;}
+#sidebar{float:left;width:223px;margin-top:-6px;}
 
 /* Common */
 input[type=submit],button,label{cursor:pointer;}

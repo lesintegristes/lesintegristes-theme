@@ -46,7 +46,11 @@
 			<?php }?>
 			
 			<ul>
-				<?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
+				
+				<li class="mea">
+					<a href="<?php echo bloginfo('url'); ?>/veille/"><img src="<?php bloginfo('template_directory'); ?>/images/veille-mea.jpg" width="197" height="96" alt="Veille : Offrez notre sélection d'infos à votre agrégateur !" /></a>
+				</li>
+				
 				<li><h2>Archives</h2>
 					<ul>
 					<?php wp_get_archives('type=monthly'); ?>
