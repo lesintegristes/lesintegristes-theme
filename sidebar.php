@@ -6,19 +6,40 @@
 ?>
 		<aside id="sidebar" role="complementary">
 			
-			<div>
+			<div class="search">
 				<?php get_search_form(); ?>
 			</div>
 			
-			<?php if ( is_404() || is_category() || is_day() || is_month() ||
+			<div class="veille">
+				<a href="<?php echo bloginfo('url'); ?>/veille/" title="Veille : Offrez notre sélection d'infos à votre agrégateur !">
+					<p><strong>Veille</strong></p>
+					<p>Offrez notre sélection d'infos à votre agrégateur !</p>
+				</a>
+			</div>
+			
+			<section class="notes">
+				<h1>Notes</h1>
+				<ul>
+					<?php
+						rewind_posts();
+						query_posts("cat=31");
+					?>
+					<?php while (have_posts()) : the_post(); ?>
+					<li>
+						<p class="date"><?php the_time('j/m') ?></p>
+						<?php the_content(""); ?>
+					</li>
+					<?php endwhile; ?>
+				</ul>
+			</section>
+			
+			<?php if ( is_404() || is_day() || is_month() ||
 						is_year() || is_search() || is_paged() ) {
 			?>
 			<ul>
 				<li>
 				
 				<?php /* If this is a 404 page */ if (is_404()) { ?>
-				<?php /* If this is a category archive */ } elseif (is_category()) { ?>
-				<p>You are currently browsing the archives for the <?php single_cat_title(''); ?> category.</p>
 				
 				<?php /* If this is a yearly archive */ } elseif (is_day()) { ?>
 				<p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php echo bloginfo('name'); ?></a> blog archives
@@ -46,11 +67,6 @@
 			<?php }?>
 			
 			<ul>
-				
-				<li class="mea">
-					<a href="<?php echo bloginfo('url'); ?>/veille/"><img src="<?php bloginfo('template_directory'); ?>/images/veille-mea.jpg" width="197" height="96" alt="Veille : Offrez notre sélection d'infos à votre agrégateur !" /></a>
-				</li>
-				
 				<li><h2>Archives</h2>
 					<ul>
 					<?php wp_get_archives('type=monthly'); ?>
@@ -58,11 +74,11 @@
 				</li>
 				<?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
 			</ul>
-		
+			
 			<ul>
 				<?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
 					<?php wp_list_bookmarks(); ?>
-
+					
 					<li>
 						<h2>Meta</h2>
 						<ul>

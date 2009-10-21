@@ -35,7 +35,7 @@ version: 3.0.0, build: 1549 */
 html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
 
 /* HTML5 reset */
-header,footer,nav,article{display:block;}
+header,footer,nav,article,section{display:block;}
 
 /* Buttons reset */
 button{position:relative;overflow:visible;padding:0;background:transparent;border:0;cursor:pointer;} /* "overflow:visible;" removes extra side padding in IE */
@@ -61,7 +61,7 @@ strong{font-weight:bold;}
 #wrapper{width:946px;margin:0 auto;}
 #content{float:left;width:591px;margin-right:18px;padding-left:111px;border-top:6px solid #494949;}
 .home #content{width:705px;padding-left:0;}
-#sidebar{float:left;width:223px;margin-top:-6px;}
+#sidebar{float:left;width:223px;}
 
 /* Common */
 input[type=submit],button,label{cursor:pointer;}
@@ -69,16 +69,18 @@ pre{padding-left:30px;}
 h2{font-size:18px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
 h3{font-size:16px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
 h4{font-size:14px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
+::-moz-selection{color:#fff;background:#999289;}
+::selection{color:#fff;background:#999289;}
 
 /* Buttons */
 button > span{background:url(i/button.png) no-repeat 100% 0;}
 button span span{min-width:80px;height:32px;padding:0 10px;line-height:30px;font-size:14px;color:#494949;background:url(i/button.png) no-repeat 0 -96px;}
 button:hover > span,
-button:focus > span{top:-1px;left:-1px;background-position:100% -32px;}
+button:focus > span{background-position:100% -32px;}
 button:hover span span,
 button:focus span span{background-position:0 -128px;}
-button:active > span{top:0;left:0;background-position:100% -64px;}
-button:active span span{color:#185306;background-position:0 -160px;}
+button:active > span{top:1px;left:1px;background-position:100% -65px;}
+button:active span span{color:#0e6200;background-position:-1px -161px;}
 
 /* Header */
 body{background:url(i/strip-shadow.png) no-repeat 50% 19px;}
@@ -126,8 +128,24 @@ body{background:url(i/strip-shadow.png) no-repeat 50% 19px;}
 #content article .comments a > span{text-decoration:underline;}
 
 /* Sidebar */
-aside > div{background:#ece4d6;}
+#sidebar > *{margin-bottom:12px;background:#ece4d6;}
+#sidebar > :first-child{margin-top:-6px;}
+/* Search */
 #searchform{height:84px;padding:6px 6px 0;text-align:right;}
 #searchform .screen-reader-text{position:absolute;left:-9999px;}
-#searchform input[type=text]{width:191px;margin-bottom:8px;padding:3px;text-align:left;font-size:1.4em;border:6px solid #494949;}
-#searchform input[type=submit]{margin-right:6px;padding:3px 5px;background:#c9c3b8;border:1px solid #494949;}
+#searchform input{width:191px;margin-bottom:9px;padding:3px;line-height:18px;text-align:left;border:6px solid #494949;}
+#searchform button{margin-right:4px;}
+/* Veille */
+#sidebar > .veille{padding:6px;}
+#sidebar > .veille a,
+#sidebar > .veille a:focus,
+#sidebar > .veille a:active{overflow:hidden;display:block;padding:6px;padding-top:60px;height:42px;text-decoration:none;background:#494949 url(i/veille.jpg) no-repeat 6px 6px;}
+#sidebar > .veille a:hover,
+#sidebar > .veille a:focus{outline:2px solid #83a10f;}
+#sidebar > .veille a:active{outline:2px solid #96b713;}
+#sidebar > .veille a p strong{float:left;width:75px;text-indent:2px;font:25px/42px Georgia, serif;color:#c0d43d;}
+#sidebar > .veille a p + p{float:left;width:122px;line-height:14px;font-size:12px;font-style:italic;color:#dbd2c3;}
+/* Notes */
+#sidebar > .notes{padding:6px;}
+#sidebar > .notes h1{font:25px/41px Georgia, serif;color:#494949;border-bottom:1px solid #b7c272;}
+#sidebar > .notes p{font-size:12px;font-style:italic;color:#857e76;}

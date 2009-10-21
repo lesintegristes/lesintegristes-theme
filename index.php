@@ -7,6 +7,7 @@
 get_header(); ?>
 
 <section id="content" role="main">
+<?php query_posts("cat=-31"); ?>
 <?php if (have_posts()) : ?>
 	
 	<h1>Derniers articles</h1>
@@ -15,6 +16,7 @@ get_header(); ?>
 		$posts_num = 0;
 		while (have_posts() && $posts_num < 5) :
 		the_post();
+		
 		if ($posts_num < 2):
 		?>
 		
@@ -26,7 +28,6 @@ get_header(); ?>
 			</header>
 			<div class="content">
 				<?php the_content(""); ?>
-				<?php   ?>
 			</div>
 			<footer>
 				<p class="read-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lire la suite</a></p>
