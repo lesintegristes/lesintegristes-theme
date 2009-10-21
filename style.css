@@ -47,7 +47,8 @@ button span{position:relative;display:block;white-space:nowrap;}
 
 /* Fonts */
 body,button,input{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;}
-pre,code{font:12px/24px "DejaVu Sans Mono", "Courier New", monospace;color:#494949;background:#ece4d6;}
+pre,code{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;background:#ece4d6;}
+pre code{font:12px/24px "DejaVu Sans Mono", "Courier New", monospace;}
 a{color:#83a10f;}
 strong{font-weight:bold;}
 #content a:hover,
