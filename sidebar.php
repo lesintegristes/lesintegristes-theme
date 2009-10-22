@@ -26,11 +26,14 @@
 					?>
 					<?php while (have_posts()) : the_post(); ?>
 					<li>
-						<p class="date"><?php the_time('j/m') ?></p>
-						<?php the_content(""); ?>
+						<p class="date"><time datetime="<?php the_time('c'); ?>"><?php the_time('j/m') ?></time></p>
+						<div class="content">
+							<?php the_content(""); ?>
+						</div>
 					</li>
 					<?php endwhile; ?>
 				</ul>
+				<p><a href="<?php echo bloginfo('url'); ?>/category/note" title="Les notes">Toutes les notes</a></p>
 			</section>
 			
 			<?php if ( is_404() || is_day() || is_month() ||
@@ -66,14 +69,14 @@
 			</ul>	
 			<?php }?>
 			
-			<ul>
+			<!--<ul>
 				<li><h2>Archives</h2>
 					<ul>
 					<?php wp_get_archives('type=monthly'); ?>
 					</ul>
 				</li>
 				<?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
-			</ul>
+			</ul>-->
 			
 			<ul>
 				<?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>

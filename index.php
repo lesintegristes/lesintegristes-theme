@@ -37,22 +37,24 @@ get_header(); ?>
 		</article>
 		
 	<?php else: ?>
-		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+		<?php if ($posts_num === 2): ?>
+	<div class="last-articles">
+		<?php endif; ?>
+		<article <?php post_class('mini') ?> id="post-<?php the_ID(); ?>">
 			<header>
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
 				<p class="author">Par <strong><?php the_author() ?></strong></p>
+				<p class="comments"><?php comments_popup_link('<strong><span>0</span></strong>', '<strong><span>1</span></strong>', '<strong><span>%</span></strong>'); ?></p>
 			</header>
-			<div class="content">
-				<p><?php comments_popup_link('0 commentaires', '1 commentaire', '% commentaires'); ?></p>
-			</div>
 		</article>
 	<?php
 		endif;
 		$posts_num++;
 		endwhile; ?>
+	</div>
 	
-	<?php next_posts_link('&laquo; Older Entries') ?> | <?php previous_posts_link('Newer Entries &raquo;') ?>
+	<?php /*next_posts_link('&laquo; Older Entries') ?> | <?php previous_posts_link('Newer Entries &raquo;')*/ ?>
 
 <?php else : ?>
 

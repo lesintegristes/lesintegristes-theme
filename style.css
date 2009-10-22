@@ -99,34 +99,37 @@ body{background:url(i/strip-shadow.png) no-repeat 50% 19px;}
 #wrapper > header:first-child p a[rel=alternate]{overflow:hidden;position:absolute;top:0;left:445px;display:block;width:62px;height:69px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 0;}
 
 /* Content */
-#content p{margin-bottom:12px;}
+#content p{margin-bottom:24px;}
 #content > h1{line-height:30px;font-size:1.14em;color:#999289;}
-#content article{float:left;padding:24px 0 12px;background:url(i/dashed-h.png) repeat-x 0 0;}
-#content h1 + article{padding-top:12px;}
+#content article{float:left;padding:36px 0 0;background:url(i/dashed-h.png) repeat-x 0 0;}
+#content h1 + article{padding-top:24px;}
 #content article header{position:relative;float:left;width:223px;margin-right:18px;}
-#content article header h1{margin-bottom:12px;line-height:36px;/*font-size:2.14em;*/font-size:30px;font-family:Georgia, serif;}
+#content article header h1{margin-bottom:12px;line-height:36px;font-size:30px;font-family:Georgia, serif;}
 #content article header h1 a{text-decoration:none;color:#83a10f;}
 #content article header h1 a:hover,
 #content article header h1 a:focus{outline:0;}
 #content article header .date{position:absolute;top:0;left:-60px;width:60px;line-height:normal;font-size:0.79em;word-spacing:-0.2em;font-weight:bold;text-align:center;font-family:"Helvetica Neue", "Helvetica", Arial, sans-serif;color:#999289;}
 #content article header .date .day{display:block;margin-bottom:-0.2em;font-size:30px;}
 #content article header .author{display:inline-block;padding:0 6px;vertical-align:top;line-height:18px;font-size:0.79em;color:#fff;background:#494949;}
-#content article .content{float:left;width:464px;margin-bottom:48px;}
+#content article .content{float:left;width:464px;margin-bottom:36px;}
 #content article footer{clear:left;margin-left:240px;}
 #content article footer a{font-style:italic;text-transform:lowercase;color:#494949;}
 #content article .read-post{float:right;}
-#content article .read-post a:hover,
-#content article .comments a:hover{color:#6d6a6a;}
-#content article .read-post a:active,
-#content article .read-post a:focus,
-#content article .comments a:active,
-#content article .comments a:focus{color:#fff;background:#6d6a6a;}
+#content article footer a:hover{color:#6d6a6a;}
+#content article footer a:active,
+#content article footer a:focus{color:#fff;background:#6d6a6a;}
 #content article .comments a{text-decoration:none;}
 #content article .comments strong,
 #content article .comments strong span{float:left;color:#fff;background:url(i/comments.png) no-repeat 0 0;}
 #content article .comments strong{position:relative;top:4px;margin:0 5px 0 0;padding-left:5px;}
 #content article .comments strong span{min-width:16px;height:24px;padding-right:5px;line-height:16px;text-align:center;background-position:100% 0;}
 #content article .comments a > span{text-decoration:underline;}
+/* Mini article */
+#content .last-articles{clear:both;overflow:hidden;padding-top:24px;background:url(i/dashed-h.png) repeat-x 0 0;}
+#content .last-articles article{width:223px;margin-right:18px;padding-top:0;background:url(i/dashed-v.png) repeat-y 100% 0;}
+#content .last-articles article + article + article{margin-right:0;background:none;}
+#content .last-articles article header h1{margin-left:38px;line-height:24px;font-size:22px;}
+#content .last-articles article header .date{left:-6px;width:38px;}
 
 /* Sidebar */
 #sidebar > *{margin-bottom:12px;background:#ece4d6;}
@@ -147,6 +150,13 @@ body{background:url(i/strip-shadow.png) no-repeat 50% 19px;}
 #sidebar > .veille a p strong{float:left;width:75px;text-indent:2px;font:25px/42px Georgia, serif;color:#c0d43d;}
 #sidebar > .veille a p + p{float:left;width:122px;line-height:14px;font-size:12px;font-style:italic;color:#dbd2c3;}
 /* Notes */
-#sidebar > .notes{padding:6px;}
+#sidebar > .notes{padding:0 6px 6px;font-size:12px;font-style:italic;color:#857e76;}
 #sidebar > .notes h1{font:25px/41px Georgia, serif;color:#494949;border-bottom:1px solid #b7c272;}
-#sidebar > .notes p{font-size:12px;font-style:italic;color:#857e76;}
+#sidebar > .notes li{margin:6px 0 0 6px;padding-bottom:18px;background:url(i/dashed2-h.png) repeat-x 0 100%;}
+#sidebar > .notes .content{margin-left:48px;}
+#sidebar > .notes p.date{float:left;width:44px;padding-right:4px;font:bold 16px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color:#999289;}
+#sidebar > .notes ul + p{margin:6px 0;text-align:right;}
+#sidebar > .notes ul + p a{text-transform:lowercase;color:#494949;}
+#sidebar > .notes ul + p a:hover{color:#6d6a6a;}
+#sidebar > .notes ul + p a:active,
+#sidebar > .notes ul + p a:focus{color:#fff;background:#6d6a6a;}
