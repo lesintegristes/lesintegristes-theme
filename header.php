@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
+		<?php wp_enqueue_script( 'main', '/wp-content/themes/lesintegristes/scripts/main.js', array('jquery'), '1.0', true ); ?>
+		<?php if ( is_home() ) wp_enqueue_script( 'home', '/wp-content/themes/lesintegristes/scripts/home.js', array('jquery'), '1.0', true ); ?>
 		<?php wp_head(); ?>
 		<!--[if IE]>
 		<script src="<?php bloginfo('template_url'); ?>/scripts/html5.js"></script>
@@ -28,7 +30,7 @@
 						<li><a href="<?php bloginfo('url'); ?>/notes/">Notes</a></li>
 						<li><a href="<?php bloginfo('url'); ?>/auteurs/">Auteurs</a></li>
 					</ul>
-				</nav>	
+				</nav>
 				<p><a rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss_url'); ?>">RSS</a></p>
 			</div>
 		</header>

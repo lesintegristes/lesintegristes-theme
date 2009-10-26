@@ -75,7 +75,6 @@
 					<?php wp_get_archives('type=monthly'); ?>
 					</ul>
 				</li>
-				<?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
 			</ul>-->
 			
 			<ul>
