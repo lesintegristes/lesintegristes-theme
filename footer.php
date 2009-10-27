@@ -19,6 +19,7 @@
 				?>
 					<li>
 						<strong><a href="<?php echo get_year_link($year); ?> "><?php echo $year; ?></a></strong>
+						<div>
 						<ul>
 						<?php
 							$months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = '".$year."' ORDER BY post_date DESC");
@@ -27,6 +28,7 @@
 							<li><a href="<?php echo get_month_link($year, $month); ?>"><?php echo $wp_locale->get_month($month); ?></a></li>
 							<?php endforeach;?>
 						</ul>
+						</div>
 					</li>
 				<?php endforeach; ?>
 				</ul>
@@ -34,6 +36,7 @@
 			</section>
 			<nav role="navigation">
 				<ul>
+					<li><a href="#wrapper">Haut de la page</a></li>
 					<li><a href="<?php bloginfo('url'); ?>/articles/">Articles</a></li>
 					<li><a href="<?php bloginfo('url'); ?>/notes/">Notes</a></li>
 					<li><a href="<?php bloginfo('url'); ?>/auteurs/">Auteurs</a></li>

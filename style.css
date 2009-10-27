@@ -119,6 +119,7 @@ body{padding-bottom:200px;background:url(i/strip-shadow.png) no-repeat 50% 19px;
 #wrapper > footer .archives ul strong button.expanded{background-color:#ece4d6;background-position:6px -19px;}
 #wrapper > footer .archives ul ul{padding:12px 0 18px 36px;background:#ece4d6;-moz-column-count:2;}
 #wrapper > footer .archives ul + p{margin-top:12px;text-align:right;}
+#wrapper > footer nav{float:left;width:182px;margin-left:20px;}
 
 /* Content */
 #content p{margin-bottom:24px;}
@@ -164,8 +165,7 @@ body{padding-bottom:200px;background:url(i/strip-shadow.png) no-repeat 50% 19px;
 #content .last-articles li + li + li{background:none;}
 #content .last-articles li dt{margin-left:42px;padding-bottom:12px;line-height:24px;font-size:22px;font-family:Georgia, serif;}
 #content .last-articles li dt a{text-decoration:none;}
-#content .last-articles li .date{top:-10px;left:0;width:38px;}
-#content .last-articles li:first-child .date{left:-6px;}
+#content .last-articles li .date{top:-10px;left:-5px;width:38px;}
 #content .last-articles li .comments{margin-left:6px;}
 #content .last-articles li .comments strong{top:0;}
 #content .last-articles li.all{clear:left;float:none;width:auto;margin:0;text-align:right;border-top:6px solid #454545;}
