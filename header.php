@@ -20,6 +20,7 @@
 		<![endif]-->
 	</head>
 	<body <?php body_class(); ?>>
+	<div>
 	<div id="wrapper">
 		<header role="banner">
 			<div>

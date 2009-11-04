@@ -17,7 +17,7 @@
 				</a>
 			</div>
 			
-			<section class="notes">
+			<section class="text titled notes">
 				<h1>Notes</h1>
 				<ul>
 					<?php
@@ -34,6 +34,28 @@
 					<?php endwhile; ?>
 				</ul>
 				<p><a href="<?php echo bloginfo('url'); ?>/category/note" title="Les notes">Toutes les notes</a></p>
+			</section>
+			
+			<section class="text titled newsletter">
+				<h1>Newsletter</h1>
+				<form action="http://feedburner.google.com/fb/a/mailverify" method="get">
+					<p><label for="email">Suivez les intégristes depuis votre boîte mail, en entrant votre adresse email ci-dessous.</label> <input type="text" name="email" value="" id="email" /></p>
+					<p class="submit">
+						<input type="hidden" name="uri" value="lesintegristes" />
+						<input type="hidden" name="loc" value="fr_FR" />
+						<button type="submit" id="searchsubmit"><span><span>S'inscrire</span></span></button>
+					</p>
+				</form>
+			</section>
+			
+			<section class="text creativecommons">
+				<h1><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/"><img src="<?php bloginfo('template_url'); ?>/images/creative-commons.png" width="81" height="96" alt="Creative Commons" /></a></h1>
+				<p>Sauf mention contraire, les publications de ce site sont mises à disposition sous un <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">contrat Creative Commons <abbr title="Paternité">BY</abbr> <abbr title="Pas d'utilisation commerciale">NC</abbr> <abbr title="Partage des conditions à l'identique">SA</abbr></a>.</p>
+			</section>
+			
+			<section class="titled text meteo">
+				<h1>Météo</h1>
+				<p>Pour faire la pluie et le beau temps.</p>
 			</section>
 			
 			<?php if ( is_404() || is_day() || is_month() ||
@@ -66,7 +88,7 @@
 				<?php } ?>
 				
 				</li>
-			</ul>	
+			</ul>
 			<?php }?>
 			
 			<!--<ul>
@@ -77,22 +99,6 @@
 				</li>
 			</ul>-->
 			
-			<ul>
-				<?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
-					<?php wp_list_bookmarks(); ?>
-					
-					<li>
-						<h2>Meta</h2>
-						<ul>
-							<?php wp_register(); ?>
-							<li><?php wp_loginout(); ?></li>
-							<li><a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a></li>
-							<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress</a></li>
-							<?php wp_meta(); ?>
-						</ul>
-					</li>
-				<?php } ?>
-
-				<?php //endif; ?>
-			</ul>
+			
+			
 		</aside>
