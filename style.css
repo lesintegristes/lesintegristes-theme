@@ -183,6 +183,10 @@ body.single #content article header{float:none;width:auto;}
 #content article .content{float:left;width:464px;margin-bottom:36px;}
 body.single #content article .content{float:none;width:auto;padding-left:102px;}
 #content article footer{clear:left;margin-left:240px;}
+body.single #content article footer{margin-left:100px;font-style:italic;color:#999289;}
+body.single #content article footer a{text-transform:none;color:#999289;}
+body.single #content article footer a:active,
+body.single #content article footer a:focus{color:#fff;background:#999289;}
 #content article footer a,
 #content .last-articles li.all a{font-style:italic;text-transform:lowercase;color:#494949;}
 #content article .read-post{float:right;}
