@@ -36,7 +36,7 @@
 					<p>Ou consulter <a href="link">tous les articles</a></p>
 				</section>
 				<nav role="navigation">
-					<p class="top"><a href="#wrapper">Haut de la page</a></p>
+					<p class="top"><a href="#header">Haut de la page</a></p>
 					<ul>
 						<li><a href="<?php bloginfo('url'); ?>/articles/">Articles</a></li>
 						<li><a href="<?php bloginfo('url'); ?>/notes/">Notes</a></li>
@@ -44,7 +44,7 @@
 					</ul>
 				</nav>
 			</div>
-			<p class="bottom-line">Merci <a href="http://twitter.com/gregoiredierend" title="Grégoire Dierendonck">Grégoire</a>. Merci <a href="http://www.wordpress.org">Wordpress</a>.</p>
+			<p class="bottom-line">Merci <a href="http://twitter.com/gregoiredierend" title="Grégoire Dierendonck">Grégoire</a>. Merci <a href="http://www.wordpress.org">Wordpress</a>. Merci Maman.</p>
 			<?php wp_footer(); ?>
 		</footer>
   </div>

@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<section id="content" role="main">
+<div id="content" role="main">
 <?php query_posts("cat=-31"); ?>
 <?php if (have_posts()) : ?>
 	
@@ -14,10 +14,10 @@ get_header(); ?>
 	
 	<?php
 		$posts_num = 0;
-		while (have_posts() && $posts_num < 5) :
+		while (have_posts() && $posts_num < 6) :
 		the_post();
 		
-		if ($posts_num < 2):
+		if ($posts_num < 3):
 		?>
 		
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -37,7 +37,7 @@ get_header(); ?>
 		</article>
 		
 	<?php else: ?>
-		<?php if ($posts_num === 2): ?>
+		<?php if ($posts_num === 3): ?>
 	<ul class="last-articles">
 		<?php endif; ?>
 		<li>
@@ -64,7 +64,7 @@ get_header(); ?>
 	<?php get_search_form(); ?>
 
 <?php endif; ?>
-</section>
+</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

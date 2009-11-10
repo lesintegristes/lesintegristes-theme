@@ -2,10 +2,8 @@
 Theme Name: Les intégristes
 Theme URI: http://www.lesintegristes.net
 Description: Le thème des intégristes.
-Version: 1
+Version: 1.0
 Author: Grégoire Dierendonck - Pierre Bertet
-Author URI: http://www.pierrebertet.net
-Tags: 
 */
 
 /*
@@ -57,11 +55,14 @@ strong{font-weight:bold;}
 #content a:focus,
 #sidebar a:active,
 #sidebar a:focus{color:#fff;background:#96b713;}
+#wrapper a.action{font-style:italic;text-transform:lowercase;color:#494949;}
+#wrapper a.action:hover{color:#6d6a6a;}
+#wrapper a.action:active,
+#wrapper a.action:focus{color:#fff;background:#6d6a6a;}
 
 /* Layout */
 #wrapper{width:946px;margin:0 auto;}
-#content{float:left;width:591px;margin-right:18px;margin-bottom:96px;padding-left:111px;border-top:6px solid #494949;}
-.home #content{width:705px;padding-left:0;}
+#content{float:left;width:705px;margin-right:18px;margin-bottom:96px;border-top:6px solid #494949;}
 #sidebar{float:left;width:223px;}
 
 /* Common */
@@ -84,23 +85,48 @@ button[type=submit]:active > span{top:1px;left:1px;background-position:100% -65p
 button[type=submit]:active span span{color:#0e6200;background-position:-1px -161px;}
 
 /* Header */
-body{padding-bottom:40px;background:url(i/strip-shadow.png) no-repeat 50% 19px;}
-#wrapper > header:first-child{position:relative;height:239px;margin-bottom:78px;padding-top:19px;background:url(i/header-large.jpg) no-repeat 0 0;}
-#wrapper > header:first-child div{height:83px;padding-top:9px;background:url(i/header-strip.png) repeat-x 0 0;}
-#wrapper > header:first-child h1{float:left;width:260px;}
-#wrapper > header:first-child h1 a{display:block;height:70px;padding:4px 0 0 16px;background:#fff;}
-#wrapper > header:first-child h1 a img{display:block;}
-#wrapper > header:first-child nav{float:right;width:274px;padding-top:7px;}
-#wrapper > header:first-child nav li{float:left;}
-#wrapper > header:first-child nav li a{overflow:hidden;float:left;width:90px;height:62px;text-indent:-9999px;background:#fff url(i/nav.png) no-repeat 10px 0;border-right:1px dashed #dbd2c3;}
-#wrapper > header:first-child nav li:first-child a{border-left:1px dashed #dbd2c3;}
-#wrapper > header:first-child nav li + li a{background-position:10px -62px;}
-#wrapper > header:first-child nav li + li + li a{background-position:10px -124px;}
-#wrapper > header:first-child p a[rel=alternate]{overflow:hidden;position:absolute;top:0;left:445px;display:block;width:62px;height:69px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 0;}
+body{padding-bottom:40px;background:url(i/strip-shadow.png) no-repeat 50% 15px;}
+#wrapper > header{position:relative;height:129px;margin-bottom:48px;padding-top:15px;background:url(i/meteo/sunny/header-small.jpg) no-repeat 0 0;}
+#wrapper > header div{height:83px;padding-top:9px;background:url(i/header-strip.png) repeat-x 0 0;}
+#wrapper > header h1{float:left;width:260px;}
+#wrapper > header h1 a{overflow:hidden;display:block;height:74px;text-indent:-9999px;background:#fff url(i/logo-small.png) no-repeat 24px 11px;}
+body.home #wrapper > header h1 a{background-image:url(i/logo-large.png);background-position:16px 4px;}
+#wrapper > header h1 a img{display:block;}
+#wrapper > header p a[rel=alternate]{overflow:hidden;position:absolute;top:0;left:445px;display:block;width:62px;height:64px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 100%;}
+#wrapper > header nav{float:right;width:277px;}
+#wrapper > header nav li{float:left;}
+#wrapper > header nav li a{float:left;width:92px;padding:6px 0;background:#fff url(i/nav-large.png) no-repeat 1px 0;}
+#wrapper > header nav li a span{overflow:hidden;display:block;height:62px;text-indent:-9999px;border-right:1px dashed #dbd2c3;}
+#wrapper > header nav li:first-child a{width:93px;}
+#wrapper > header nav li:first-child a span{padding-left:1px;border-left:1px dashed #dbd2c3;}
+#wrapper > header nav li + li a{background-position:-91px 0;}
+#wrapper > header nav li + li + li a{background-position:-182px 0;}
+#wrapper > header nav li a:hover{background-position:1px -74px;}
+#wrapper > header nav li + li a:hover{background-position:-91px -74px;}
+#wrapper > header nav li + li + li a:hover{background-position:-182px -74px;}
+#wrapper > header nav li a:active,
+#wrapper > header nav li a:focus{background-position:1px -148px;outline:0;}
+#wrapper > header nav li + li a:active,
+#wrapper > header nav li + li a:focus{background-position:-91px -148px;}
+#wrapper > header nav li + li + li a:active,
+#wrapper > header nav li + li + li a:focus{background-position:-182px -148px;}
+/* Header Home */
+body.home{background-position:50% 39px;}
+body.home #wrapper > header{height:239px;margin-bottom:58px;padding-top:39px;background-image:url(i/meteo/sunny/header-large.jpg);}
+body.home #wrapper > header p a[rel=alternate]{height:88px;}
+/* Meteo */
+body.rain #wrapper > header{background-image:url(i/meteo/rain/header-small.jpg);}
+body.cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-small.jpg);}
+body.snow #wrapper > header{background-image:url(i/meteo/snow/header-small.jpg);}
+body.night #wrapper > header{background-image:url(i/meteo/night/header-small.jpg);}
+body.home.rain #wrapper > header{background-image:url(i/meteo/rain/header-large.jpg);}
+body.home.cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-large.jpg);}
+body.home.snow #wrapper > header{background-image:url(i/meteo/snow/header-large.jpg);}
+body.home.night #wrapper > header{background-image:url(i/meteo/night/header-large.jpg);}
 
 /* Footer */
 body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
-#wrapper > footer{clear:both;margin-bottom:0;padding-top:36px;color:#999289;border-top:6px solid #999289;background:url(i/footer.jpg) no-repeat 0 100%;}
+#wrapper > footer{clear:both;margin-bottom:0;padding-top:36px;color:#999289;border-top:6px solid #999289;background:url(i/meteo/sunny/footer.jpg) no-repeat 0 100%;}
 #wrapper > footer > div{overflow:hidden;padding-bottom:120px;}
 #wrapper > footer a{color:#999289;}
 #wrapper > footer h1{margin-bottom:24px;font-size:25px;line-height:35px;font-family:Georgia, serif;border-bottom:1px solid #dbd2c3;}
@@ -129,13 +155,21 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer nav li + li a{background-position:52px -89px;}
 #wrapper > footer nav li + li + li a{background-position:52px -178px;}
 #wrapper > footer .bottom-line{position:relative;bottom:-40px;line-height:40px;font-size:10px;text-align:center;}
+/* Meteo */
+body.rain #wrapper > footer{background-image:url(i/meteo/rain/footer.jpg);}
+body.cloudy #wrapper > footer{background-image:url(i/meteo/cloudy/footer.jpg);}
+body.snow #wrapper > footer{background-image:url(i/meteo/snow/footer.jpg);}
+body.night #wrapper > footer{background-image:url(i/meteo/night/footer.jpg);}
 
 /* Content */
 #content p{margin-bottom:24px;}
+#content > p:first-child{line-height:30px;text-align:right;margin-bottom:0;}
 #content > h1{line-height:30px;font-size:16px;color:#999289;}
 #content article{float:left;padding:36px 0 0;background:url(i/dashed-h.png) repeat-x 0 0;}
+body.single #content article{float:none;}
 #content h1 + article{padding-top:24px;}
 #content article header{position:relative;float:left;width:223px;margin-right:18px;}
+body.single #content article header{float:none;width:auto;}
 #content article header h1{margin-bottom:12px;line-height:36px;font-size:30px;font-family:Georgia, serif;}
 #content article header h1 a{text-decoration:none;color:#83a10f;}
 #content article header h1 a:hover,
@@ -147,6 +181,7 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #content article header .author,
 #content .last-articles .author{display:inline-block;padding:0 6px;vertical-align:top;line-height:18px;font-size:11px;color:#fff;background:#494949;}
 #content article .content{float:left;width:464px;margin-bottom:36px;}
+body.single #content article .content{float:none;width:auto;padding-left:102px;}
 #content article footer{clear:left;margin-left:240px;}
 #content article footer a,
 #content .last-articles li.all a{font-style:italic;text-transform:lowercase;color:#494949;}
@@ -179,6 +214,9 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #content .last-articles li .comments strong{top:0;}
 #content .last-articles li.all{clear:left;float:none;width:auto;margin:0;text-align:right;border-top:6px solid #454545;}
 
+/* Comments */
+#comments{clear:left;}
+
 /* Sidebar */
 #sidebar > *{margin-bottom:12px;background:#ece4d6;}
 #sidebar > :first-child{margin-top:-6px;}
@@ -195,12 +233,16 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #sidebar > .veille{padding:6px;}
 #sidebar > .veille a,
 #sidebar > .veille a:focus,
-#sidebar > .veille a:active{overflow:hidden;display:block;padding:6px;padding-top:60px;height:42px;text-decoration:none;background:#494949 url(i/veille.jpg) no-repeat 6px 6px;}
+#sidebar > .veille a:active{overflow:hidden;display:block;padding:6px;padding-top:60px;height:42px;text-decoration:none;background:#494949 url(i/meteo/sunny/veille.jpg) no-repeat 6px 6px;}
 #sidebar > .veille a:hover,
 #sidebar > .veille a:focus{outline:2px solid #83a10f;}
 #sidebar > .veille a:active{outline:2px solid #96b713;}
 #sidebar > .veille a p strong{float:left;width:75px;text-indent:2px;font:25px/42px Georgia, serif;color:#c0d43d;}
 #sidebar > .veille a p + p{float:left;width:122px;line-height:14px;font-size:12px;font-style:italic;color:#dbd2c3;}
+body.rain #sidebar > .veille a{background-image:url(i/meteo/rain/veille.jpg);}
+body.cloudy #sidebar > .veille a{background-image:url(i/meteo/cloudy/veille.jpg);}
+body.snow #sidebar > .veille a{background-image:url(i/meteo/snow/veille.jpg);}
+body.night #sidebar > .veille a{background-image:url(i/meteo/night/veille.jpg);}
 /* Box with titles */
 #sidebar > .text{padding:0 6px 6px;font-size:12px;font-style:italic;color:#857e76;}
 #sidebar > .titled h1{font:25px/41px Georgia, serif;color:#494949;border-bottom:1px solid #b7c272;}
@@ -221,6 +263,15 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 /* Creative Commons */
 #sidebar > .creativecommons{padding:12px 6px 12px 12px;}
 #sidebar > .creativecommons img{float:left;margin-right:12px;}
+/* Meteo - TEMPORAIRE */
+#sidebar > .meteo button > span{background:url(i/button.png) no-repeat 100% 0;}
+#sidebar > .meteo button span span{min-width:80px;height:32px;padding:0;line-height:30px;font-size:12px;color:#494949;background:url(i/button.png) no-repeat 0 -96px;}
+#sidebar > .meteo button:hover > span,
+#sidebar > .meteo button:focus > span{background-position:100% -32px;}
+#sidebar > .meteo button:hover span span,
+#sidebar > .meteo button:focus span span{background-position:0 -128px;}
+#sidebar > .meteo button:active > span{top:1px;left:1px;background-position:100% -65px;}
+#sidebar > .meteo button:active span span{color:#0e6200;background-position:-1px -161px;}
 
 /* Home */
 .home #content .post .content p{margin-bottom:0;}

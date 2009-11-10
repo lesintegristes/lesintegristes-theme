@@ -6,8 +6,8 @@
 
 get_header();
 ?>
-
-	<h2>Error 404 - Not Found</h2>
-
+<div id="content" role="main">
+	<h1>Error 404 - Not Found</h1>
+</div>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

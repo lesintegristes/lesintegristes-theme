@@ -22,14 +22,14 @@
 	<body <?php body_class(); ?>>
 	<div>
 	<div id="wrapper">
-		<header role="banner">
+		<header role="banner" id="header">
 			<div>
-				<h1><a href="<?php echo get_option('home'); ?>/"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" width="230" height="68" /></a></h1>
+				<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 				<nav role="navigation">
 					<ul>
-						<li><a href="<?php bloginfo('url'); ?>/articles/">Articles</a></li>
-						<li><a href="<?php bloginfo('url'); ?>/notes/">Notes</a></li>
-						<li><a href="<?php bloginfo('url'); ?>/auteurs/">Auteurs</a></li>
+						<li><a href="<?php bloginfo('url'); ?>/articles/"><span>Articles</span></a></li>
+						<li><a href="<?php bloginfo('url'); ?>/notes/"><span>Notes</span></a></li>
+						<li><a href="<?php bloginfo('url'); ?>/auteurs/"><span>Auteurs</span></a></li>
 					</ul>
 				</nav>
 				<p><a rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss_url'); ?>">RSS</a></p>
