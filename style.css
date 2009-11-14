@@ -38,13 +38,12 @@ header,footer,nav,article,section{display:block;}
 /* Buttons reset */
 button{position:relative;overflow:visible;padding:0;background:transparent;border:0;cursor:pointer;} /* "overflow:visible;" removes extra side padding in IE */
 button::-moz-focus-inner{padding:0;border:0;} /* overrides extra padding in Firefox */
-button span{position:relative;display:block;white-space:nowrap;}
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	button span{margin-top:-1px;} /* Safari and Google Chrome only - fix margins */
 }
 
 /* Fonts */
-body,button,input{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;}
+body,button,input,textarea{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;}
 pre,code{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;background:#ece4d6;}
 pre code{display:block;font:12px/24px "DejaVu Sans Mono", "Courier New", monospace;}
 a{color:#83a10f;}
@@ -75,14 +74,25 @@ h4{font-size:14px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
 ::selection{color:#fff;background:#999289;}
 
 /* Buttons */
-button[type=submit] > span{background:url(i/button.png) no-repeat 100% 0;}
-button[type=submit] span span{min-width:80px;height:32px;padding:0 10px;line-height:30px;font-size:14px;color:#494949;background:url(i/button.png) no-repeat 0 -96px;}
+a.button{display:inline-block;text-decoration:none;}
+button[type=submit] span,
+a.button span{position:relative;display:block;white-space:nowrap;}
+button[type=submit] > span,
+a.button > span{background:url(i/button.png) no-repeat 100% 0;}
+button[type=submit] span span,
+a.button span span{min-width:80px;height:32px;padding:0 10px;line-height:30px;font-size:14px;color:#494949;background:url(i/button.png) no-repeat 0 -96px;}
 button[type=submit]:hover > span,
-button[type=submit]:focus > span{background-position:100% -32px;}
+button[type=submit]:focus > span,
+a.button:hover > span,
+a.button:focus > span{background-position:100% -32px;}
 button[type=submit]:hover span span,
-button[type=submit]:focus span span{background-position:0 -128px;}
-button[type=submit]:active > span{top:1px;left:1px;background-position:100% -65px;}
-button[type=submit]:active span span{color:#0e6200;background-position:-1px -161px;}
+button[type=submit]:focus span span,
+a.button:hover span span,
+a.button:focus span span{background-position:0 -128px;}
+button[type=submit]:active > span,
+a.button:active > span{top:1px;left:1px;background-position:100% -65px;}
+button[type=submit]:active span span,
+a.button:active span span{color:#0e6200;background-position:-1px -161px;}
 
 /* Header */
 body{padding-bottom:40px;background:url(i/strip-shadow.png) no-repeat 50% 15px;}
@@ -183,7 +193,7 @@ body.single #content article header{float:none;width:auto;}
 #content article .content{float:left;width:464px;margin-bottom:36px;}
 body.single #content article .content{float:none;width:auto;padding-left:102px;}
 #content article footer{clear:left;margin-left:240px;}
-body.single #content article footer{margin-left:100px;font-style:italic;color:#999289;}
+body.single #content article footer{margin-left:100px;font-style:italic;font-size:12px;color:#999289;}
 body.single #content article footer a{text-transform:none;color:#999289;}
 body.single #content article footer a:active,
 body.single #content article footer a:focus{color:#fff;background:#999289;}
@@ -196,30 +206,65 @@ body.single #content article footer a:focus{color:#fff;background:#999289;}
 #content article footer a:focus,
 #content .last-articles li.all a:active,
 #content .last-articles li.all a:focus{color:#fff;background:#6d6a6a;}
-#content article .comments a{text-decoration:none;}
-#content article .comments strong,
-#content article .comments strong span,
-#content .last-articles li .comments strong,
-#content .last-articles li .comments strong span{float:left;color:#fff;background:url(i/comments.png) no-repeat 0 0;}
-#content article .comments strong,
-#content .last-articles li .comments strong{position:relative;top:4px;margin:0 5px 0 0;padding-left:5px;}
-#content article .comments strong span,
-#content .last-articles li .comments strong span{min-width:16px;height:24px;padding-right:5px;line-height:16px;text-align:center;background-position:100% 0;}
-#content article .comments a > span{text-decoration:underline;}
+
+/* Comments count */
+.comments-count{font-size:14px;color:#494949;}
+.comments-count a{text-decoration:none;}
+.comments-count strong,
+.comments-count strong span,
+.last-articles li .comments-count strong,
+.last-articles li .comments-count strong span{float:left;color:#fff;background:url(i/comments.png) no-repeat 0 0;}
+.comments-count strong,
+.last-articles li .comments-count strong{position:relative;top:4px;margin:0 5px 0 0;padding-left:5px;}
+.comments-count strong span,
+.last-articles li .comments-count strong span{min-width:16px;height:24px;padding-right:5px;line-height:16px;text-align:center;background-position:100% 0;}
+.comments-count a > span{text-decoration:underline;}
+
 /* Last articles */
-#content .last-articles{clear:both;padding-top:24px;background:url(i/dashed-h.png) repeat-x 0 0;}
+#content .last-articles{clear:both;float:left;width:100%;padding-top:24px;background:url(i/dashed-h.png) repeat-x 0 0;}
+body.single #content .last-articles{margin-bottom:72px;border-bottom:6px solid #454545;}
 #content .last-articles li{position:relative;float:left;width:223px;margin:0 0 12px 18px;background:url(i/dashed-v.png) repeat-y 100% 0;}
 #content .last-articles li:first-child{margin-left:0;width:223px;}
 #content .last-articles li + li + li{background:none;}
-#content .last-articles li dt{margin-left:42px;padding-bottom:12px;line-height:24px;font-size:22px;font-family:Georgia, serif;}
+#content .last-articles li dt{min-height:80px;margin-left:42px;padding-bottom:12px;line-height:24px;font-size:22px;font-family:Georgia, serif;}
 #content .last-articles li dt a{text-decoration:none;}
 #content .last-articles li .date{top:-10px;left:-5px;width:38px;}
-#content .last-articles li .comments{margin-left:6px;}
-#content .last-articles li .comments strong{top:0;}
+#content .last-articles li .comments-count{margin-left:6px;}
+#content .last-articles li .comments-count strong{top:0;}
 #content .last-articles li.all{clear:left;float:none;width:auto;margin:0;text-align:right;border-top:6px solid #454545;}
 
+/* Related posts */
+.related-posts h2{margin-bottom:0;line-height:30px;font-size:16px;color:#999289;border-top:6px solid #454545;}
+
 /* Comments */
-#comments{clear:left;}
+#comments{clear:left;background:url(i/dashed-h.png) repeat-x 0 0;}
+#comments > .comments-top{margin:48px 0 24px;overflow:hidden;padding-bottom:8px;background:url(i/dashed-h.png) repeat-x 0 100%;}
+#comments > .comments-top h2{float:left;margin:14px 0 0;}
+#comments > .comments-top .button{float:right;margin-top:8px;}
+#comments article{position:relative;margin-bottom:12px;padding:24px;font-size:12px;font-style:italic;background:#ece4d6;}
+#comments article p{margin:12px 0 0;}
+#comments article div.avatar + *{margin-top:0;}
+#comments article div.avatar{position:absolute;top:0;left:-59px;width:59px;text-align:left;background:url(i/comment-arrow.png) no-repeat 100% 9px;}
+#comments article div.avatar img{border:1px solid #8b8a8a;}
+#comments article p.metas{text-align:right;color:#999289;}
+#comments article p.metas a{color:#999289;}
+#comments article p.metas a:focus,
+#comments article p.metas a:active{color:#fff;background:#6d6a6a;}
+
+#respond{padding:24px 40px;font-style:italic;background:#ece4d6;}
+#respond p{margin-bottom:12px;}
+#respond p:first-child{margin-bottom:36px;}
+#respond p.no-comments{margin:0;font-style:normal;}
+#respond label{clear:left;float:left;width:177px;line-height:36px;white-space:nowrap;font-weight:bold;color:#857E76;}
+#respond .subscribe-to-comments{margin-top:12px;}
+#respond .subscribe-to-comments label{float:none;width:auto;line-height:24px;white-space:normal;}
+#respond input[type=text]{width:240px;padding:6px;line-height:24px;text-align:left;}
+#respond textarea{display:block;width:434px;padding:6px;}
+#respond .comment{margin-bottom:0;}
+#respond .html-help{margin:0 0 0 177px;font-size:12px;color:#857E76;background:#ddd2c4;}
+#respond .html-help span{display:block;padding:12px;}
+#respond .html-help code{font-size:12px;color:#857E76;background:none;}
+#respond p.submit{margin-bottom:36px;text-align:right;}
 
 /* Sidebar */
 #sidebar > *{margin-bottom:12px;background:#ece4d6;}

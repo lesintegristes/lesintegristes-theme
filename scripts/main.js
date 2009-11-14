@@ -21,6 +21,17 @@
   	
 	})();
   
+  /* "Last articles" (nom temporaire) height */
+  $(function(){
+    var maxHeight = 0;
+    $("ul.last-articles li:lt(3) dt a").each(function(){
+      var thisHeight = $(this).height();
+      if (thisHeight > maxHeight) {
+        maxHeight = thisHeight;
+      }
+    }).parent().height(maxHeight);
+  });
+  
   /* Archives toggle button */
   $('<button type="button">Replier</button>')
     .appendTo("#wrapper > footer .archives li strong")

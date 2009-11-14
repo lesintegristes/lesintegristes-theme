@@ -11,9 +11,10 @@
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-		<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 		<?php wp_enqueue_script( 'main', '/wp-content/themes/lesintegristes/scripts/main.js', array('jquery'), '1.0', true ); ?>
+		<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 		<?php if ( is_home() ) wp_enqueue_script( 'home', '/wp-content/themes/lesintegristes/scripts/home.js', array('jquery'), '1.0', true ); ?>
+		<?php if ( is_singular() ) wp_enqueue_script( 'single', '/wp-content/themes/lesintegristes/scripts/single.js', array('jquery'), '1.0', true ); ?>
 		<?php wp_head(); ?>
 		<!--[if IE]>
 		<script src="<?php bloginfo('template_url'); ?>/scripts/html5.js"></script>

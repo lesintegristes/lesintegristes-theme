@@ -31,7 +31,7 @@ get_header(); ?>
 			</div>
 			<footer>
 				<p class="read-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lire la suite</a></p>
-				<p class="comments"><?php comments_popup_link('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></p>
+				<p class="comments-count"><?php comments_popup_link('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></p>
 				<?php //edit_post_link('Modifier', '<p>', '</p>'); ?>
 			</footer>
 		</article>
@@ -44,7 +44,7 @@ get_header(); ?>
 			<dl>
 				<dt><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></dt>
 				<dd class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></dd>
-				<dd class="comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></dd>
+				<dd class="comments-count" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></dd>
 				<dd class="author">Par <strong><?php the_author() ?></strong></dd>
 			</dl>
 		</li>

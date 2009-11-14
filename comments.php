@@ -15,75 +15,84 @@
 	}
 ?>
 
-<!-- You can start editing here. -->
-
-<?php if ( have_comments() ) : ?>
-	<h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
-
-	<?php previous_comments_link() ?> | <?php next_comments_link() ?>
-
-	<ol class="commentlist">
-	<?php wp_list_comments(); ?>
-	</ol>
-
-	<?php previous_comments_link() ?> | <?php next_comments_link() ?>
-
-<?php else : // this is displayed if there are no comments so far ?>
-
-	<?php if ( comments_open() ) : ?>
-		<!-- If comments are open, but there are no comments. -->
-
-	 <?php else : // comments are closed ?>
-		<!-- If comments are closed. -->
-		<p class="nocomments">Comments are closed.</p>
-
+<div id="comments" class="comments">
+	<?php if ( have_comments() ) : ?>
+		<div class="comments-top">
+			<h2 class="comments-count"><?php comments_number('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></h2>
+			<?php if (comments_open()): ?>
+			<p class="post-comment"><a href="#respond" class="button"><span><span>Poster un commentaire</span></span></a></p>
+			<?php endif; ?>
+		</div>
+		<?php foreach ($comments as $comment): ?>
+			<article id="comment-<?php comment_ID() ?>">
+				<div class="avatar"><?php echo get_avatar( $comment->comment_author_email, $size = '43', $default = get_bloginfo('template_url') . '/images/gravatar.png' ); ?></div>
+				<?php comment_text(); ?>
+				<p class="metas">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></strong> par <strong><?php echo get_comment_author_link(); ?></strong></p>
+			</article>
+		<?php endforeach; ?>
+	
+	<?php else : // pas encore de commentaires ?>
+		
 	<?php endif; ?>
-<?php endif; ?>
-
-
-<?php if ( comments_open() ) : ?>
-
-<div id="respond">
-
-	<h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
-
-	<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
-
-	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-	<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
-	<?php else : ?>
-
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-
-		<?php if ( is_user_logged_in() ) : ?>
-
-		<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
-
-		<?php else : ?>
-
-		<p><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-		<label for="author"><small>Name <?php if ($req) echo "(required)"; ?></small></label></p>
-
-		<p><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-		<label for="email"><small>Mail (will not be published) <?php if ($req) echo "(required)"; ?></small></label></p>
-
-		<p><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
-		<label for="url"><small>Website</small></label></p>
-
-		<?php endif; ?>
-
-		<!--<p><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>-->
-
-		<textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
-
-		<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-		<?php comment_id_fields(); ?>
-		<?php do_action('comment_form', $post->ID); ?>
-
-	</form>
-
-	<?php endif; // If registration required and not logged in ?>
-
+	
+	<?php
+	/* Pagination */
+	/* <p class="comments-pagination"><?php previous_comments_link() ?> | <?php next_comments_link() ?></p> */
+	?>
 </div>
 
-<?php endif; // if you delete this the sky will fall on your head ?>
+
+
+<div id="respond">
+	
+<?php if ( comments_open() ) : ?>
+	
+	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+		
+		<p>
+			Publiez un commentaire en remplissant les champs ci-dessous.<br />
+			Les champs marqués d'une astérisque (*) sont obligatoires.
+		</p>
+		
+		<?php if ( is_user_logged_in() ) : ?>
+		
+		<p>Vous n'êtes pas <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> ? <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Déconnexion">Déconnectez-vous</a>.</p>
+		
+		<?php else : ?>
+		
+		<p>
+			<label for="author">Nom*</label>
+			<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" <?php if ($req) echo "aria-required='true'"; ?> />
+		</p>
+		
+		<p>
+			<label for="email">Mail* (non publié)</label>
+			<input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ($req) echo "aria-required='true'"; ?> />
+		</p>
+		
+		<p>
+			<label for="url">Site web</label>
+			<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" />
+		</p>
+		
+		<?php endif; ?>
+		
+		<p class="comment">
+			<label for="comment">Commentaire*</label>
+			<textarea name="comment" id="comment" cols="70" rows="15"></textarea>
+		</p>
+		
+		<p class="html-help"><span>Les commentaires peuvent utiliser <strong>HTML</strong>&nbsp;; seuls ces éléments sont autorisés&nbsp;: <code><?php echo allowed_tags(); ?></code></span></p>
+		
+		<?php do_action('comment_form', $post->ID); ?>
+		
+		<p class="submit"><button type="submit"><span><span>Publier le commentaire</span></span></button></p>
+		
+		<?php comment_id_fields(); ?>
+		
+	</form>
+<?php else : // Commentaires fermés ?>
+	<p class="no-comments">Les commentaires sont fermés sur cet article.</p>
+<?php endif; ?>
+
+</div>
