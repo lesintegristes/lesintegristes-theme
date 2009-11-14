@@ -53,7 +53,7 @@ get_header(); ?>
 				<?php //edit_post_link('Modifier','<p>','</p>'); ?>
 			</footer>	
 		
-		<?php related_posts() ?>
+		<?php if (function_exists('related_posts')) { related_posts(); } ?>
 		
 	<?php comments_template(); ?>	
 			
