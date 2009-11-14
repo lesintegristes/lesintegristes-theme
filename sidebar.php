@@ -55,7 +55,7 @@
 			
 			<section class="titled text meteo">
 				<h1>Météo</h1>
-				<p>Pour faire la pluie et le beau temps.</p>
+				<p>Faites la pluie et le beau temps pendant une journée (valable 24h).</p>
 			</section>
 			
 			<?php if ( is_404() || is_day() || is_month() ||
@@ -90,15 +90,5 @@
 				</li>
 			</ul>
 			<?php }?>
-			
-			<!--<ul>
-				<li><h2>Archives</h2>
-					<ul>
-					<?php wp_get_archives('type=monthly'); ?>
-					</ul>
-				</li>
-			</ul>-->
-			
-			
 			
 		</aside>

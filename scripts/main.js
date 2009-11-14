@@ -3,6 +3,7 @@
   /* Meteo */
   (function(){
     
+    $body = $("body");
     var $meteoContainer = $("#sidebar section.meteo");
   	var buttonsData = [["Soleil", "sunny"], ["Pluie", "rain"], ["Nuageux", "cloudy"], ["Neige", "snow"], ["Nuit", "night"]];
   	var buttons = '';
@@ -11,13 +12,21 @@
   		buttons += '<button type="button" value="' + buttonsData[i][1] + '"><span><span>' + buttonsData[i][0] + '</span></span></button>';
   	}
   	
-  	$(buttons).appendTo($meteoContainer).click(function(){
-  		$body = $("body");
+    function changeMeteo(weather) {
   		for (i in buttonsData) {
   			$body.removeClass(buttonsData[i][1]);
   		}
-  		$body.addClass($(this).val());
+  		$body.addClass(weather);
+  		$.cookies.set('meteo', weather, {hoursToLive: 24});
+    };
+  	
+  	$(buttons).appendTo($meteoContainer).click(function(){
+  		changeMeteo($(this).val());
   	});
+  	
+  	if (!!$.cookies.get('meteo')) {
+  	  changeMeteo($.cookies.get('meteo'));
+  	}
   	
 	})();
   
