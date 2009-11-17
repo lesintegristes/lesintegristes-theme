@@ -8,7 +8,7 @@ get_header(); ?>
 
 <div id="content" role="main">
 	
-	<p><a href="link" class="action">Tous les articles</a></p>
+	<p><a href="<?php echo lesintegristes_get_articles_url() ?>" class="action">Tous les articles</a></p>
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		

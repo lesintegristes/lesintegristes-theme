@@ -4,44 +4,60 @@
  * @subpackage Starkers
  */
 
-get_header();
-?>
-
+get_header(); ?>
+<div id="content" role="main">
 	<?php if (have_posts()) : ?>
-
+	
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 	<?php /* If this is a category archive */ if (is_category()) { ?>
-	<h2>Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
+	<h1>Archives de la catégorie &laquo;&nbsp;<?php single_cat_title(); ?>&nbsp;&raquo;</h1>
 	<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-	<h2>Posts Tagged &#8216;<?php single_tag_title(); ?>&#8217;</h2>
+	<h1>Articles tagués &laquo;&nbsp;<?php single_tag_title(); ?>&nbsp;&laquo;</h1>
 	<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-	<h2>Archive for <?php the_time('F jS, Y'); ?></h2>
+	<h1>Articles du <?php the_time('F jS, Y'); ?></h1>
 	<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-	<h2>Archive for <?php the_time('F, Y'); ?></h2>
+	<h1>Articles du <?php the_time('F, Y'); ?></h1>
 	<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-	<h2>Archive for <?php the_time('Y'); ?></h2>
+	<h1>Articles de l'année <?php the_time('Y'); ?></h1>
 	<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-	<h2>Author Archive</h2>
+	<h1>Articles de l'auteur</h1>
 	<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-	<h2>Blog Archives</h2>
+	<h1>Archives</h1>
 	<?php } ?>
-
-
-		<?php next_posts_link('&laquo; Older Entries') ?> | <?php previous_posts_link('Newer Entries &raquo;') ?>
-
+		
 		<?php while (have_posts()) : the_post(); ?>
-			
-		<div <?php post_class() ?>>
-			<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-			<p><?php the_time('l, F jS, Y') ?></p>
-			<?php the_content() ?>
-			<p><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
-		</div>
-
+			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+				<header>
+					<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+					<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
+					<p class="author">Par <strong><?php the_author() ?></strong></p>
+					<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
+				</header>
+				<div class="content">
+					<?php echo get_the_excerpt(); ?>
+				</div>
+				<footer>
+					<p class="read-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lire la suite</a></p>
+					<p class="comments-count"><?php comments_popup_link('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></p>
+				</footer>
+			</article>
 		<?php endwhile; ?>
-
-		<?php next_posts_link('&laquo; Older Entries') ?> | <?php previous_posts_link('Newer Entries &raquo;') ?>
-
+		
+		<?php
+			$next_page_exists = (get_next_posts_link('Articles plus anciens') !== NULL);
+			$prev_page_exists = (get_previous_posts_link('Articles plus récents') !== NULL);
+		?>
+		<?php if ($next_page_exists || $prev_page_exists): ?>
+		<p class="pagination">
+			<?php if ($next_page_exists): ?>
+				<span class="older action"><?php next_posts_link('Articles plus anciens') ?></span>
+			<?php endif; ?>
+			<?php if ($prev_page_exists): ?>
+				<span class="newer action"><?php previous_posts_link('Articles plus récents') ?></span>
+			<?php endif; ?>
+		</p>
+		<?php endif; ?>
+		
 	<?php else :
 
 		if ( is_category() ) { // If this is a category archive
@@ -58,6 +74,7 @@ get_header();
 
 	endif;
 ?>
+	</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

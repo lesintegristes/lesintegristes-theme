@@ -28,7 +28,7 @@
 				<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 				<nav role="navigation">
 					<ul>
-						<li><a href="<?php bloginfo('url'); ?>/articles/"><span>Articles</span></a></li>
+						<li><a href="<?php echo lesintegristes_get_articles_url() ?>"><span>Articles</span></a></li>
 						<li><a href="<?php bloginfo('url'); ?>/notes/"><span>Notes</span></a></li>
 						<li><a href="<?php bloginfo('url'); ?>/auteurs/"><span>Auteurs</span></a></li>
 					</ul>

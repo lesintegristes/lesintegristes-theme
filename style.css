@@ -33,7 +33,7 @@ version: 3.0.0, build: 1549 */
 html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
 
 /* HTML5 reset */
-header,footer,nav,article,section{display:block;}
+header,footer,nav,article,section,legend{display:block;}
 
 /* Buttons reset */
 button{position:relative;overflow:visible;padding:0;background:transparent;border:0;cursor:pointer;} /* "overflow:visible;" removes extra side padding in IE */
@@ -54,10 +54,14 @@ strong{font-weight:bold;}
 #content a:focus,
 #sidebar a:active,
 #sidebar a:focus{color:#fff;background:#96b713;}
-#wrapper a.action{font-style:italic;text-transform:lowercase;color:#494949;}
-#wrapper a.action:hover{color:#6d6a6a;}
+#wrapper a.action,
+#wrapper .action a{font-style:italic;text-transform:lowercase;color:#494949;}
+#wrapper a.action:hover,
+#wrapper .action a:hover{color:#6d6a6a;}
 #wrapper a.action:active,
-#wrapper a.action:focus{color:#fff;background:#6d6a6a;}
+#wrapper a.action:focus,
+#wrapper .action a:active,
+#wrapper .action a:focus{color:#fff;background:#6d6a6a;}
 
 /* Layout */
 #wrapper{width:946px;margin:0 auto;}
@@ -189,7 +193,7 @@ body.single #content article header{float:none;width:auto;}
 #content article header .date .day,
 #content .last-articles .date .day{display:block;margin-bottom:-6px;font-size:30px;}
 #content article header .author,
-#content .last-articles .author{display:inline-block;padding:0 6px;vertical-align:top;line-height:18px;font-size:11px;color:#fff;background:#494949;}
+#content .last-articles .author{display:inline-block;margin:0;padding:0 6px;vertical-align:top;line-height:18px;font-size:11px;color:#fff;background:#494949;}
 #content article .content{float:left;width:464px;margin-bottom:36px;}
 body.single #content article .content{float:none;width:auto;padding-left:102px;}
 #content article footer{clear:left;margin-left:240px;}
@@ -206,6 +210,9 @@ body.single #content article footer a:focus{color:#fff;background:#999289;}
 #content article footer a:focus,
 #content .last-articles li.all a:active,
 #content .last-articles li.all a:focus{color:#fff;background:#6d6a6a;}
+#content p.pagination{clear:both;overflow:hidden;border:6px solid #454545;border-width:6px 0;}
+#content p.pagination span{float:right;line-height:36px;}
+#content p.pagination .older{float:left;}
 
 /* Comments count */
 .comments-count{font-size:14px;color:#494949;}

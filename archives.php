@@ -3,9 +3,6 @@
  * @package WordPress
  * @subpackage Starkers
  */
-/*
-Template Name: Archives
-*/
 ?>
 
 <?php get_header(); ?>
