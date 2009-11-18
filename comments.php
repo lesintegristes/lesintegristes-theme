@@ -16,24 +16,24 @@
 ?>
 
 <div id="comments" class="comments">
-	<?php if ( have_comments() ) : ?>
 		<div class="comments-top">
 			<h2 class="comments-count"><?php comments_number('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></h2>
 			<?php if (comments_open()): ?>
 			<p class="post-comment"><a href="#respond" class="button"><span><span>Poster un commentaire</span></span></a></p>
-			<?php endif; ?>
+				<?php endif; ?>
 		</div>
-		<?php foreach ($comments as $comment): ?>
+		<?php if ( have_comments() ) : ?>
+			<?php foreach ($comments as $comment): ?>
 			<article id="comment-<?php comment_ID() ?>">
 				<div class="avatar"><?php echo get_avatar( $comment->comment_author_email, $size = '43', $default = get_bloginfo('template_url') . '/images/gravatar.png' ); ?></div>
 				<?php comment_text(); ?>
 				<p class="metas">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></strong> par <strong><?php echo get_comment_author_link(); ?></strong></p>
 			</article>
-		<?php endforeach; ?>
-	
-	<?php else : // pas encore de commentaires ?>
+			<?php endforeach; ?>
 		
-	<?php endif; ?>
+		<?php else : // pas encore de commentaires ?>
+		
+		<?php endif; ?>
 	
 	<?php
 	/* Pagination */

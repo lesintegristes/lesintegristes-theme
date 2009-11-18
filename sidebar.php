@@ -17,24 +17,46 @@
 				</a>
 			</div>
 			
+			<?php if (!is_category('31')): ?>
 			<section class="text titled notes">
-				<h1>Notes</h1>
+				<h1>Dernières Notes</h1>
 				<ul>
 					<?php
 						rewind_posts();
-						query_posts("cat=31");
+						query_posts("cat=31&posts_per_page=3");
 					?>
 					<?php while (have_posts()) : the_post(); ?>
 					<li>
 						<p class="date"><time datetime="<?php the_time('c'); ?>"><?php the_time('j/m') ?></time></p>
 						<div class="content">
-							<?php the_content(""); ?>
+							<?php the_advanced_excerpt('length=30&use_words=1') ?> <span class="more"><a href="<?php the_permalink() ?>" rel="bookmark">Lire la note</a></span>
 						</div>
+						<p class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></p>
 					</li>
 					<?php endwhile; ?>
 				</ul>
-				<p><a href="<?php echo bloginfo('url'); ?>/category/note" title="Les notes">Toutes les notes</a></p>
+				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/categorie/notes/" class="all">Toutes les notes</a></p>
 			</section>
+			<?php else: ?>
+			<section class="text titled articles">
+				<h1>Derniers articles</h1>
+				<ul>
+					<?php
+						rewind_posts();
+						query_posts("cat=-31&posts_per_page=5");
+					?>
+					<?php while (have_posts()) : the_post(); ?>
+					<li>
+						<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
+						<p class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></p>
+						<p class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></p>
+						<p class="author">Par <strong><?php the_author() ?></strong></p>
+					</li>
+					<?php endwhile; ?>
+				</ul>
+				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/articles/" class="all">Tous les articles</a></p>
+			</section>
+			<?php endif; ?>
 			
 			<section class="text titled newsletter">
 				<h1>Newsletter</h1>
@@ -57,6 +79,15 @@
 				<h1>Météo</h1>
 				<p>Faites la pluie et le beau temps pendant une journée (valable 24h).</p>
 			</section>
+			
+			<?php if (is_user_logged_in()): ?>
+			<section class="titled text">
+				<h1>Liens</h1>
+				<ul>
+					<li><a href="<?php echo get_option('home'); ?>/wp-admin/">Administration</a></li>
+				</ul>
+			</section>
+			<?php endif; ?>
 			
 			<?php if ( is_404() || is_day() || is_month() ||
 						is_year() || is_search() || is_paged() ) {

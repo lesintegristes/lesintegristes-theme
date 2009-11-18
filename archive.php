@@ -10,13 +10,21 @@ get_header(); ?>
 	
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 	<?php /* If this is a category archive */ if (is_category()) { ?>
-	<h1>Archives de la catégorie &laquo;&nbsp;<?php single_cat_title(); ?>&nbsp;&raquo;</h1>
+	<h1>Articles de la catégorie &laquo;&nbsp;<?php single_cat_title(); ?>&nbsp;&raquo;</h1>
 	<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
 	<h1>Articles tagués &laquo;&nbsp;<?php single_tag_title(); ?>&nbsp;&laquo;</h1>
 	<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
 	<h1>Articles du <?php the_time('F jS, Y'); ?></h1>
 	<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-	<h1>Articles du <?php the_time('F, Y'); ?></h1>
+	
+	<?php
+		if (in_array(get_the_time("n"), array("4", "8", "10"))) {
+			$month_prefix = "d'";
+		} else {
+			$month_prefix = "de ";
+		} ?>
+	<h1>Articles du mois <?php echo $month_prefix ?><?php the_time('F Y'); ?></h1>
+	
 	<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
 	<h1>Articles de l'année <?php the_time('Y'); ?></h1>
 	<?php /* If this is an author archive */ } elseif (is_author()) { ?>
@@ -34,7 +42,7 @@ get_header(); ?>
 					<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 				</header>
 				<div class="content">
-					<?php echo get_the_excerpt(); ?>
+					<?php the_excerpt(); ?>
 				</div>
 				<footer>
 					<p class="read-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lire la suite</a></p>
@@ -44,8 +52,8 @@ get_header(); ?>
 		<?php endwhile; ?>
 		
 		<?php
-			$next_page_exists = (get_next_posts_link('Articles plus anciens') !== NULL);
-			$prev_page_exists = (get_previous_posts_link('Articles plus récents') !== NULL);
+			$next_page_exists = (get_next_posts_link() !== NULL);
+			$prev_page_exists = (get_previous_posts_link() !== NULL);
 		?>
 		<?php if ($next_page_exists || $prev_page_exists): ?>
 		<p class="pagination">

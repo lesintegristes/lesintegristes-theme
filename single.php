@@ -3,9 +3,13 @@
  * @package WordPress
  * @subpackage Starkers
  */
-
-get_header(); ?>
-
+?>
+<?php
+	if (in_category(31)):
+		include(TEMPLATEPATH . '/single-note.php');
+	else:
+		get_header();
+?>
 <div id="content" role="main">
 	
 	<p><a href="<?php echo lesintegristes_get_articles_url() ?>" class="action">Tous les articles</a></p>
@@ -35,15 +39,15 @@ get_header(); ?>
 					
 					<?php } elseif ( !comments_open() && pings_open() ) {
 					// Only Pings are Open ?>
-					Responses are currently closed, but you can <a href="<?php trackback_url(); ?> " rel="trackback">trackback</a> from your own site.
+					Les commentaires sont fermés sur cet article, mais vous pouvez <a href="<?php trackback_url(); ?> " rel="trackback">répondre depuis votre site (trackback)</a>.
 					
 					<?php } elseif ( comments_open() && !pings_open() ) {
 					// Comments are open, Pings are not ?>
-					You can skip to the end and leave a response. Pinging is currently not allowed.
+					Vous pouvez <a href="#respond">laisser un commentaire sur cet article</a>.
 					
 					<?php } elseif ( !comments_open() && !pings_open() ) {
 					// Neither Comments, nor Pings are open ?>
-					Both comments and pings are currently closed.
+					Les commentaires sont fermés sur cet article.
 					
 					<?php } ?>
 					
@@ -60,10 +64,10 @@ get_header(); ?>
 	</article>
 	
 	<?php endwhile; else: ?>
-		
 		<p>Sorry, no posts matched your criteria.</p>
 <?php endif; ?>
 	</div>
-
+	
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
+<?php endif; ?>

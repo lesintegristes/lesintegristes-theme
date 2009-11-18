@@ -29,7 +29,7 @@
 				<nav role="navigation">
 					<ul>
 						<li><a href="<?php echo lesintegristes_get_articles_url() ?>"><span>Articles</span></a></li>
-						<li><a href="<?php bloginfo('url'); ?>/notes/"><span>Notes</span></a></li>
+						<li><a href="<?php bloginfo('url'); ?>/categorie/notes/"><span>Notes</span></a></li>
 						<li><a href="<?php bloginfo('url'); ?>/auteurs/"><span>Auteurs</span></a></li>
 					</ul>
 				</nav>

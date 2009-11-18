@@ -15,10 +15,10 @@ get_header(); ?>
 		$posts_num = 0;
 		global $more;
 		$more = 0;
-		while (have_posts() && $posts_num < 6) :
+		while (have_posts() && $posts_num < 7) :
 		the_post();
 		
-		if ($posts_num < 3):
+		if ($posts_num < 4):
 		?>
 		
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -29,7 +29,7 @@ get_header(); ?>
 				<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 			</header>
 			<div class="content">
-				<?php the_content(""); ?>
+				<?php echo lesintegristes_remove_img_and_figure(get_the_content("")); ?>
 			</div>
 			<footer>
 				<p class="read-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lire la suite</a></p>
@@ -38,14 +38,14 @@ get_header(); ?>
 		</article>
 		
 	<?php else: ?>
-		<?php if ($posts_num === 3): ?>
+		<?php if ($posts_num === 4): ?>
 	<ul class="last-articles">
 		<?php endif; ?>
 		<li>
 			<dl>
 				<dt><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></dt>
 				<dd class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></dd>
-				<dd class="comments-count" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><a href="<?php the_permalink() ?>#comments"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></dd>
+				<dd class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></dd>
 				<dd class="author">Par <strong><?php the_author() ?></strong></dd>
 			</dl>
 		</li>
