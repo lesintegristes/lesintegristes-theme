@@ -35,8 +35,8 @@ get_header(); ?>
 		<?php endwhile; ?>
 		
 		<?php
-			$next_page_exists = (get_next_posts_link('Articles plus anciens') !== NULL);
-			$prev_page_exists = (get_previous_posts_link('Articles plus récents') !== NULL);
+			$next_page_exists = (get_next_posts_link() !== NULL);
+			$prev_page_exists = (get_previous_posts_link() !== NULL);
 		?>
 		<?php if ($next_page_exists || $prev_page_exists): ?>
 		<p class="pagination">
