@@ -19,7 +19,7 @@
 						foreach($years as $year) :
 					?>
 						<li>
-							<strong><a href="<?php echo get_year_link($year); ?> "><?php echo $year; ?></a></strong>
+							<strong><a href="<?php echo get_year_link($year); ?>"><?php echo $year; ?></a></strong>
 							<div>
 							<ul>
 							<?php

@@ -21,7 +21,7 @@ get_header(); ?>
 			<header>
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
-				<p class="author">Par <strong><?php the_author() ?></strong></p>
+				<p class="author">Par <strong><?php the_author_posts_link() ?></strong></p>
 				<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 			</header>
 			<div class="content">

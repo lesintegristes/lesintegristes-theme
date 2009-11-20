@@ -25,7 +25,7 @@ get_header(); ?>
 			<header>
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
-				<p class="author">Par <strong><?php the_author() ?></strong></p>
+				<p class="author">Par <strong><?php the_author_posts_link() ?></strong></p>
 				<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 			</header>
 			<div class="content">
@@ -46,7 +46,7 @@ get_header(); ?>
 				<dt><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></dt>
 				<dd class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></dd>
 				<dd class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></dd>
-				<dd class="author">Par <strong><?php the_author() ?></strong></dd>
+				<dd class="author">Par <strong><?php the_author_posts_link() ?></strong></dd>
 			</dl>
 		</li>
 	<?php

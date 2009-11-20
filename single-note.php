@@ -23,7 +23,7 @@
 			</div>
 			<footer>
 				<p>
-					Note rédigée par <strong><?php the_author() ?></strong>.
+					Note rédigée par <strong><?php the_author_posts_link() ?></strong>.
 					<?php if ( comments_open() && pings_open() ) {
 					// Both Comments and Pings are open ?>
 					Vous pouvez <a href="#respond">laisser un commentaire</a>, ou <a href="<?php trackback_url(); ?>" rel="trackback">répondre depuis votre site (trackback)</a>.

@@ -22,7 +22,7 @@ get_header(); ?>
 				</div>
 				<footer>
 					<p>
-						<span class="author">Par <a href="link"><?php the_author() ?></a></span>,
+						<span class="author">Par <a href="link"><?php the_author_posts_link() ?></a></span>,
 						<?php comments_popup_link('0 commentaires', '1 commentaire', '% commentaires'); ?>,
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lien permanent</a></p>
 				</footer>
@@ -44,22 +44,9 @@ get_header(); ?>
 		</p>
 		<?php endif; ?>
 		
-	<?php else :
-
-		if ( is_category() ) { // If this is a category archive
-			printf("<h2>Sorry, but there aren't any posts in the %s category yet.</h2>", single_cat_title('',false));
-		} else if ( is_date() ) { // If this is a date archive
-			echo("<h2>Sorry, but there aren't any posts with this date.</h2>");
-		} else if ( is_author() ) { // If this is a category archive
-			$userdata = get_userdatabylogin(get_query_var('author_name'));
-			printf("<h2>Sorry, but there aren't any posts by %s yet.</h2>", $userdata->display_name);
-		} else {
-			echo("<h2>No posts found.</h2>");
-		}
-		get_search_form();
-
-	endif;
-?>
+	<?php else : ?>
+		<h2>Désolé, aucune note n'a encore été publiée.</h2>
+	<?php endif; ?>
 	</div>
 
 <?php get_sidebar(); ?>

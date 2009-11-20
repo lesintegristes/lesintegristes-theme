@@ -10,14 +10,41 @@
 				<?php get_search_form(); ?>
 			</div>
 			
+			<?php if (!is_page('veille')): ?>
 			<div class="veille">
 				<a href="<?php echo bloginfo('url'); ?>/veille/" title="Veille : Offrez notre sélection d'infos à votre agrégateur !">
 					<p><strong>Veille</strong></p>
 					<p>Offrez notre sélection d'infos à votre agrégateur !</p>
 				</a>
 			</div>
+			<?php endif; ?>
 			
-			<?php if (!is_category('31')): ?>
+			<?php
+				/* Articles */
+				if (is_category('31') || is_page('veille')): ?>
+			<section class="text titled articles">
+				<h1>Derniers articles</h1>
+				<ul>
+					<?php
+						rewind_posts();
+						query_posts("cat=-31&posts_per_page=5");
+					?>
+					<?php while (have_posts()) : the_post(); ?>
+					<li>
+						<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
+						<p class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></p>
+						<p class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></p>
+						<p class="author">Par <strong><?php the_author_posts_link() ?></strong></p>
+					</li>
+					<?php endwhile; ?>
+				</ul>
+				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/articles/" class="all">Tous les articles</a></p>
+			</section>
+			<?php endif; ?>
+			
+			<?php
+				/* Notes */
+				if (!is_category('31')): ?>
 			<section class="text titled notes">
 				<h1>Dernières Notes</h1>
 				<ul>
@@ -37,25 +64,6 @@
 				</ul>
 				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/categorie/notes/" class="all">Toutes les notes</a></p>
 			</section>
-			<?php else: ?>
-			<section class="text titled articles">
-				<h1>Derniers articles</h1>
-				<ul>
-					<?php
-						rewind_posts();
-						query_posts("cat=-31&posts_per_page=5");
-					?>
-					<?php while (have_posts()) : the_post(); ?>
-					<li>
-						<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
-						<p class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></p>
-						<p class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></p>
-						<p class="author">Par <strong><?php the_author() ?></strong></p>
-					</li>
-					<?php endwhile; ?>
-				</ul>
-				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/articles/" class="all">Tous les articles</a></p>
-			</section>
 			<?php endif; ?>
 			
 			<section class="text titled newsletter">
@@ -65,7 +73,7 @@
 					<p class="submit">
 						<input type="hidden" name="uri" value="lesintegristes" />
 						<input type="hidden" name="loc" value="fr_FR" />
-						<button type="submit" id="searchsubmit"><span><span>S'inscrire</span></span></button>
+						<button type="submit"><span><span>S'inscrire</span></span></button>
 					</p>
 				</form>
 			</section>
@@ -75,10 +83,12 @@
 				<p>Sauf mention contraire, les publications de ce site sont mises à disposition sous un <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">contrat Creative Commons <abbr title="Paternité">BY</abbr> <abbr title="Pas d'utilisation commerciale">NC</abbr> <abbr title="Partage des conditions à l'identique">SA</abbr></a>.</p>
 			</section>
 			
+			<!--[if !IE 6]><!-->
 			<section class="titled text meteo">
 				<h1>Météo</h1>
 				<p>Faites la pluie et le beau temps pendant une journée (valable 24h).</p>
 			</section>
+			<!--<![endif]-->
 			
 			<?php if (is_user_logged_in()): ?>
 			<section class="titled text">

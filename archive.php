@@ -10,9 +10,9 @@ get_header(); ?>
 	
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 	<?php /* If this is a category archive */ if (is_category()) { ?>
-	<h1>Articles de la catégorie &laquo;&nbsp;<?php single_cat_title(); ?>&nbsp;&raquo;</h1>
+	<h1>Articles de la catégorie «&nbsp;<?php single_cat_title(); ?>&nbsp;»</h1>
 	<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-	<h1>Articles tagués &laquo;&nbsp;<?php single_tag_title(); ?>&nbsp;&laquo;</h1>
+	<h1>Articles tagués «&nbsp;<?php single_tag_title(); ?>&nbsp;»</h1>
 	<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
 	<h1>Articles du <?php the_time('F jS, Y'); ?></h1>
 	<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
@@ -28,7 +28,7 @@ get_header(); ?>
 	<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
 	<h1>Articles de l'année <?php the_time('Y'); ?></h1>
 	<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-	<h1>Articles de l'auteur</h1>
+	<h1>Articles publiés par <?php echo get_userdata($author)->display_name ?></h1>
 	<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
 	<h1>Archives</h1>
 	<?php } ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 				<header>
 					<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 					<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
-					<p class="author">Par <strong><?php the_author() ?></strong></p>
+					<p class="author">Par <strong><?php the_author_posts_link() ?></strong></p>
 					<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 				</header>
 				<div class="content">
@@ -69,17 +69,16 @@ get_header(); ?>
 	<?php else :
 
 		if ( is_category() ) { // If this is a category archive
-			printf("<h2>Sorry, but there aren't any posts in the %s category yet.</h2>", single_cat_title('',false));
+			printf("<h2>Désolé, aucun article n'a encore été publié dans la catégorie «&nbsp;%s&nbsp;».</h2>", single_cat_title('',false));
 		} else if ( is_date() ) { // If this is a date archive
-			echo("<h2>Sorry, but there aren't any posts with this date.</h2>");
+			echo("<h2>Désolé, aucun article n'a été publié à cette date.</h2>");
 		} else if ( is_author() ) { // If this is a category archive
 			$userdata = get_userdatabylogin(get_query_var('author_name'));
-			printf("<h2>Sorry, but there aren't any posts by %s yet.</h2>", $userdata->display_name);
+			printf("<h2>Désolé, %s n'a pas encore publié d'articles.</h2>", $userdata->display_name);
 		} else {
-			echo("<h2>No posts found.</h2>");
+			echo("<h2>Pas d'articles trouvés.</h2>");
 		}
-		get_search_form();
-
+		
 	endif;
 ?>
 	</div>
