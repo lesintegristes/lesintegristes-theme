@@ -5,7 +5,7 @@
  */
 
 get_header(); ?>
-
+<div id="content" role="main">
 	<?php if (have_posts()) : ?>
 		
 		<h2>Search Results</h2>
@@ -30,6 +30,6 @@ get_header(); ?>
 		<?php get_search_form(); ?>
 		
 	<?php endif; ?>
-	
+</div>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
