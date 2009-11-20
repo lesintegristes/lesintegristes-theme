@@ -68,7 +68,8 @@ button::-moz-focus-inner{padding:0;border:0;} /* overrides extra padding in Fire
 body,button,input,textarea{font:14px/24px Verdana, Helvetica, sans-serif;color:#494949;}
 pre,code{font:12px/24px "DejaVuSansMonoBook", "Courier New", monospace;color:#494949;background:#ece4d6;}
 code{position:relative;top:-1px;padding:3px 6px;}
-pre code{display:block;}
+a code{text-decoration:underline;}
+pre code{display:block;position:static;padding:0;}
 a{color:#83a10f;}
 strong{font-weight:bold;}
 #content a:hover,
@@ -144,7 +145,6 @@ a.button:active span span{color:#0e6200;background-position:-1px -161px;}
 /* Comments count */
 .comments-count{font-size:14px;color:#494949;}
 .comments-count a{text-decoration:none;}
-.comments-count a:hover > strong{text-decoration:underline;}
 .comments-count strong,
 .comments-count strong span{float:left;color:#fff;background:url(i/comments.png) no-repeat 0 0;}
 .comments-count strong{position:relative;top:4px;margin:0 5px 0 0;padding-left:5px;}
@@ -355,7 +355,8 @@ body.single #content .last-articles{margin-bottom:48px;border-bottom:6px solid #
 
 /* Veille */
 body.page-id-29 #content h1{margin-bottom:24px;line-height:30px;font-size:16px;color:#857e76;background:url(i/dashed-h.png) repeat-x 0 100%;}
-body.page-id-29 #content .info{padding-left:242px;color:#857e76;}
+body.page-id-29 #content .info{padding-left:102px;font-style:italic;color:#857e76;}
+body.page-id-29 #content ul{margin-top:48px;background:url(i/veille-illu.png) no-repeat 16px 0;}
 body.page-id-29 #content li{margin:0 0 12px 233px;padding-left:9px;background:url(i/comment-arrow.png) no-repeat 0 9px;}
 body.page-id-29 #content li p{margin:0;}
 body.page-id-29 #content li a,

@@ -1,7 +1,7 @@
 <form method="get" id="searchform" action="<?php echo bloginfo('url'); ?>/" role="search">
 	<div>
 		<label class="screen-reader-text" for="s">Recherche pour:</label>
-		<input type="text" value="" name="s" id="s" />
+		<input type="text" value="<?php the_search_query(); ?>" name="s" id="s" />
 		<button type="submit"><span><span>Rechercher</span></span></button>
 	</div>
 </form>

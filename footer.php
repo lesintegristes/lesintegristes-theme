@@ -33,7 +33,7 @@
 						</li>
 					<?php endforeach; ?>
 					</ul>
-					<p>Ou consulter <a href="link">tous les articles</a></p>
+					<p>Ou consulter <a href="<?php echo lesintegristes_get_articles_url() ?>">tous les articles</a></p>
 				</section>
 				<nav role="navigation">
 					<p class="top"><a href="#header">Haut de la page</a></p>

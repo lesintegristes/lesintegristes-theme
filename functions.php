@@ -15,32 +15,6 @@ if ( function_exists('register_sidebar') ) {
 	));
 }
 
-/*
-function improved_trim_excerpt($text, $excerpt_length) {
-	global $post;
-	if ( '' == $text ) {
-		$text = get_the_content('');
-		$text = apply_filters('the_content', $text);
-		$text = str_replace(']]>', ']]&gt;', $text);
-		$text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
-		$text = strip_tags($text, '<p>');
-		$words = explode(' ', $text, $excerpt_length + 1);
-		if (count($words)> $excerpt_length) {
-			array_pop($words);
-			array_push($words, '[...]');
-			$text = implode(' ', $words);
-		}
-	}
-	return $text;
-}
-remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-add_filter('get_the_excerpt', 'improved_trim_excerpt');*/
-
-/*function lesintegristes_excerpt_length($length) {
-	return 100;
-}
-add_filter('excerpt_length', 'lesintegristes_excerpt_length');*/
-
 function lesintegristes_remove_img_and_figure($content) {
 	$content = preg_replace('@<figure[^>]*?>.*?</figure>@si', '', $content);
 	$content = preg_replace('/<img[^>]+./','', $content);
@@ -69,4 +43,13 @@ function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
   }
   return $text;
 }
+
+function lesintegristes_search_filter($query) {
+	if ($query->is_search) { 
+		$query->set('cat','-31');
+	}
+	return $query; 
+}
+add_filter('pre_get_posts','lesintegristes_search_filter');
+
 ?>
