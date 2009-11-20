@@ -21,7 +21,7 @@
 			
 			<?php
 				/* Articles */
-				if (is_category('31') || is_page('veille')): ?>
+				if ( is_category('31') || is_page('veille') || (is_single() && in_category('31')) ): ?>
 			<section class="text titled articles">
 				<h1>Derniers articles</h1>
 				<ul>

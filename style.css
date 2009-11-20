@@ -376,6 +376,7 @@ body.page-id-29 #content li > div div p{margin:12px 0 0;}
 #sidebar a.all{margin-right:6px;text-transform:lowercase;color:#494949;}
 #sidebar a.all:active,
 #sidebar a.all:focus{color:#fff;background:#494949;}
+#sidebar a.all:hover{color:#6d6a6a;}
 #sidebar .footer{margin:6px 0;text-align:right;}
 /* Comments count */
 #sidebar .comments-count{width:42px;margin-left:48px;padding-right:6px;}
