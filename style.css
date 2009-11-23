@@ -153,8 +153,6 @@ a.button:active span span{color:#0e6200;background-position:-1px -161px;}
 
 /* Header */
 body{padding-bottom:40px;background:url(i/strip-shadow.png) no-repeat 50% 15px;}
-body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 170px;}
-body.loading #wrapper > header{background:none;}
 #wrapper > header{position:relative;height:129px;margin-bottom:48px;padding-top:15px;background:url(i/meteo/sunny/header-small.jpg) no-repeat 0 0;}
 #wrapper > header div{height:83px;padding-top:9px;background:url(i/header-strip.png) repeat-x 0 0;}
 #wrapper > header h1{float:left;width:260px;}
@@ -183,6 +181,9 @@ body.home #wrapper > header h1 a{background-image:url(i/logo-large.png);backgrou
 body.home{background-position:50% 39px;}
 body.home #wrapper > header{height:239px;margin-bottom:58px;padding-top:39px;background-image:url(i/meteo/sunny/header-large.jpg);}
 body.home #wrapper > header p a[rel=alternate]{height:88px;}
+/* Loading meteo */
+body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 170px;}
+body.loading #wrapper > header{background:none;}
 /* Meteo */
 body.meteo-rain #wrapper > header{background-image:url(i/meteo/rain/header-small.jpg);}
 body.meteo-cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-small.jpg);}
