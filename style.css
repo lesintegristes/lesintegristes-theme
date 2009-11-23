@@ -183,7 +183,7 @@ body.home #wrapper > header{height:239px;margin-bottom:58px;padding-top:39px;bac
 body.home #wrapper > header p a[rel=alternate]{height:88px;}
 /* Loading meteo */
 body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 170px;}
-body.loading #wrapper > header{background:none;}
+body.loading #wrapper > header{background:none !important;}
 /* Meteo */
 body.meteo-rain #wrapper > header{background-image:url(i/meteo/rain/header-small.jpg);}
 body.meteo-cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-small.jpg);}
