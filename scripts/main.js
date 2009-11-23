@@ -67,7 +67,7 @@
   		$body.addClass("loading");
   		
   		preload = preloadImg(
-  		  jQuery.lesintegristes.themeUrl + "/i/meteo/sunny/header-" + ( ($body.hasClass("home"))? "large" : "small" ) + ".jpg",
+  		  jQuery.lesintegristes.themeUrl + "/i/meteo/" + weather + "/header-" + ( ($body.hasClass("home"))? "large" : "small" ) + ".jpg",
   		  function() {
     		  $body.removeClass("loading").addClass("meteo-" + weather);
     		  preload = null;
