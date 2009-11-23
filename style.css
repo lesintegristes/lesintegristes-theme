@@ -225,6 +225,9 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer nav li + li a{background-position:52px -89px;}
 #wrapper > footer nav li + li + li a{background-position:52px -178px;}
 #wrapper > footer .bottom-line{position:relative;bottom:-40px;line-height:40px;font-size:10px;text-align:center;}
+/* Loading meteo */
+body.loading #wrapper > footer{background:url(i/loader.gif) no-repeat 436px 100% !important;}
+body.loading > div{background:none;}
 /* Meteo */
 body.meteo-rain #wrapper > footer{background-image:url(i/meteo/rain/footer.jpg);}
 body.meteo-cloudy #wrapper > footer{background-image:url(i/meteo/cloudy/footer.jpg);}

@@ -77,7 +77,7 @@
     };
   	
   	function preloadImg(img, callback) {
-  	  $imgToLoad = $('<img src="'+ img +'" style="position:absolute;left:-9999px;" />').appendTo("body");
+  	  $imgToLoad = $('<img src="'+ img +'" style="position:absolute;top:0;left:-9999px;" />').appendTo("body");
   	  $imgToLoad.load(function(){
   	    $imgToLoad.remove();
   	    callback();
