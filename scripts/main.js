@@ -6,7 +6,8 @@
     var $body = $("body"),
   	    $buttons = $("#sidebar section.meteo label"),
   	    buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
-  	    ajaxCall;
+  	    ajaxCall,
+  	    preload;
 	  
 	  $buttons = $buttons.add( $('<p><label for="meteo-auto">Auto</label></p>').insertAfter($buttons.filter(":last").closest("p")).children() );
 	  
@@ -18,7 +19,7 @@
   	  
   	  var curMeteo = $(this).attr("for").slice(6);
   	  
-  	  $.cookies.del('meteo');
+  	  $.cookies.del("meteo");
       $.cookies.del("meteo_auto");
   	  
   	  $buttons.removeClass("active");
@@ -40,9 +41,6 @@
 	  }
     
     function autoChangeMeteo() {
-      
-      resetBodyClass();
-      
       ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
         changeMeteo(data, {hoursToLive: 1});
         $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
@@ -51,22 +49,41 @@
     
     function changeMeteo(weather, settings) {
       
+      if (!!preload) {
+        preload.stop();
+      }
+      
       settings = $.extend({
         hoursToLive: 24
       }, settings);
       
-      resetBodyClass();
-      
-  		$body.addClass("meteo-" + weather);
-  		
-  		$.cookies.set("meteo", weather, settings);
-    };
-    
-    function resetBodyClass() {
   		for (i in buttonsData) {
   			$body.removeClass("meteo-" + buttonsData[i]);
   		}
-    }
+  		
+  		preload = preloadImg(
+  		  jQuery.lesintegristes.themeUrl + "/i/meteo/sunny/header-" + ( ($body.hasClass("home"))? "large" : "small" ) + ".jpg",
+  		  function() {
+    		  $body.addClass("meteo-" + weather);
+    		  preload = null;
+  		  });
+  		
+  		$.cookies.set("meteo", weather, settings);
+    };
+  	
+  	function preloadImg(img, callback) {
+  	  $imgToLoad = $('<img src="'+ img +'" style="position:absolute;left:-9999px;" />').appendTo("body");
+  	  $imgToLoad.load(function(){
+  	    $imgToLoad.remove();
+  	    callback();
+  	  });
+  	  
+  	  return {
+  	    stop: function() {
+  	      $imgToLoad.unbind("load").remove();
+  	    }
+  	  };
+  	}
   	
 	})();
   

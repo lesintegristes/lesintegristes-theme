@@ -153,7 +153,7 @@ a.button:active span span{color:#0e6200;background-position:-1px -161px;}
 
 /* Header */
 body{padding-bottom:40px;background:url(i/strip-shadow.png) no-repeat 50% 15px;}
-body.js #wrapper{background:url(i/loader.gif) no-repeat 436px 170px;}
+body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 170px;}
 #wrapper > header{position:relative;height:129px;margin-bottom:48px;padding-top:15px;background:url(i/meteo/sunny/header-small.jpg) no-repeat 0 0;}
 #wrapper > header div{height:83px;padding-top:9px;background:url(i/header-strip.png) repeat-x 0 0;}
 #wrapper > header h1{float:left;width:260px;}

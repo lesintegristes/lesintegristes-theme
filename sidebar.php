@@ -1,4 +1,21 @@
 		<aside id="sidebar" role="complementary">
+		
+		<!--[if !IE 6]><!-->
+		<section class="titled text meteo">
+			<h1>Météo</h1>
+			<p>Faites la pluie et le beau temps.</p>
+			<?php global $cur_meteo_condition; ?>
+			<form action="" method="post">
+				<p><input name="change_meteo" type="radio" value="sunny" id="meteo-sunny"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "sunny"), "checked", "checked") ?> /> <label for="meteo-sunny"<?php echo getAttributeIfTrue(($cur_meteo_condition === "sunny")) ?>>Soleil</label></p>
+				<p><input name="change_meteo" type="radio" value="cloudy" id="meteo-cloudy"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "cloudy"), "checked", "checked") ?> /> <label for="meteo-cloudy"<?php echo getAttributeIfTrue(($cur_meteo_condition === "cloudy")) ?>>Nuageux</label></p>
+				<p><input name="change_meteo" type="radio" value="rain" id="meteo-rain"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "rain"), "checked", "checked") ?> /> <label for="meteo-rain"<?php echo getAttributeIfTrue(($cur_meteo_condition === "rain")) ?>>Pluie</label></p>
+				<p><input name="change_meteo" type="radio" value="snow" id="meteo-snow"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "snow"), "checked", "checked") ?> /> <label for="meteo-snow"<?php echo getAttributeIfTrue(($cur_meteo_condition === "snow")) ?>>Neige</label></p>
+				<p><input name="change_meteo" type="radio" value="night" id="meteo-night"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "night"), "checked", "checked") ?> /> <label for="meteo-night"<?php echo getAttributeIfTrue(($cur_meteo_condition === "night")) ?>>Nuit</label></p>
+				<p class="submit"><button type="submit"><span><span>Changer la météo</span></span></button></p>
+				<p>(Sélection valable 24h.)</p>
+			</form>
+		</section>
+		<!--<![endif]-->
 			
 			<div class="search">
 				<?php get_search_form(); ?>
@@ -76,23 +93,6 @@
 				<h1><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/"><img src="<?php bloginfo('template_url'); ?>/images/creative-commons.png" width="81" height="96" alt="Creative Commons" /></a></h1>
 				<p>Sauf mention contraire, les publications de ce site sont mises à disposition sous un <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">contrat Creative Commons <abbr title="Paternité">BY</abbr> <abbr title="Pas d'utilisation commerciale">NC</abbr> <abbr title="Partage des conditions à l'identique">SA</abbr></a>.</p>
 			</section>
-			
-			<!--[if !IE 6]><!-->
-			<section class="titled text meteo">
-				<h1>Météo</h1>
-				<p>Faites la pluie et le beau temps.</p>
-				<?php global $cur_meteo_condition; ?>
-				<form action="" method="post">
-					<p><input name="change_meteo" type="radio" value="sunny" id="meteo-sunny"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "sunny"), "checked", "checked") ?> /> <label for="meteo-sunny"<?php echo getAttributeIfTrue(($cur_meteo_condition === "sunny")) ?>>Soleil</label></p>
-					<p><input name="change_meteo" type="radio" value="cloudy" id="meteo-cloudy"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "cloudy"), "checked", "checked") ?> /> <label for="meteo-cloudy"<?php echo getAttributeIfTrue(($cur_meteo_condition === "cloudy")) ?>>Nuageux</label></p>
-					<p><input name="change_meteo" type="radio" value="rain" id="meteo-rain"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "rain"), "checked", "checked") ?> /> <label for="meteo-rain"<?php echo getAttributeIfTrue(($cur_meteo_condition === "rain")) ?>>Pluie</label></p>
-					<p><input name="change_meteo" type="radio" value="snow" id="meteo-snow"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "snow"), "checked", "checked") ?> /> <label for="meteo-snow"<?php echo getAttributeIfTrue(($cur_meteo_condition === "snow")) ?>>Neige</label></p>
-					<p><input name="change_meteo" type="radio" value="night" id="meteo-night"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "night"), "checked", "checked") ?> /> <label for="meteo-night"<?php echo getAttributeIfTrue(($cur_meteo_condition === "night")) ?>>Nuit</label></p>
-					<p class="submit"><button type="submit"><span><span>Changer la météo</span></span></button></p>
-					<p>(Sélection valable 24h.)</p>
-				</form>
-			</section>
-			<!--<![endif]-->
 			
 			<?php if (is_user_logged_in()): ?>
 			<section class="titled text">
