@@ -41,6 +41,9 @@
 	  }
     
     function autoChangeMeteo() {
+      
+      $body.addClass("loading");
+      
       ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
         changeMeteo(data, {hoursToLive: 1});
         $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
