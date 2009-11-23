@@ -61,10 +61,12 @@
   			$body.removeClass("meteo-" + buttonsData[i]);
   		}
   		
+  		$body.addClass("loading");
+  		
   		preload = preloadImg(
   		  jQuery.lesintegristes.themeUrl + "/i/meteo/sunny/header-" + ( ($body.hasClass("home"))? "large" : "small" ) + ".jpg",
   		  function() {
-    		  $body.addClass("meteo-" + weather);
+    		  $body.removeClass("loading").addClass("meteo-" + weather);
     		  preload = null;
   		  });
   		
