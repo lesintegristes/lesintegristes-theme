@@ -1,8 +1,8 @@
 <?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
+	global $cur_meteo_condition;
+	if ($cur_meteo_condition !== "") {
+		$body_classes .= "meteo-" . $cur_meteo_condition;
+	}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -20,8 +20,14 @@
 		<!--[if IE]>
 		<script src="<?php bloginfo('template_url'); ?>/scripts/html5.js"></script>
 		<![endif]-->
+		<script type="text/javascript">
+			jQuery.lesintegristes = {
+				themeUrl: "<?php bloginfo('template_url'); ?>"
+			};
+		</script>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class($body_classes); ?>>
+	<script type="text/javascript">document.body.className += " js"</script>
 	<div>
 	<div id="wrapper">
 		<header role="banner" id="header">

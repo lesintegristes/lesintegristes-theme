@@ -2,7 +2,7 @@
 List template
 This template returns the related posts as a comma-separated list.
 Author: mitcho (Michael Yoshitaka Erlewine)
-*/ 
+*/
 ?>
 <?php if ($related_query->have_posts()): ?>
 	<div class="related-posts">

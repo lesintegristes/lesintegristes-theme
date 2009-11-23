@@ -1,10 +1,4 @@
-<?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 <div id="content" role="main" class="notes">
 	
 	<?php if (have_posts()) : ?>

@@ -3,30 +3,70 @@
   /* Meteo */
   (function(){
     
-    $body = $("body");
-    var $meteoContainer = $("#sidebar section.meteo");
-  	var buttonsData = [["Soleil", "sunny"], ["Pluie", "rain"], ["Nuageux", "cloudy"], ["Neige", "snow"], ["Nuit", "night"]];
-  	var buttons = '';
+    var $body = $("body"),
+  	    $buttons = $("#sidebar section.meteo label"),
+  	    buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
+  	    ajaxCall;
 	  
-    for (i in buttonsData) {
-  		buttons += '<button type="button" value="' + buttonsData[i][1] + '"><span><span>' + buttonsData[i][0] + '</span></span></button>';
-  	}
-  	
-    function changeMeteo(weather) {
-  		for (i in buttonsData) {
-  			$body.removeClass(buttonsData[i][1]);
-  		}
-  		$body.addClass(weather);
-  		$.cookies.set('meteo', weather, {hoursToLive: 24});
-    };
-  	
-  	$(buttons).appendTo($meteoContainer).click(function(){
-  		changeMeteo($(this).val());
+	  $buttons = $buttons.add( $('<p><label for="meteo-auto">Auto</label></p>').insertAfter($buttons.filter(":last").closest("p")).children() );
+	  
+	  $buttons.click(function() {
+	    
+	    if (!!ajaxCall) {
+	      ajaxCall.abort();
+      }
+  	  
+  	  var curMeteo = $(this).attr("for").slice(6);
+  	  
+  	  $.cookies.del('meteo');
+      $.cookies.del("meteo_auto");
+  	  
+  	  $buttons.removeClass("active");
+  	  $(this).addClass("active");
+  	  
+  	  if (curMeteo === "auto") {
+        autoChangeMeteo();
+        
+      } else {
+        changeMeteo(curMeteo);
+      }
   	});
   	
-  	if (!!$.cookies.get('meteo')) {
-  	  changeMeteo($.cookies.get('meteo'));
+  	if (!$.cookies.get("meteo")) {
+  	  $buttons.filter("[for=meteo-auto]").click();
+  	  
+	  } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
+	    $buttons.removeClass("active").filter("[for=meteo-auto]").addClass("active");
+	  }
+    
+    function autoChangeMeteo() {
+      
+      resetBodyClass();
+      
+      ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
+        changeMeteo(data, {hoursToLive: 1});
+        $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
+  	  });
   	}
+    
+    function changeMeteo(weather, settings) {
+      
+      settings = $.extend({
+        hoursToLive: 24
+      }, settings);
+      
+      resetBodyClass();
+      
+  		$body.addClass("meteo-" + weather);
+  		
+  		$.cookies.set("meteo", weather, settings);
+    };
+    
+    function resetBodyClass() {
+  		for (i in buttonsData) {
+  			$body.removeClass("meteo-" + buttonsData[i]);
+  		}
+    }
   	
 	})();
   

@@ -1,10 +1,4 @@
-<?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 <div id="content" role="main">
 <?php
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

@@ -1,9 +1,3 @@
-<?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
-?>
   	<footer>
 			<div>
 				<section class="categories">

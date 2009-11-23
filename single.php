@@ -1,10 +1,4 @@
 <?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
-?>
-<?php
 	if (in_category(31)):
 		include(TEMPLATEPATH . '/single-note.php');
 	else:

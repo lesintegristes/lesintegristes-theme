@@ -1,12 +1,6 @@
-<?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
-?>
 <?php get_header(); ?>
 <div id="content" role="main" class="note">
-	<p><a href="<?php echo lesintegristes_get_articles_url() ?>" class="action">Toutes les notes</a></p>
+	<p><a href="<?php bloginfo('url'); ?>/categorie/notes/" class="action">Toutes les notes</a></p>
 	<p class="pagination">
 		<span class="previous"><?php previous_post_link('%link', 'Note précédente', TRUE); ?></span>
 		<span class="next"><?php next_post_link('%link', 'Note suivante', TRUE); ?></span>

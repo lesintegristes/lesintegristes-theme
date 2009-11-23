@@ -1,8 +1,4 @@
 <?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
 
 automatic_feed_links();
 
@@ -14,6 +10,30 @@ if ( function_exists('register_sidebar') ) {
 		'after_title' => '</h2>',
 	));
 }
+
+/* Init meteo */
+$GLOBALS["cur_meteo_condition"] = "";
+
+function lesintegristes_meteo_init() {
+	
+	if (!is_admin()) {
+		
+		global $cur_meteo_condition;
+		
+		$meteo_conditions = array("cloudy", "rain", "snow", "sunny", "night");
+		
+		$body_classes = "";
+		
+		if ( isset($_POST["change_meteo"]) && in_array($_POST["change_meteo"], $meteo_conditions) ) {
+			$cur_meteo_condition = $_POST["change_meteo"];
+			setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
+			
+		} elseif ( isset($_COOKIE['meteo']) && in_array($_COOKIE['meteo'], $meteo_conditions) ) {
+			$cur_meteo_condition = $_COOKIE['meteo'];
+		}
+	}
+}
+add_action("init", "lesintegristes_meteo_init");
 
 function lesintegristes_remove_img_and_figure($content) {
 	$content = preg_replace('@<figure[^>]*?>.*?</figure>@si', '', $content);
@@ -51,5 +71,14 @@ function lesintegristes_search_filter($query) {
 	return $query; 
 }
 add_filter('pre_get_posts','lesintegristes_search_filter');
+
+function getAttributeIfTrue($condition, $attribute = 'class', $value = 'active') {
+	
+	if ($condition) {
+		return ' '. $attribute .'="'. $value .'"';
+	} else {
+		return '';
+	}
+}
 
 ?>

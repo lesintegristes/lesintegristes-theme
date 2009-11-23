@@ -1,9 +1,4 @@
 <?php
-/**
- * @package WordPress
- * @subpackage Starkers
- */
-
 /*
 Template Name: Links
 */
