@@ -9,7 +9,7 @@
   	    ajaxCall,
   	    preload;
 	  
-	  $buttons = $buttons.add( $('<p><label for="meteo-auto">Auto</label></p>').insertAfter($buttons.filter(":last").closest("p")).children() );
+	  $buttons = $buttons.add( $('<p><label for="meteo-auto" title="Auto">Auto</label></p>').insertAfter($buttons.filter(":last").closest("p")).children() );
 	  
 	  $buttons.click(function() {
 	    
@@ -41,9 +41,7 @@
 	  }
     
     function autoChangeMeteo() {
-      
       $body.addClass("loading");
-      
       ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
         changeMeteo(data, {hoursToLive: 1});
         $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
@@ -91,6 +89,25 @@
   	}
   	
 	})();
+  
+  $(function(){
+    $("#sidebar section.collapsible").each(function(){
+      $button = $('<button type="button">Replier</button>').appendTo($(this).children("h1").addClass("collapsed"))
+        .click(function() {
+          
+          var $this = $(this),
+              $parent = $this.parent();
+              
+          if ($parent.hasClass("collapsed")) {
+            $(this).text("Replier");
+            $parent.removeClass("collapsed").next().slideDown(150);
+          } else {
+            $(this).text("Déplier");
+            $parent.addClass("collapsed").next().slideUp(150);
+          }
+        }).parent().next().hide();
+    });
+  })
   
   /* "Last articles" (nom temporaire) height */
   $(function(){

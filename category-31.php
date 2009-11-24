@@ -9,7 +9,7 @@
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
 					<p class="date"><?php the_time('j/n/y<b\r /> H\hi') ?></p>
-					<?php //edit_post_link('Modifier', '<p>', '</p>'); ?>
+					<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 				</header>
 				<div class="content">
 					<?php echo get_the_content(); ?>
