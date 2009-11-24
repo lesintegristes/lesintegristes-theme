@@ -439,7 +439,7 @@ body.loading #sidebar > .veille a{background-image:url(i/loader-veille.gif);}
 #sidebar > .text{padding:0 6px 6px;font-size:12px;font-style:italic;color:#857e76;}
 #sidebar > .titled h1{font:25px/41px Georgia, serif;color:#494949;border-bottom:1px solid #b7c272;}
 /* Meteo */
-#sidebar > .meteo{overflow:hidden;}
+#sidebar > .meteo{overflow:hidden;padding-bottom:0;}
 #sidebar > .meteo h1.collapsed{border-color:#ece4d6;}
 #sidebar > .meteo h1{float:left;width:211px;}
 #sidebar > .meteo h1 span{float:left;}
@@ -449,7 +449,7 @@ body.loading #sidebar > .veille a{background-image:url(i/loader-veille.gif);}
 #sidebar > .meteo > div > p{line-height:48px;}
 body.js #sidebar > .meteo input,
 body.js #sidebar > .meteo .submit{display:none;}
-body.js #sidebar > .meteo form{overflow:hidden;width:168px;margin-left:18px;}
+body.js #sidebar > .meteo form{overflow:hidden;width:168px;margin-left:18px;padding-bottom:6px;}
 body.js #sidebar > .meteo form p{float:left;margin:0 0 8px 7px;}
 body.js #sidebar > .meteo label{float:left;width:49px;height:42px;text-indent:-9999px;background:url(i/meteo-buttons.png) no-repeat 0 0;}
 body.js #sidebar > .meteo label[for=meteo-sunny].active{background-position:-49px 0;}
