@@ -5,7 +5,7 @@
 					<?php echo substr_replace(str_replace('<br />', ', ', wp_list_categories('show_count=0&exclude=31&title_li=<h1>Catégories</h1>&style=none&echo=0')) , "", -3); ?>
 				</section>
 				<section class="archives">
-					<h1>Articles par date</h1>
+					<h1>Archives</h1>
 					<ul>
 					<?php
 						global $wp_locale;

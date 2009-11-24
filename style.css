@@ -98,6 +98,10 @@ pre{padding-left:30px;}
 h2{font-size:18px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
 h3{font-size:16px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
 h4{font-size:14px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
+::-moz-selection{color:#fff;background:#857e76;}
+::selection{color:#fff;background:#857e76;}
+input[type=text],
+textarea{-moz-box-shadow:inset 2px 2px 2px #aaa;-webkit-box-shadow:inset 2px 2px 5px #a4a4a4;}
 
 /* Hentry */
 .hentry .content h2{font-size:20px;font-weight:bold;margin-top:48px;margin-bottom:24px;color:#494949;}
@@ -114,12 +118,6 @@ h4{font-size:14px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
 .hentry .content pre{margin-bottom:24px;}
 .hentry .content blockquote{padding:36px 36px 36px;font:italic 16px/24px Georgia, serif;text-indent:14px;color:#857e76;background:url(i/quote-open.png) no-repeat 16px 16px;background:url(i/quote-open.png) no-repeat 16px 16px, url(i/quote-close.png) no-repeat 100% 100%;background-color:#ece4d6;}
 #content .hentry .content blockquote p{margin:0;}
-/* Hentry */
-
-::-moz-selection{color:#fff;background:#857e76;}
-::selection{color:#fff;background:#857e76;}
-input[type=text],
-textarea{-moz-box-shadow:inset 2px 2px 2px #aaa;-webkit-box-shadow:inset 2px 2px 5px #a4a4a4;}
 
 /* Buttons */
 a.button{display:inline-block;text-decoration:none;}
@@ -162,37 +160,54 @@ body.home #wrapper > header h1 a{background-image:url(i/logo-large.png);backgrou
 #wrapper > header p a[rel=alternate]{overflow:hidden;position:absolute;top:0;left:445px;display:block;width:62px;height:64px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 100%;}
 #wrapper > header nav{float:right;width:277px;}
 #wrapper > header nav li{float:left;}
-#wrapper > header nav li a{float:left;width:92px;padding:6px 0;background:#fff url(i/nav-large.png) no-repeat 1px 0;}
+#wrapper > header nav li a{float:left;width:80px;padding:6px 0;background:#fff url(i/nav-mini.png) no-repeat 1px 0;}
+#wrapper > header nav li:first-child a{width:81px;}
 #wrapper > header nav li a span{overflow:hidden;display:block;height:62px;text-indent:-9999px;border-right:1px dashed #dbd2c3;}
-#wrapper > header nav li:first-child a{width:93px;}
-#wrapper > header nav li:first-child a span{padding-left:1px;border-left:1px dashed #dbd2c3;}
-#wrapper > header nav li + li a{background-position:-91px 0;}
-#wrapper > header nav li + li + li a{background-position:-182px 0;}
+#wrapper > header nav li:first-child a span{border-left:1px dashed #dbd2c3;}
+#wrapper > header nav li + li a{background-position:-79px 0;}
+#wrapper > header nav li + li + li a{background-position:-158px 0;}
 #wrapper > header nav li a:hover{background-position:1px -74px;}
-#wrapper > header nav li + li a:hover{background-position:-91px -74px;}
-#wrapper > header nav li + li + li a:hover{background-position:-182px -74px;}
+#wrapper > header nav li + li a:hover{background-position:-79px -74px;}
+#wrapper > header nav li + li + li a:hover{background-position:-158px -74px;}
 #wrapper > header nav li a:active,
 #wrapper > header nav li a:focus{background-position:1px -148px;outline:0;}
 #wrapper > header nav li + li a:active,
-#wrapper > header nav li + li a:focus{background-position:-91px -148px;}
+#wrapper > header nav li + li a:focus{background-position:-79px -148px;}
 #wrapper > header nav li + li + li a:active,
-#wrapper > header nav li + li + li a:focus{background-position:-182px -148px;}
-/* Header Home */
-body.home{background-position:50% 39px;}
-body.home #wrapper > header{height:239px;margin-bottom:58px;padding-top:39px;background-image:url(i/meteo/sunny/header-large.jpg);}
-body.home #wrapper > header p a[rel=alternate]{height:88px;}
-/* Loading meteo */
-body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 170px;}
-body.loading #wrapper > header{background:none !important;}
+#wrapper > header nav li + li + li a:focus{background-position:-158px -148px;}
 /* Meteo */
 body.meteo-rain #wrapper > header{background-image:url(i/meteo/rain/header-small.jpg);}
 body.meteo-cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-small.jpg);}
 body.meteo-snow #wrapper > header{background-image:url(i/meteo/snow/header-small.jpg);}
 body.meteo-night #wrapper > header{background-image:url(i/meteo/night/header-small.jpg);}
+/* Loading meteo */
+body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 90px;}
+body.loading #wrapper > header{background:none !important;}
+
+/* Header - Home */
+body.home{background-position:50% 39px;}
+body.home #wrapper > header{height:239px;margin-bottom:58px;padding-top:39px;background-image:url(i/meteo/sunny/header-large.jpg);}
+body.home #wrapper > header p a[rel=alternate]{height:88px;}
+body.home #wrapper > header nav li a{width:92px;background-image:url(i/nav-large.png);background-position:1px 0;}
+body.home #wrapper > header nav li:first-child a{width:93px;}
+body.home #wrapper > header nav li + li a{background-position:-91px 0;}
+body.home #wrapper > header nav li + li + li a{background-position:-182px 0;}
+body.home #wrapper > header nav li a:hover{background-position:1px -74px;}
+body.home #wrapper > header nav li + li a:hover{background-position:-91px -74px;}
+body.home #wrapper > header nav li + li + li a:hover{background-position:-182px -74px;}
+body.home #wrapper > header nav li a:active,
+body.home #wrapper > header nav li a:focus{background-position:1px -148px;outline:0;}
+body.home #wrapper > header nav li + li a:active,
+body.home #wrapper > header nav li + li a:focus{background-position:-91px -148px;}
+body.home #wrapper > header nav li + li + li a:active,
+body.home #wrapper > header nav li + li + li a:focus{background-position:-182px -148px;}
+/* Meteo */
 body.home.meteo-rain #wrapper > header{background-image:url(i/meteo/rain/header-large.jpg);}
 body.home.meteo-cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-large.jpg);}
 body.home.meteo-snow #wrapper > header{background-image:url(i/meteo/snow/header-large.jpg);}
 body.home.meteo-night #wrapper > header{background-image:url(i/meteo/night/header-large.jpg);}
+/* Loading meteo */
+body.home.loading #wrapper{background-position:436px 170px;}
 
 /* Footer */
 body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
@@ -262,7 +277,7 @@ body.single #content article header{float:none;width:auto;}
 #content article header .author a:active,
 #content .last-articles .author a:active{background:none;}
 #content article .content{float:left;width:464px;margin-bottom:36px;}
-body.single #content article .content{float:none;width:auto;padding-left:102px;}
+body.single #content article .content{float:none;width:auto;padding:24px 0 0 102px;}
 #content article footer{clear:left;margin-left:240px;}
 body.single #content article footer{margin-left:100px;font-style:italic;font-size:12px;color:#857e76;}
 body.single #content article footer strong{font-style:italic;}
@@ -406,10 +421,13 @@ body.page-id-29 #content li > div div p{margin:12px 0 0;}
 #sidebar > .veille a:active{outline:2px solid #96b713;}
 #sidebar > .veille a p strong{float:left;width:75px;text-indent:2px;font:25px/42px Georgia, serif;color:#c0d43d;}
 #sidebar > .veille a p + p{float:left;width:122px;line-height:14px;font-size:12px;font-style:italic;color:#dbd2c3;}
+/* Veille - Meteo */
 body.meteo-rain #sidebar > .veille a{background-image:url(i/meteo/rain/veille.jpg);}
 body.meteo-cloudy #sidebar > .veille a{background-image:url(i/meteo/cloudy/veille.jpg);}
 body.meteo-snow #sidebar > .veille a{background-image:url(i/meteo/snow/veille.jpg);}
 body.meteo-night #sidebar > .veille a{background-image:url(i/meteo/night/veille.jpg);}
+/* Veille - Loading */
+body.loading #sidebar > .veille a{background-image:url(i/loader-veille.gif);}
 /* Box with titles */
 #sidebar > .text{padding:0 6px 6px;font-size:12px;font-style:italic;color:#857e76;}
 #sidebar > .titled h1{font:25px/41px Georgia, serif;color:#494949;border-bottom:1px solid #b7c272;}
@@ -424,13 +442,23 @@ body.meteo-night #sidebar > .veille a{background-image:url(i/meteo/night/veille.
 #sidebar section.articles .title a{text-decoration:none;font:20px Georgia, serif;}
 #sidebar section.articles .title a:hover,
 #sidebar section.articles .title a:focus{text-decoration:underline;}
-#sidebar section.articles .date{float:left;width:36px;margin-top:-12px;line-height:normal;font-size:11px;word-spacing:-0.2em;font-weight:bold;text-align:center;font-family:"Helvetica Neue", "Helvetica", Arial, sans-serif;color:#857e76;}
-#sidebar section.articles .date .day{display:block;margin-bottom:-6px;font-size:30px;}
+#sidebar section.articles .date{float:left;width:36px;margin-top:-6px;line-height:normal;font-size:11px;word-spacing:-0.2em;font-weight:bold;text-align:center;font-family:"Helvetica Neue", "Helvetica", Arial, sans-serif;color:#857e76;}
+#sidebar section.articles .date .day{display:block;margin-bottom:-6px;font-size:25px;}
 #sidebar section.articles .comments-count{clear:left;float:left;width:36px;margin:0;text-align:right;}
 #sidebar section.articles .author{float:left;position:relative;top:5px;padding:0 6px;line-height:16px;font-size:11px;color:#fff;background:#857e76;}
 #sidebar section.articles .author a{text-decoration:none;color:#fff;background:none;}
 #sidebar section.articles .author a:hover,
 #sidebar section.articles .author a:focus{text-decoration:underline;background:none;}
+/* Archives */
+#sidebar section.archives > ul > li{margin:0 0 12px;padding:12px 0 0;background:url(i/dashed2-h.png) repeat-x 0 0;}
+#sidebar section.archives > ul > li:first-child{background:none;}
+#sidebar section.archives > ul > li > strong{float:left;width:48px;text-align:right;font-size:16px;}
+#sidebar section.archives > ul > li > strong a{text-decoration:none;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+#sidebar section.archives > ul > li > strong a:hover,
+#sidebar section.archives > ul > li > strong a:focus{text-decoration:underline;}
+#sidebar section.archives ul ul a{text-transform:capitalize;}
+#sidebar section.archives ul ul{margin-left:54px;-moz-column-count:2;}
+
 /* Newsletter */
 #sidebar > .newsletter{padding-bottom:18px;}
 #sidebar > .newsletter h1{margin-bottom:6px;}
@@ -439,7 +467,9 @@ body.meteo-night #sidebar > .veille a{background-image:url(i/meteo/night/veille.
 #sidebar > .newsletter .submit{text-align:right;}
 /* Creative Commons */
 #sidebar > .creativecommons{padding:12px 6px 12px 12px;}
-#sidebar > .creativecommons img{float:left;margin-right:12px;}
+#sidebar > .creativecommons h1 a{overflow:hidden;float:left;width:81px;height:96px;margin-right:12px;text-indent:-9999px;background:url(i/creative-commons.png) no-repeat 0 0;}
+#sidebar > .creativecommons h1 a:hover,
+#sidebar > .creativecommons h1 a:focus{color:#6d6a6a;background-position:0 -96px;}
 /* Meteo */
 #sidebar > .meteo h1 + p{line-height:48px;}
 body.js #sidebar > .meteo input,
