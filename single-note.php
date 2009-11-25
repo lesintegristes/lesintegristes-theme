@@ -10,14 +10,14 @@
 		
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
-				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
+				<p class="date"><?php the_time('j/n/y<b\r /> H\hi') ?></p>
 			</header>
 			<div class="content">
 				<?php the_content(); ?>
 			</div>
 			<footer>
 				<p>
-					Note rédigée par <strong><?php the_author_posts_link() ?></strong>.
+					Note rédigée par <?php the_author_posts_link() ?>.
 					<?php if ( comments_open() && pings_open() ) {
 					// Both Comments and Pings are open ?>
 					Vous pouvez <a href="#respond">laisser un commentaire</a>, ou <a href="<?php trackback_url(); ?>" rel="trackback">répondre depuis votre site (trackback)</a>.
@@ -40,10 +40,9 @@
 				</p>
 				<?php the_tags( '<p>Tags : ', ', ', '</p>'); ?>
 				<?php //edit_post_link('Modifier','<p>','</p>'); ?>
-			</footer>	
-		
-	<?php comments_template(); ?>	
+			</footer>
 			
+	<?php comments_template(); ?>
 	</article>
 	
 	<?php endwhile; else: ?>

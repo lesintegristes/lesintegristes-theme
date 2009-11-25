@@ -40,6 +40,10 @@
 			</div>
 			<p class="bottom-line">Merci <a href="http://twitter.com/gregoiredierend" title="Grégoire Dierendonck">Grégoire</a>. Merci <a href="http://www.wordpress.org">Wordpress</a>. Merci à toutes les mamans du monde.</p>
 			<?php wp_footer(); ?>
+			<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/syntax-highlighter.js"></script>
+			<script type="text/javascript">
+				SyntaxHighlighter.all();
+			</script>
 		</footer>
   </div>
 	</div>

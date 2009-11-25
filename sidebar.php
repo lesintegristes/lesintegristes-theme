@@ -1,9 +1,9 @@
 <?php
 	$show_veille = !is_page('veille');
-	$show_articles = ( is_category('31') || is_page('veille') || (is_single() && in_category('31')) );
+	$show_articles = ( is_archive() || (is_page() && !is_page('page-home')) || (is_single()) );
 	$show_notes = !is_category('31');
 	$show_links = is_user_logged_in();
-	$show_archives_links = is_archive() && !is_category('31');
+	$show_archives_links = is_date();
 ?>
 		<aside id="sidebar" role="complementary">
 		
@@ -33,8 +33,8 @@
 						<p><input name="change_meteo" type="radio" value="snow" id="meteo-snow"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "snow"), "checked", "checked") ?> /> <label for="meteo-snow"<?php echo getAttributeIfTrue(($cur_meteo_condition === "snow")) ?> title="Neige">Neige</label></p>
 						<p><input name="change_meteo" type="radio" value="night" id="meteo-night"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "night"), "checked", "checked") ?> /> <label for="meteo-night"<?php echo getAttributeIfTrue(($cur_meteo_condition === "night")) ?> title="Nuit">Nuit</label></p>
 						<p class="submit"><button type="submit"><span><span>Changer la météo</span></span></button></p>
-						<p>(Sélection valable 24h.)</p>
 					</form>
+					<p>(Sélection valable 24h.)</p>
 				</div>
 			</section>
 			<!--<![endif]-->
@@ -74,7 +74,7 @@
 				<ul>
 					<?php
 						rewind_posts();
-						query_posts("cat=-31&posts_per_page=5");
+						query_posts("cat=-31&posts_per_page=3");
 					?>
 					<?php while (have_posts()) : the_post(); ?>
 					<li>
@@ -131,7 +131,7 @@
 			</section>
 			
 			<?php if ($show_links): ?>
-			<section class="titled text">
+			<section class="titled text links">
 				<h1>Liens</h1>
 				<ul>
 					<li><a href="<?php echo get_option('home'); ?>/wp-admin/">Administration</a></li>

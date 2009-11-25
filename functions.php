@@ -1,15 +1,22 @@
 <?php
-
 automatic_feed_links();
-
-if ( function_exists('register_sidebar') ) {
+/*if ( function_exists('register_sidebar') ) {
 	register_sidebar(array(
 		'before_widget' => '<li id="%1$s" class="widget %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h2 class="widgettitle">',
 		'after_title' => '</h2>',
 	));
+}*/
+
+/* RSS *//*
+function rss_init() {
+	//automatic_feed_links(!is_page("home"));
+	echo '<link rel="alternate" type="application/rss+xml" title="'. get_bloginfo('name').' RSS Feed" href="'. get_bloginfo('rss2_url').'" />'."\n";
+	echo '<link rel="alternate" type="application/atom+xml" title="'. get_bloginfo('name').' Atom Feed" href="'. get_bloginfo('atom_url').'" />'."\n";
+	echo '<link rel="alternate" type="application/rss+xml" title="'. get_bloginfo('name').' '. __('The latest comments to all posts in RSS').'" href="'. get_bloginfo('comments_rss2_url').'" />'."\n";
 }
+add_action("wp_head", "rss_init");*/
 
 /* Init meteo */
 $GLOBALS["cur_meteo_condition"] = "";

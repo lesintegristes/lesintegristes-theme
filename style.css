@@ -89,7 +89,7 @@ strong{font-weight:bold;}
 /* Layout */
 #wrapper{width:946px;margin:0 auto;}
 #content{float:left;width:705px;margin-right:18px;margin-bottom:96px;border-top:6px solid #494949;}
-#sidebar{float:left;width:223px;}
+#sidebar{float:left;width:223px;margin-bottom:96px;}
 
 /* Common */
 input[type=submit],button,label{cursor:pointer;}
@@ -180,8 +180,7 @@ body.meteo-cloudy #wrapper > header{background-image:url(i/meteo/cloudy/header-s
 body.meteo-snow #wrapper > header{background-image:url(i/meteo/snow/header-small.jpg);}
 body.meteo-night #wrapper > header{background-image:url(i/meteo/night/header-small.jpg);}
 /* Loading meteo */
-body.loading #wrapper{background:url(i/loader.gif) no-repeat 436px 90px;}
-body.loading #wrapper > header{background:none !important;}
+body.loading #wrapper > header{background:url(i/loader.gif) no-repeat 436px 90px !important;}
 
 /* Header - Home */
 body.home{background-position:50% 39px;}
@@ -206,7 +205,7 @@ body.home.meteo-cloudy #wrapper > header{background-image:url(i/meteo/cloudy/hea
 body.home.meteo-snow #wrapper > header{background-image:url(i/meteo/snow/header-large.jpg);}
 body.home.meteo-night #wrapper > header{background-image:url(i/meteo/night/header-large.jpg);}
 /* Loading meteo */
-body.home.loading #wrapper{background-position:436px 170px;}
+body.home.loading #wrapper > header{background-position:436px 170px !important;}
 
 /* Footer */
 body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
@@ -230,7 +229,7 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer .archives ul strong a:hover,
 #wrapper > footer .archives ul strong a:focus{text-decoration:underline;}
 #wrapper > footer .archives ul strong button{overflow:hidden;height:24px;width:24px;margin-left:9px;text-indent:-9999px;background:url(i/archives-arrow.png) no-repeat 6px 7px;}
-#wrapper > footer .archives ul strong button:focus{outline:1px dotted #ece4d6;}
+#wrapper > footer .archives ul strong button:focus{outline:1px dotted #757474;}
 #wrapper > footer .archives ul strong button.expanded{background-color:#ece4d6;background-position:6px -19px;}
 #wrapper > footer .archives ul ul{padding:12px 0 18px 36px;background:#ece4d6;-moz-column-count:2;}
 #wrapper > footer .archives ul + p{margin-top:12px;text-align:right;}
@@ -282,7 +281,7 @@ body.single #content article header{float:none;width:auto;}
 #content article header .author a:active,
 #content .last-articles .author a:active{background:none;}
 #content article .content{float:left;width:464px;margin-bottom:36px;}
-body.single #content article .content{float:none;width:auto;padding:24px 0 0 102px;}
+body.single #content article .content{float:none;width:auto;padding:24px 0 0 100px;}
 #content article footer{clear:left;margin-left:240px;}
 body.single #content article footer{margin-left:100px;font-style:italic;font-size:12px;color:#857e76;}
 body.single #content article footer strong{font-style:italic;}
@@ -305,14 +304,48 @@ body.single #content article footer a:focus{color:#fff;background:#a29b94;}
 #content p.pagination span{float:right;line-height:36px;}
 #content p.pagination .older{float:left;}
 /* Note */
-#content.note > p:first-child{background:url(i/dashed-h.png) repeat-x 0 100%;}
-#content.note .pagination{margin:0;line-height:30px;background:url(i/dashed-h.png) repeat-x 0 100%;border:0;}
-#content.note .pagination a{text-transform:lowercase;font-style:italic;color:#857e76;}
-#content.note .pagination a:focus,
-#content.note .pagination a:active{background:none;}
-#content.note .pagination span{line-height:30px;}
-#content.note .pagination .previous{float:left;}
-#content.note article{background:none;}
+body.single #content.note > p:first-child{background:url(i/dashed-h.png) repeat-x 0 100%;}
+body.single #content.note .pagination{margin:0;line-height:30px;background:url(i/dashed-h.png) repeat-x 0 100%;border:0;}
+body.single #content.note .pagination a{text-transform:lowercase;font-style:italic;color:#857e76;}
+body.single #content.note .pagination a:focus,
+body.single #content.note .pagination a:active{background:none;}
+body.single #content.note .pagination span{line-height:30px;}
+body.single #content.note .pagination .previous{float:left;}
+body.single #content.note article.hentry{background:none;}
+body.single #content.note article .content{float:left;width:464px;padding-left:0;}
+body.single #content.note article header{float:left;width:223px;}
+body.single #content.note article .date{position:static;width:auto;margin:0;text-align:right;word-spacing:0;font-size:20px;}
+body.single #content.note article .content{margin-bottom:0;padding-top:0;}
+body.single #content.note article footer{margin-left:240px;}
+
+/* Home */
+.home #content .post .content p{margin-bottom:0;}
+
+/* Notes */
+#content.notes article header{text-align:right;}
+#content.notes article header p{margin:0;}
+#content.notes article header .date{position:static;width:auto;text-align:right;word-spacing:0;font-size:20px;}
+#content.notes article .content{margin-bottom:0;}
+#content.notes article footer{font-size:12px;color:#857e76;background:none;}
+#content.notes article footer .comments-count{display:inline-block;}
+#content.notes article footer a{font-style:italic;font-size:12px;color:#857e76;}
+#content.notes article footer a:hover{color:#a29b94;}
+#content.notes article footer a:active,
+#content.notes article footer a:focus{color:#fff;background:#a29b94;}
+#content.notes article footer strong{font-style:italic;}
+
+/* Veille */
+body.page-id-29 #content h1{margin-bottom:24px;line-height:30px;font-size:16px;color:#857e76;background:url(i/dashed-h.png) repeat-x 0 100%;}
+body.page-id-29 #content .info{padding-left:100px;font-style:italic;color:#857e76;}
+body.page-id-29 #content ul{margin-top:48px;background:url(i/veille-illu.png) no-repeat 16px 0;}
+body.page-id-29 #content li{margin:0 0 12px 233px;padding-left:9px;background:url(i/comment-arrow.png) no-repeat 0 9px;}
+body.page-id-29 #content li p{margin:0;}
+body.page-id-29 #content li a,
+body.page-id-29 #content li a:hover{color:#494949;}
+body.page-id-29 #content li a:focus,
+body.page-id-29 #content li a:active{color:#fff;background:#494949;}
+body.page-id-29 #content li > div{padding:24px 12px;background:#ece4d6;}
+body.page-id-29 #content li > div div p{margin:12px 0 0;}
 
 /* Last articles */
 #content .last-articles{clear:both;float:left;width:100%;padding-top:24px;background:url(i/dashed-h.png) repeat-x 0 0;}
@@ -331,7 +364,7 @@ body.single #content .last-articles{margin-bottom:48px;border-bottom:6px solid #
 #content .last-articles li.all{clear:left;float:none;width:auto;margin:0;text-align:right;border-top:6px solid #454545;}
 
 /* Related posts */
-.related-posts{overflow:hidden;}
+.related-posts{float:left;width:100%;}
 .related-posts h2{margin-bottom:0;line-height:30px;font-size:16px;color:#857e76;border-top:6px solid #454545;}
 
 /* Comments */
@@ -339,7 +372,7 @@ body.single #content .last-articles{margin-bottom:48px;border-bottom:6px solid #
 #comments > .comments-top{margin:48px 0 24px;overflow:hidden;padding-bottom:8px;background:url(i/dashed-h.png) repeat-x 0 100%;}
 #comments > .comments-top h2{float:left;margin:14px 0 0;}
 #comments > .comments-top .button{float:right;margin-top:8px;}
-#comments article{position:relative;margin-bottom:12px;padding:24px;font-size:12px;font-style:italic;background:#ece4d6;}
+#comments article{position:relative;margin-bottom:12px;padding:24px 40px;font-size:12px;font-style:italic;background:#ece4d6;}
 #comments article p{margin:12px 0 0;}
 #comments article div.avatar + *{margin-top:0;}
 #comments article div.avatar{position:absolute;top:0;left:-59px;width:59px;text-align:left;background:url(i/comment-arrow.png) no-repeat 100% 9px;}
@@ -365,34 +398,6 @@ body.single #content .last-articles{margin-bottom:48px;border-bottom:6px solid #
 #respond .html-help span{display:block;padding:12px;}
 #respond .html-help code{font-size:12px;color:#857e76;background:none;}
 #respond p.submit{text-align:right;}
-
-/* Home */
-.home #content .post .content p{margin-bottom:0;}
-
-/* Notes */
-#content.notes article header{text-align:right;}
-#content.notes article header .date{position:static;width:auto;margin:0;text-align:right;word-spacing:0;font-size:20px;}
-#content.notes article .content{margin-bottom:0;}
-#content.notes article footer{font-size:12px;color:#857e76;background:none;}
-#content.notes article footer .comments-count{display:inline-block;}
-#content.notes article footer a{font-style:italic;font-size:12px;color:#857e76;}
-#content.notes article footer a:hover{color:#a29b94;}
-#content.notes article footer a:active,
-#content.notes article footer a:focus{color:#fff;background:#a29b94;}
-#content.notes article footer strong{font-style:italic;}
-
-/* Veille */
-body.page-id-29 #content h1{margin-bottom:24px;line-height:30px;font-size:16px;color:#857e76;background:url(i/dashed-h.png) repeat-x 0 100%;}
-body.page-id-29 #content .info{padding-left:102px;font-style:italic;color:#857e76;}
-body.page-id-29 #content ul{margin-top:48px;background:url(i/veille-illu.png) no-repeat 16px 0;}
-body.page-id-29 #content li{margin:0 0 12px 233px;padding-left:9px;background:url(i/comment-arrow.png) no-repeat 0 9px;}
-body.page-id-29 #content li p{margin:0;}
-body.page-id-29 #content li a,
-body.page-id-29 #content li a:hover{color:#494949;}
-body.page-id-29 #content li a:focus,
-body.page-id-29 #content li a:active{color:#fff;background:#494949;}
-body.page-id-29 #content li > div{padding:24px 12px;background:#ece4d6;}
-body.page-id-29 #content li > div div p{margin:12px 0 0;}
 
 /* Sidebar */
 #sidebar > *{margin-bottom:12px;background:#ece4d6;}
@@ -439,30 +444,34 @@ body.loading #sidebar > .veille a{background-image:url(i/loader-veille.gif);}
 #sidebar > .text{padding:0 6px 6px;font-size:12px;font-style:italic;color:#857e76;}
 #sidebar > .titled h1{font:25px/41px Georgia, serif;color:#494949;border-bottom:1px solid #b7c272;}
 /* Meteo */
-#sidebar > .meteo{overflow:hidden;padding-bottom:0;}
+#sidebar > .meteo{overflow:hidden;}
 #sidebar > .meteo h1.collapsed{border-color:#ece4d6;}
 #sidebar > .meteo h1{float:left;width:211px;}
 #sidebar > .meteo h1 span{float:left;}
 #sidebar > .meteo h1 button{overflow:hidden;float:left;position:relative;top:9px;margin-left:10px;width:26px;height:33px;text-indent:-9999px;background:url(i/button-box.png) no-repeat 0 -33px;}
-#sidebar > .meteo h1 button:focus{outline:1px dotted #96b713;}
-#sidebar > .meteo h1.collapsed button{background-position:0 0;}
-#sidebar > .meteo > div > p{line-height:48px;}
+#sidebar > .meteo h1 button:focus{outline:1px dotted #757474;}
+#sidebar > .meteo h1.collapsed button{height:26px;background-position:0 0;}
+#sidebar > .meteo > div > p{clear:left;margin-left:6px;margin-bottom:6px;}
+#sidebar > .meteo > div > p:first-child{line-height:48px;margin-bottom:0;}
 body.js #sidebar > .meteo input,
-body.js #sidebar > .meteo .submit{display:none;}
-body.js #sidebar > .meteo form{overflow:hidden;width:168px;margin-left:18px;padding-bottom:6px;}
+body.js #sidebar > .meteo .submit,
+body.js #sidebar > .meteo label{display:none;}
+body.js #sidebar > .meteo form{overflow:hidden;width:168px;margin-left:18px;}
 body.js #sidebar > .meteo form p{float:left;margin:0 0 8px 7px;}
-body.js #sidebar > .meteo label{float:left;width:49px;height:42px;text-indent:-9999px;background:url(i/meteo-buttons.png) no-repeat 0 0;}
-body.js #sidebar > .meteo label[for=meteo-sunny].active{background-position:-49px 0;}
-body.js #sidebar > .meteo label[for=meteo-cloudy]{background-position:0 -84px;}
-body.js #sidebar > .meteo label[for=meteo-cloudy].active{background-position:-49px -84px;}
-body.js #sidebar > .meteo label[for=meteo-rain]{background-position:0 -168px;}
-body.js #sidebar > .meteo label[for=meteo-rain].active{background-position:-49px -168px;}
-body.js #sidebar > .meteo label[for=meteo-snow]{background-position:0 -42px;}
-body.js #sidebar > .meteo label[for=meteo-snow].active{background-position:-49px -42px;}
-body.js #sidebar > .meteo label[for=meteo-night]{background-position:0 -126px;}
-body.js #sidebar > .meteo label[for=meteo-night].active{background-position:-49px -126px;}
-body.js #sidebar > .meteo label[for=meteo-auto]{background-position:0 -210px;}
-body.js #sidebar > .meteo label[for=meteo-auto].active{background-position:-49px -210px;}
+body.js #sidebar > .meteo form button{float:left;width:49px;height:42px;text-indent:-9999px;background:url(i/meteo-buttons.png) no-repeat 0 0;border:2px solid #857e76;}
+body.js #sidebar > .meteo form button:hover,
+body.js #sidebar > .meteo form button:focus{border:2px solid #83a10f;}
+body.js #sidebar > .meteo form button.meteo-sunny.active{background-position:-45px 0;}
+body.js #sidebar > .meteo form button.meteo-cloudy{background-position:0 -76px;}
+body.js #sidebar > .meteo form button.meteo-cloudy.active{background-position:-45px -76px;}
+body.js #sidebar > .meteo form button.meteo-rain{background-position:0 -152px;}
+body.js #sidebar > .meteo form button.meteo-rain.active{background-position:-45px -152px;}
+body.js #sidebar > .meteo form button.meteo-snow{background-position:0 -38px;}
+body.js #sidebar > .meteo form button.meteo-snow.active{background-position:-45px -38px;}
+body.js #sidebar > .meteo form button.meteo-night{background-position:0 -114px;}
+body.js #sidebar > .meteo form button.meteo-night.active{background-position:-45px -114px;}
+body.js #sidebar > .meteo form button.meteo-auto{background-position:0 -190px;}
+body.js #sidebar > .meteo form button.meteo-auto.active{background-position:-45px -190px;}
 /* Notes */
 #sidebar > .notes li{margin:6px 0 0 6px;padding-bottom:18px;background:url(i/dashed2-h.png) repeat-x 0 100%;}
 #sidebar > .notes .content{margin-left:48px;}
@@ -501,3 +510,5 @@ body.js #sidebar > .meteo label[for=meteo-auto].active{background-position:-49px
 #sidebar > .creativecommons h1 a{overflow:hidden;float:left;width:81px;height:96px;margin-right:12px;text-indent:-9999px;background:url(i/creative-commons.png) no-repeat 0 0;}
 #sidebar > .creativecommons h1 a:hover,
 #sidebar > .creativecommons h1 a:focus{color:#6d6a6a;background-position:0 -96px;}
+/* Links */
+#sidebar > .links ul{padding-left:6px;}

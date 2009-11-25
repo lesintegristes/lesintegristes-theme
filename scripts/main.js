@@ -4,12 +4,19 @@
   (function(){
     
     var $body = $("body"),
-  	    $buttons = $("#sidebar section.meteo label"),
+  	    $buttons = (function(){
+  	      var buttons = [];
+  	      $("#sidebar section.meteo label").each(function(i){
+  	        var $this = $(this);
+  	        buttons[i] = $('<button type="button" class="'+ $this.attr("for") + " " + $this.attr("class") +'" value="'+ $this.attr("for").slice(6) +'" title="'+ $this.text() +'">'+ $this.text() +'</button>').insertAfter(this)[0];
+  	      });
+  	      return $(buttons);
+  	    })(),
   	    buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
   	    ajaxCall,
   	    preload;
 	  
-	  $buttons = $buttons.add( $('<p><label for="meteo-auto" title="Auto">Auto</label></p>').insertAfter($buttons.filter(":last").closest("p")).children() );
+	  $buttons = $buttons.add( $('<p><button type="button" class="meteo-auto" value="auto" title="Auto">Auto</button></p>').insertAfter( $buttons.filter(":last").closest("p") ).children() );
 	  
 	  $buttons.click(function() {
 	    
@@ -17,7 +24,7 @@
 	      ajaxCall.abort();
       }
   	  
-  	  var curMeteo = $(this).attr("for").slice(6);
+  	  var curMeteo = $(this).val();
   	  
   	  $.cookies.del("meteo");
       $.cookies.del("meteo_auto");
@@ -34,10 +41,10 @@
   	});
   	
   	if (!$.cookies.get("meteo")) {
-  	  $buttons.filter("[for=meteo-auto]").click();
+  	  $buttons.filter(".meteo-auto").click();
   	  
 	  } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
-	    $buttons.removeClass("active").filter("[for=meteo-auto]").addClass("active");
+	    $buttons.removeClass("active").filter(".meteo-auto").addClass("active");
 	  }
     
     function autoChangeMeteo() {
