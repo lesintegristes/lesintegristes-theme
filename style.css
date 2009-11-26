@@ -177,7 +177,7 @@ body{padding-bottom:40px;background:url(i/strip-shadow.png) no-repeat 50% 15px;}
 #header h1 a{overflow:hidden;display:block;height:74px;text-indent:-9999px;background:#fff url(i/logo-small.png) no-repeat 24px 11px;}
 body.home #header h1 a{background-image:url(i/logo-large.png);background-position:16px 4px;}
 #header h1 a img{display:block;}
-#header p a[rel=alternate]{overflow:hidden;position:absolute;top:-39px;left:445px;display:block;width:62px;height:64px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 100%;}
+#header p a[rel=alternate]{overflow:hidden;position:absolute;top:-15px;left:445px;display:block;width:62px;height:64px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 100%;}
 #header nav{float:right;width:277px;}
 #header nav li{float:left;}
 #header nav li a{float:left;width:80px;padding:6px 0;background:#fff url(i/nav-mini.png) no-repeat 1px 0;}
@@ -209,7 +209,7 @@ body.meteo-night #header{background-image:url(i/meteo/night/header-small.jpg);}
 /* Header - Home */
 body.home{background-position:50% 39px;}
 body.home #header{height:239px;margin-bottom:58px;padding-top:39px;}
-body.home #header p a[rel=alternate]{height:88px;}
+body.home #header p a[rel=alternate]{top:-39px;height:88px;}
 body.home #header nav li a{width:92px;background-image:url(i/nav-large.png);background-position:1px 0;}
 body.home #header nav li:first-child a{width:93px;}
 body.home #header nav li + li a{background-position:-91px 0;}
