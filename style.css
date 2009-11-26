@@ -36,12 +36,13 @@ html{color:#000;background:#FFF;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
 table{border-collapse:collapse;border-spacing:0;}
 fieldset,img{border:0;}
-address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+/*address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}*/
 li{list-style:none;}
 caption,th{text-align:left;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
-q:before,q:after{content:'';}
-abbr,acronym{border:0;font-variant:normal;}
+q:before{content:'« ';}
+q:after{content:' »';}
+abbr,acronym{font-variant:normal;border-bottom: 1px dotted;cursor:help;}
 sup{vertical-align:text-top;}
 sub{vertical-align:text-bottom;}
 input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
@@ -70,7 +71,8 @@ code{position:relative;top:-1px;padding:3px 6px;}
 a code{text-decoration:underline;}
 pre code{display:block;position:static;padding:0;}
 a{color:#83a10f;}
-strong{font-weight:bold;}
+b,strong{font-weight:bold;}
+i,em{font-style:italic;}
 #content a:hover,
 #sidebar a:hover{color:#96b713;}
 #content a:active,
@@ -94,9 +96,9 @@ strong{font-weight:bold;}
 /* Common */
 input[type=submit],button,label{cursor:pointer;}
 pre{padding-left:30px;}
-h2{font-size:18px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
-h3{font-size:16px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
-h4{font-size:14px;color:#83a10f;margin-top:24px;margin-bottom:16px;}
+h2,h3,h4{color:#83a10f;font-size:18px;margin-top:24px;margin-bottom:16px;}
+h3{font-size:16px;}
+h4{font-size:14px;}
 ::-moz-selection{color:#fff;background:#857e76;}
 ::selection{color:#fff;background:#857e76;}
 input[type=text],
@@ -214,7 +216,7 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer a{color:#857e76;}
 #wrapper > footer a:hover,
 #wrapper > footer a:focus{color:#a29b94;}
-#wrapper > footer a:active{color:#fff;background:#a29b94;}
+#wrapper > footer a:active{color:#fff;background-color:#a29b94;}
 #wrapper > footer h1{margin-bottom:24px;font-size:25px;line-height:35px;font-family:Georgia, serif;border-bottom:1px solid #dbd2c3;}
 #wrapper > footer .categories{float:left;width:424px;margin:0 20px 0 40px;padding-bottom:36px;background:url(i/dashed-h.png) repeat-x 0 100%;}
 #wrapper > footer .categories a{text-decoration:none;font-style:italic;}
@@ -240,9 +242,18 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer nav .top a:focus{background-position:2px -18px;}
 #wrapper > footer nav .top a:active{background-color:#a29b94;background-position:2px -36px;}
 #wrapper > footer nav li{padding-bottom:1px;background:url(i/dashed-h.png) repeat-x 0 100%;}
-#wrapper > footer nav li a{overflow:hidden;display:block;height:89px;text-indent:-9999px;background:url(i/footer-nav.png) no-repeat 52px 0;}
-#wrapper > footer nav li + li a{background-position:52px -89px;}
-#wrapper > footer nav li + li + li a{background-position:52px -178px;}
+#wrapper > footer nav li a{overflow:hidden;display:block;width:89px;margin:8px auto 9px;height:72px;text-indent:-9999px;background:url(i/nav-footer.png) no-repeat 0 0;}
+#wrapper > footer nav li a:hover,
+#wrapper > footer nav li a:focus{background-position:-89px 0;}
+#wrapper > footer nav li a:active{background-position:-178px 0;}
+#wrapper > footer nav li + li a{background-position:0 -72px;}
+#wrapper > footer nav li + li a:hover,
+#wrapper > footer nav li + li a:focus{background-position:-89px -72px;}
+#wrapper > footer nav li + li a:active{background-position:-178px -72px;}
+#wrapper > footer nav li + li + li a{background-position:0 -144px;}
+#wrapper > footer nav li + li + li a:hover,
+#wrapper > footer nav li + li + li a:focus{background-position:-89px -144px;}
+#wrapper > footer nav li + li + li a:active{background-position:-178px -144px;}
 #wrapper > footer .bottom-line{position:relative;bottom:-40px;line-height:40px;font-size:10px;text-align:center;}
 /* Loading meteo */
 body.loading #wrapper > footer{background:url(i/loader.gif) no-repeat 436px 100% !important;}
@@ -374,13 +385,25 @@ body.single #content .last-articles{margin-bottom:48px;border-bottom:6px solid #
 #comments > .comments-top .button{float:right;margin-top:8px;}
 #comments article{position:relative;margin-bottom:12px;padding:24px 40px;font-size:12px;font-style:italic;background:#ece4d6;}
 #comments article p{margin:12px 0 0;}
+#comments article q{position:relative;top:-1px;padding:3px 6px;background:#e1d8c9;}
+#comments article em{color:#999289;}
+#comments article pre{margin-top:12px;}
+#comments article pre,
+#comments article code{background:#e1d8c9;}
+#comments article blockquote{margin-top:12px;padding:12px 43px;background:url(i/quotes-comments-open.png) no-repeat 0 0;background:url(i/quotes-comments-open.png) no-repeat 0 0, url(i/quotes-comments-close.png) no-repeat 100% 100%;background-color:#e1d8c9;}
+#comments article blockquote *{margin:0;}
 #comments article div.avatar + *{margin-top:0;}
 #comments article div.avatar{position:absolute;top:0;left:-59px;width:59px;text-align:left;background:url(i/comment-arrow.png) no-repeat 100% 9px;}
 #comments article div.avatar img{border:1px solid #8b8a8a;}
 #comments article p.metas{text-align:right;color:#857e76;}
-#comments article p.metas a{color:#857e76;}
+#comments article p.metas a,
+#respond a{color:#857e76;}
+#comments article p.metas a:hover,
+#respond a:hover{color:#a29b94;}
 #comments article p.metas a:focus,
-#comments article p.metas a:active{color:#fff;background:#857e76;}
+#comments article p.metas a:active,
+#respond a:focus,
+#respond a:active{color:#fff;background:#a29b94;}
 /* Form */
 #respond{padding:24px 40px;font-style:italic;background:#ece4d6;}
 #respond p{margin-bottom:12px;}
@@ -407,9 +430,9 @@ body.single #content .last-articles{margin-bottom:48px;border-bottom:6px solid #
 #sidebar a:active,
 #sidebar a:focus{color:#fff;background:#a29b94;}
 #sidebar a.all{margin-right:6px;text-transform:lowercase;color:#494949;}
+#sidebar a.all:hover{color:#6d6a6a;}
 #sidebar a.all:active,
 #sidebar a.all:focus{color:#fff;background:#a29b94;}
-#sidebar a.all:hover{color:#6d6a6a;}
 #sidebar .footer{margin:6px 0;text-align:right;}
 /* Comments count */
 #sidebar .comments-count{width:42px;margin-left:48px;padding-right:6px;}

@@ -134,7 +134,7 @@
 			<section class="titled text links">
 				<h1>Liens</h1>
 				<ul>
-					<li><a href="<?php echo get_option('home'); ?>/wp-admin/">Administration</a></li>
+					<li><a href="<?php echo get_option('home'); ?>/wp-admin/" class="action">Administration</a></li>
 				</ul>
 			</section>
 			<?php endif; ?>

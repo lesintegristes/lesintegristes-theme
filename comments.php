@@ -22,7 +22,7 @@
 			<article id="comment-<?php comment_ID() ?>">
 				<div class="avatar"><?php echo get_avatar( $comment->comment_author_email, $size = '43', $default = get_bloginfo('template_url') . '/images/gravatar.png' ); ?></div>
 				<?php comment_text(); ?>
-				<p class="metas">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></strong> par <strong><?php echo get_comment_author_link(); ?></strong></p>
+				<p class="metas">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></strong> par <strong><?php echo get_comment_author_link(); ?></strong><?php edit_comment_link("Modifier le commentaire", ". ", ".") ?></p>
 			</article>
 			<?php endforeach; ?>
 		

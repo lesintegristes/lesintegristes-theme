@@ -1,5 +1,5 @@
 <?php
-automatic_feed_links();
+
 /*if ( function_exists('register_sidebar') ) {
 	register_sidebar(array(
 		'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -9,7 +9,9 @@ automatic_feed_links();
 	));
 }*/
 
-/* RSS *//*
+/* RSS */
+automatic_feed_links();
+/*
 function rss_init() {
 	//automatic_feed_links(!is_page("home"));
 	echo '<link rel="alternate" type="application/rss+xml" title="'. get_bloginfo('name').' RSS Feed" href="'. get_bloginfo('rss2_url').'" />'."\n";
@@ -18,9 +20,17 @@ function rss_init() {
 }
 add_action("wp_head", "rss_init");*/
 
+/* HTML tags allowed for comments */
+global $allowedtags;
+$allowedtags["pre"] = array();
+unset($allowedtags["del"]);
+unset($allowedtags["strike"]);
+unset($allowedtags["i"]);
+unset($allowedtags["b"]);
+unset($allowedtags["acronym"]);
+
 /* Init meteo */
 $GLOBALS["cur_meteo_condition"] = "";
-
 function lesintegristes_meteo_init() {
 	
 	if (!is_admin()) {
