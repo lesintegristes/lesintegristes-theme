@@ -14,8 +14,10 @@
 			<?php if ($show_veille): ?>
 			<div class="veille">
 				<a href="<?php echo bloginfo('url'); ?>/veille/" title="Veille : Offrez notre sélection d'infos à votre agrégateur !">
-					<p><strong>Veille</strong></p>
-					<p>Offrez notre sélection d'infos à votre agrégateur !</p>
+					<div>
+						<p><strong>Veille</strong></p>
+						<p>Offrez notre sélection d'infos à votre agrégateur !</p>
+					</div>
 				</a>
 			</div>
 			<?php endif; ?>

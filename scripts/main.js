@@ -14,7 +14,10 @@
   	    })(),
   	    buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
   	    ajaxCall,
-  	    preload;
+  	    preload,
+  	    $headerOverlay = $('<div class="overlay" />').appendTo("#header").css("opacity","0"),
+  	    $headerLoader = $('<div class="loader"><div></div></div>').insertAfter($headerOverlay),
+  	    loaderVisible = false;
 	  
 	  $buttons = $buttons.add( $('<p><button type="button" class="meteo-auto" value="auto" title="Auto">Auto</button></p>').insertAfter( $buttons.filter(":last").closest("p") ).children() );
 	  
@@ -48,52 +51,56 @@
 	  }
     
     function autoChangeMeteo() {
-      $body.addClass("loading");
+      showLoading();
       ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
+        hideLoading();
         changeMeteo(data, {hoursToLive: 1});
         $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
   	  });
-  	}
+  	};
     
     function changeMeteo(weather, settings) {
       
-      if (!!preload) {
-        preload.stop();
+      if (loaderVisible) {
+        hideLoading();
       }
       
       settings = $.extend({
         hoursToLive: 24
       }, settings);
       
-  		for (i in buttonsData) {
-  			$body.removeClass("meteo-" + buttonsData[i]);
-  		}
-  		
-  		$body.addClass("loading");
-  		
-  		preload = preloadImg(
-  		  jQuery.lesintegristes.themeUrl + "/i/meteo/" + weather + "/header-" + ( ($body.hasClass("home"))? "large" : "small" ) + ".jpg",
-  		  function() {
-    		  $body.removeClass("loading").addClass("meteo-" + weather);
-    		  preload = null;
-  		  });
-  		
-  		$.cookies.set("meteo", weather, settings);
+      updateBodyClass(weather);
+      
+      $.cookies.set("meteo", weather, settings);
     };
+    
+    function updateBodyClass(weather) {
+      $body
+			  .removeClass("meteo-" + buttonsData.join(" meteo-"))
+			  .addClass("meteo-" + weather);
+    }
   	
-  	function preloadImg(img, callback) {
-  	  $imgToLoad = $('<img src="'+ img +'" style="position:absolute;top:0;left:-9999px;" />').appendTo("body");
-  	  $imgToLoad.load(function(){
-  	    $imgToLoad.remove();
-  	    callback();
-  	  });
+  	function showLoading() {
   	  
-  	  return {
-  	    stop: function() {
-  	      $imgToLoad.unbind("load").remove();
+  	  loaderVisible = true;
+  	  
+  	  $headerLoader.fadeIn(100);
+      $headerOverlay.show().fadeTo(100, .55, function(){
+  	    if (loaderVisible) {
+  	      $body.addClass("loading");
   	    }
-  	  };
-  	}
+  		});
+  	};
+  	
+  	function hideLoading() {
+	    
+	    loaderVisible = false;
+			
+			$headerLoader.fadeOut(100);
+		  $headerOverlay.fadeOut(100, function(){
+  		  $body.removeClass("loading");
+  		});
+  	};
   	
 	})();
   
@@ -104,7 +111,7 @@
           
           var $this = $(this),
               $parent = $this.parent();
-              
+          
           if ($parent.hasClass("collapsed")) {
             $(this).text("Replier");
             $parent.removeClass("collapsed").next().slideDown(150);
@@ -114,7 +121,7 @@
           }
         }).parent().next().hide();
     });
-  })
+  });
   
   /* "Last articles" (nom temporaire) height */
   $(function(){
