@@ -14,12 +14,27 @@
 		<div class="comments-top">
 			<h2 class="comments-count"><?php comments_number('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></h2>
 			<?php if (comments_open()): ?>
-			<p class="post-comment"><a href="#respond" class="button"><span><span>Poster un commentaire</span></span></a></p>
+			<p class="post-comment"><a href="#respond" class="button"><span><span><span>Poster un commentaire</span></span></span></a></p>
 				<?php endif; ?>
 		</div>
+		<p class="rss"><?php echo lesintegristes_get_feed_link(get_post_comments_feed_link( $post_id, "rss2" ), "Flux RSS des commentaires de cet article"); ?></p>
 		<?php if ( have_comments() ) : ?>
 			<?php foreach ($comments as $comment): ?>
-			<article id="comment-<?php comment_ID() ?>">
+			<?php
+				$comment_class_attribute = '';
+				$comment_classes = '';
+				if ( $comment->user_id > 0 ) {
+					$comment_classes .= " blog-author";
+				}
+				if ( $comment->user_id === $post->post_author ) {
+					$comment_classes .= " post-author";
+				}
+				
+				if ($comment_classes !== '') {
+					$comment_class_attribute = ' class="'. $comment_classes .'"';
+				}
+			?>
+			<article id="comment-<?php comment_ID() ?>"<?php echo $comment_class_attribute ?>>
 				<div class="avatar"><?php echo get_avatar( $comment->comment_author_email, $size = '43', $default = get_bloginfo('template_url') . '/images/gravatar.png' ); ?></div>
 				<?php comment_text(); ?>
 				<p class="metas">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></strong> par <strong><?php echo get_comment_author_link(); ?></strong><?php edit_comment_link("Modifier le commentaire", ". ", ".") ?></p>

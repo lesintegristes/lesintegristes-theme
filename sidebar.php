@@ -49,14 +49,14 @@
 				<ul>
 				<?php
 					global $wp_locale;
-					$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY post_date DESC");
+					$years = get_lesintegristes_archives_years_query();
 					foreach($years as $year) :
 				?>
 					<li>
 						<strong><a href="<?php echo get_year_link($year); ?>"><?php echo $year; ?></a></strong>
 						<ul>
 						<?php
-							$months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = '".$year."' ORDER BY post_date DESC");
+							$months = get_lesintegristes_archives_months_query($year);
 							foreach($months as $month) :
 							?>
 							<li><a href="<?php echo get_month_link($year, $month); ?>"><?php echo $wp_locale->get_month($month); ?></a></li>
@@ -75,10 +75,10 @@
 				<h1>Derniers articles</h1>
 				<ul>
 					<?php
-						rewind_posts();
-						query_posts("cat=-31&posts_per_page=3");
+						$articles_query = new WP_Query('cat=-31&posts_per_page=3');
+						while ($articles_query->have_posts()) :
+							$articles_query->the_post();
 					?>
-					<?php while (have_posts()) : the_post(); ?>
 					<li>
 						<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
 						<p class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></p>
@@ -98,10 +98,10 @@
 				<h1>Dernières Notes</h1>
 				<ul>
 					<?php
-						rewind_posts();
-						query_posts("cat=31&posts_per_page=3");
+						$notes_query = new WP_Query('cat=31&posts_per_page=3');
+						while ($notes_query->have_posts()) :
+							$notes_query->the_post();
 					?>
-					<?php while (have_posts()) : the_post(); ?>
 					<li>
 						<p class="date"><time datetime="<?php the_time('c'); ?>"><?php the_time('j/m') ?></time></p>
 						<div class="content">

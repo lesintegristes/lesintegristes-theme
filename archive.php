@@ -5,8 +5,10 @@
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 	<?php /* If this is a category archive */ if (is_category()) { ?>
 	<h1>Articles de la catégorie «&nbsp;<?php single_cat_title(); ?>&nbsp;»</h1>
+	<p class="rss"><?php echo lesintegristes_get_feed_link(get_category_feed_link($cat, "rss2"), "Flux RSS de la catégorie «&nbsp;". single_cat_title("", false) ."&nbsp;»"); ?></p>
 	<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
 	<h1>Articles tagués «&nbsp;<?php single_tag_title(); ?>&nbsp;»</h1>
+	<p class="rss"><?php echo lesintegristes_get_feed_link(get_tag_feed_link($tag_id), "Flux RSS du tag «&nbsp;". single_tag_title("", false) ."&nbsp;»"); ?></p>
 	<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
 	<h1>Articles du <?php the_time('F jS, Y'); ?></h1>
 	<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>

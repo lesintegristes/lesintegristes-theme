@@ -4,6 +4,7 @@
 	<?php if (have_posts()) : ?>
 	
 	<h1>Toutes les notes</h1>
+	<p class="rss"><?php echo lesintegristes_get_feed_link(get_category_feed_link($cat, "rss2"), "Flux RSS des notes") ?></p>
 		
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">

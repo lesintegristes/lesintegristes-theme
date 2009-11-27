@@ -6,6 +6,7 @@
 		if (have_posts()) :
 ?>
 	<h1>Tous les articles</h1>
+	<p class="rss"><?php echo lesintegristes_get_feed_link( get_bloginfo("wpurl").'/articles/feed/', 'Flux RSS des articles') ?></p>
 	
 	<?php
 		global $more;

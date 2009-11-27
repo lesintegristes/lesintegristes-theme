@@ -104,6 +104,7 @@
   	
 	})();
   
+  /* Collapsible box */
   $(function(){
     $("#sidebar section.collapsible").each(function(){
       $button = $('<button type="button">Replier</button>').appendTo($(this).children("h1").addClass("collapsed"))
@@ -123,15 +124,15 @@
     });
   });
   
-  /* "Last articles" (nom temporaire) height */
+  /* "Last articles" height */
   $(function(){
     var maxHeight = 0;
-    $("ul.last-articles li:lt(3) dt a").each(function(){
+    $("ul.last-articles li:lt(3) dt").each(function(){
       var thisHeight = $(this).height();
       if (thisHeight > maxHeight) {
         maxHeight = thisHeight;
       }
-    }).parent().height(maxHeight);
+    }).height(maxHeight);
   });
   
   /* Archives toggle button */
@@ -158,5 +159,34 @@
 			$(curHref).focus();
 		});
 	});
+	
+	/* Grid */
+	var $grid;
+	function initGrid() {
+	  $grid = $('<div class="grid">').appendTo("body").css({
+  	  position: "absolute",
+  	  top: "0",
+  	  left: "0",
+  	  background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0"
+  	});
+	};
+	function resizeGrid() {
+	  $grid.css({
+	    width: $("body").outerWidth(),
+  	  height: $("body").outerHeight()
+	  });
+	}
+	$.lesintegristes.showGrid = function() {
+	  if (!$grid) {
+	    initGrid();
+    }
+    resizeGrid();
+    $grid.show();
+	};
+	$.lesintegristes.hideGrid = function() {
+	  if (!!$grid) {
+	    $grid.hide();
+	  }
+	};
   
 })(jQuery);

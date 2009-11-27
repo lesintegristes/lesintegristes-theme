@@ -21,8 +21,15 @@
 	background-color: #ece4d6 !important;
 }
 
-.syntaxhighlighter .toolbar a.printSource,
-.syntaxhighlighter .toolbar a.about{display:none !important;}
+.syntaxhighlighter .toolbar .item.printSource,
+.syntaxhighlighter .toolbar .item.about{display:none !important;}
+
+.syntaxhighlighter .toolbar{padding:0 !important;}
+.syntaxhighlighter .toolbar .item.viewSource{position:absolute;left:-9999px;width:55px !important;height:50px !important;margin:0 !important;color:#857e76 !important;background-image:url(../i/show-code.png) !important;}
+.syntaxhighlighter .toolbar .item.viewSource:focus,
+.syntaxhighlighter .bar.show .toolbar .item.viewSource{left:auto;right:8px;}
+
+.syntaxhighlighter .bar{display:block !important;}
 
 /* Highlighed line number */
 .syntaxhighlighter .line.highlighted .number

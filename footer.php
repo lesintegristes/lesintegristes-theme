@@ -1,15 +1,24 @@
   	<footer>
 			<div>
-				<section class="categories">
-					<h1>Catégories</h1>
-					<?php echo substr_replace(str_replace('<br />', ', ', wp_list_categories('show_count=0&exclude=31&title_li=<h1>Catégories</h1>&style=none&echo=0')) , "", -3); ?>
-				</section>
+				
+				<div class="categories-rss-container">
+					<section class="categories">
+						<h1>Catégories</h1>
+						<p><?php echo substr_replace(str_replace('<br />', ', ', wp_list_categories('show_count=0&exclude=31&title_li=<h1>Catégories</h1>&style=none&echo=0')) , "", -3); ?></p>
+					</section>
+					
+					<section class="rss">
+						<p><?php echo lesintegristes_get_feed_link(get_bloginfo('rss2_url'), 'Flux RSS du blog (articles et notes)', false) ?></p>
+						<p><?php echo lesintegristes_get_feed_link(get_bloginfo("wpurl") .'/articles/feed/', 'Flux RSS des articles uniquement', false) ?></p>
+					</section>
+				</div>
+				
 				<section class="archives">
 					<h1>Archives</h1>
 					<ul>
 					<?php
 						global $wp_locale;
-						$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY post_date DESC");
+						$years = get_lesintegristes_archives_years_query();
 						foreach($years as $year) :
 					?>
 						<li>
@@ -17,7 +26,7 @@
 							<div>
 							<ul>
 							<?php
-								$months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = '".$year."' ORDER BY post_date DESC");
+								$months = get_lesintegristes_archives_months_query($year);
 								foreach($months as $month) :
 								?>
 								<li><a href="<?php echo get_month_link($year, $month); ?>"><?php echo $wp_locale->get_month($month); ?></a></li>
@@ -39,12 +48,12 @@
 				</nav>
 			</div>
 			<p class="bottom-line">Merci <a href="http://twitter.com/gregoiredierend" title="Grégoire Dierendonck">Grégoire</a>. Merci <a href="http://www.wordpress.org">Wordpress</a>. Merci à toutes les mamans du monde.</p>
-			<?php wp_footer(); ?>
-			<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/syntax-highlighter.js"></script>
-			<script type="text/javascript">
-				SyntaxHighlighter.all();
-			</script>
 		</footer>
+		<?php wp_footer(); ?>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/syntax-highlighter.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.all();
+		</script>
   </div>
 	</div>
 	</body>

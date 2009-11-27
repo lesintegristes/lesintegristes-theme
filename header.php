@@ -3,6 +3,10 @@
 	if ($cur_meteo_condition !== "") {
 		$body_classes .= "meteo-" . $cur_meteo_condition;
 	}
+	
+	$articles_active = ( is_home() || (is_single() && !in_category('31')) || (is_archive() && !is_category('31')) );
+	$notes_active = ( is_category('31') || (is_single() && in_category('31')) );
+	$auteurs_active = is_page('auteurs');
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -37,11 +41,11 @@
 				<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 				<nav role="navigation">
 					<ul>
-						<li><a href="<?php echo lesintegristes_get_articles_url() ?>"><span>Articles</span></a></li>
-						<li><a href="<?php bloginfo('url'); ?>/categorie/notes/"><span>Notes</span></a></li>
-						<li><a href="<?php bloginfo('url'); ?>/auteurs/"><span>Auteurs</span></a></li>
+						<li><a href="<?php echo lesintegristes_get_articles_url() ?>"<?php echo getAttributeIfTrue($articles_active) ?>><span>Articles</span></a></li>
+						<li><a href="<?php bloginfo('url'); ?>/categorie/notes/"<?php echo getAttributeIfTrue($notes_active) ?>><span>Notes</span></a></li>
+						<li><a href="<?php bloginfo('url'); ?>/auteurs/"<?php echo getAttributeIfTrue($auteurs_active) ?>><span>Auteurs</span></a></li>
 					</ul>
 				</nav>
-				<p><a rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss_url'); ?>">RSS</a></p>
+				<p><?php echo lesintegristes_get_feed_link(get_bloginfo('rss2_url'), 'Flux RSS du blog') ?></p>
 			</div>
 		</header>
