@@ -26,7 +26,6 @@
 			<section class="titled text meteo collapsible">
 				<h1><span>Météo</span></h1>
 				<div>
-				<p>Faites la pluie et le beau temps.</p>
 					<?php global $cur_meteo_condition; ?>
 					<form action="" method="post">
 						<p><input name="change_meteo" type="radio" value="sunny" id="meteo-sunny"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "sunny"), "checked", "checked") ?> /> <label for="meteo-sunny"<?php echo getAttributeIfTrue(($cur_meteo_condition === "sunny")) ?> title="Soleil">Soleil</label></p>
@@ -36,7 +35,7 @@
 						<p><input name="change_meteo" type="radio" value="night" id="meteo-night"<?php echo getAttributeIfTrue( ($cur_meteo_condition === "night"), "checked", "checked") ?> /> <label for="meteo-night"<?php echo getAttributeIfTrue(($cur_meteo_condition === "night")) ?> title="Nuit">Nuit</label></p>
 						<p class="submit"><button type="submit"><span><span>Changer la météo</span></span></button></p>
 					</form>
-					<p>(Sélection valable 24h.)</p>
+					<p>Faites la pluie et le beau temps (sélection valable 24h).</p>
 				</div>
 			</section>
 			<!--<![endif]-->

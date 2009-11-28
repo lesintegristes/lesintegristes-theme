@@ -127,18 +127,23 @@
   /* Collapsible box */
   $(function(){
     $("#sidebar section.collapsible").each(function(){
-      $button = $('<button type="button">Replier</button>').appendTo($(this).children("h1").addClass("collapsed"))
+      $button = $('<button type="button" title="Déplier">Déplier</button>').appendTo($(this).children("h1").addClass("collapsed"))
+        
         .click(function() {
           
           var $this = $(this),
               $parent = $this.parent();
           
-          if ($parent.hasClass("collapsed")) {
-            $(this).text("Replier");
-            $parent.removeClass("collapsed").next().slideDown(150);
+          if (!$parent.hasClass("expanded")) {
+            $(this).text("Replier").attr("title","Replier");
+            $parent.addClass("expanded animated").next().slideDown(150, function(){
+              $parent.removeClass("animated");
+            });
           } else {
-            $(this).text("Déplier");
-            $parent.addClass("collapsed").next().slideUp(150);
+            $(this).text("Déplier").attr("title","Déplier");
+            $parent.removeClass("expanded").addClass("animated").next().slideUp(150, function(){
+              $parent.removeClass("animated");
+            });
           }
         }).parent().next().hide();
     });
