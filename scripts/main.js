@@ -4,14 +4,7 @@
   (function(){
     
     var $body = $("body"),
-  	    $buttons = (function(){
-  	      var buttons = [];
-  	      $("#sidebar section.meteo label").each(function(i){
-  	        var $this = $(this);
-  	        buttons[i] = $('<button type="button" class="'+ $this.attr("for") + " " + $this.attr("class") +'" value="'+ $this.attr("for").slice(6) +'" title="'+ $this.text() +'">'+ $this.text() +'</button>').insertAfter(this)[0];
-  	      });
-  	      return $(buttons);
-  	    })(),
+  	    $buttons,
   	    buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
   	    ajaxCall,
   	    preload,
@@ -19,37 +12,62 @@
   	    $headerLoader = $('<div class="loader"><div></div></div>').insertAfter($headerOverlay),
   	    loaderVisible = false;
 	  
-	  $buttons = $buttons.add( $('<p><button type="button" class="meteo-auto" value="auto" title="Auto">Auto</button></p>').insertAfter( $buttons.filter(":last").closest("p") ).children() );
-	  
-	  $buttons.click(function() {
+	  // Document ready
+	  $(function(){
 	    
-	    if (!!ajaxCall) {
-	      ajaxCall.abort();
-      }
+	    initButtons();
+	    
+	    if (!$.cookies.get("meteo")) {
+    	  $buttons.filter(".meteo-auto").click();
+
+  	  } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
+  	    $buttons.removeClass("active").filter(".meteo-auto").addClass("active");
+  	  }
   	  
-  	  var curMeteo = $(this).val();
-  	  
-  	  $.cookies.del("meteo");
-      $.cookies.del("meteo_auto");
-  	  
-  	  $buttons.removeClass("active");
-  	  $(this).addClass("active");
-  	  
-  	  if (curMeteo === "auto") {
-        autoChangeMeteo();
-        
-      } else {
-        changeMeteo(curMeteo);
-      }
-  	});
-  	
-  	if (!$.cookies.get("meteo")) {
-  	  $buttons.filter(".meteo-auto").click();
-  	  
-	  } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
-	    $buttons.removeClass("active").filter(".meteo-auto").addClass("active");
-	  }
+	  });
+	  
+	  // Create buttons
+	  function initButtons() {
+	    
+	    var buttons = [];
+	    
+	    $("#sidebar section.meteo label").each(function(i){
+        var $this = $(this);
+        buttons[i] = $('<button type="button" class="'+ $this.attr("for") + " " 
+                     + $this.attr("class") +'" value="'+ $this.attr("for").slice(6) +'" title="'
+                     + $this.text() +'">'+ $this.text() +'</button>').insertAfter(this)[0];
+      });
+	    $buttons = $(buttons);
+	    
+	    $buttons = $buttons.add(
+	        $('<p><button type="button" class="meteo-auto" value="auto" title="Auto">Auto</button></p>')
+	        .insertAfter( $buttons.filter(":last").closest("p") ).children()
+	    );
+	    
+  	  $buttons.click(function() {
+	      
+  	    if (!!ajaxCall) {
+  	      ajaxCall.abort();
+        }
+  	    
+    	  var curMeteo = $(this).val();
+  	    
+    	  $.cookies.del("meteo");
+        $.cookies.del("meteo_auto");
+  	    
+    	  $buttons.removeClass("active");
+    	  $(this).addClass("active");
+  	    
+    	  if (curMeteo === "auto") {
+          autoChangeMeteo();
+          
+        } else {
+          changeMeteo(curMeteo);
+        }
+    	});
+  	};
     
+    // Auto change meteo (Yahoo Weather API)
     function autoChangeMeteo() {
       showLoading();
       ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
@@ -59,6 +77,7 @@
   	  });
   	};
     
+    // Change meteo
     function changeMeteo(weather, settings) {
       
       if (loaderVisible) {
@@ -74,6 +93,7 @@
       $.cookies.set("meteo", weather, settings);
     };
     
+    // Change body meteo class
     function updateBodyClass(weather) {
       $body
 			  .removeClass("meteo-" + buttonsData.join(" meteo-"))
