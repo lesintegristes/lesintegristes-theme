@@ -17,8 +17,10 @@
  
 .syntaxhighlighter
 {
-  padding:12px 0 !important;
+  padding:24px 0 !important;
 	background-color: #ece4d6 !important;
+	margin:24px 0 !important;
+  width:auto !important;
 }
 
 .syntaxhighlighter .toolbar .item.printSource,

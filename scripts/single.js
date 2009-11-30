@@ -1,5 +1,21 @@
 (function($){
   $(function(){
+    
+    
+  	/* Rectify images line-height */
+  	var $imgs = $("#content article.hentry > div.content img").each(function(){
+  	  var $this = $(this),
+  	      thisHeight = $this.height(),
+  	      $target = ($this.parent().is("a"))? $this.parent() : $this;
+  	  
+  	  $target.css({
+  	    "display": "inline-block",
+  	    "marginBottom": (24 - thisHeight % 24) + "px"
+  	  });
+  	  
+  	});
+    
+    /* HTML Help animation */
     var $htmlHelp = $("#respond p.html-help");
     $htmlHelp.height($htmlHelp.height()).hide();
     $("#respond textarea").focus(function(){
