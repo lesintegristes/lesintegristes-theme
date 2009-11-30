@@ -163,13 +163,18 @@
   /* Archives toggle button */
   $('<button type="button">Replier</button>')
     .appendTo("#wrapper > footer .archives li strong")
+    
     .click(function() {
-      var $this = $(this);
+      var $this = $(this).addClass("animated");
+      var slideCallback = function(){
+        $this.removeClass("animated");
+      };
       
       if ($this.hasClass("expanded")) {
-        $(this).removeClass("expanded").text("Déplier").parent().next().slideUp(150);
-      } else {  
-        $(this).addClass("expanded").text("Replier").parent().next().slideDown(150);
+        $this.removeClass("expanded").text("Déplier").parent().next().slideUp(150, slideCallback);
+        
+      } else {
+        $this.addClass("expanded").text("Replier").parent().next().slideDown(150, slideCallback);
       }
     })
     .filter(":not(:first)").parent().next().hide().end().end()
@@ -192,6 +197,7 @@
   	  position: "absolute",
   	  top: "0",
   	  left: "0",
+  	  zIndex: "9999",
   	  background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0"
   	});
 	};

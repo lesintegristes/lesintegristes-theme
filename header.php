@@ -1,8 +1,7 @@
 <?php
 	global $cur_meteo_condition;
-	if ($cur_meteo_condition !== "") {
-		$body_classes .= "meteo-" . $cur_meteo_condition;
-	}
+	
+	$body_classes .= "meteo-" . $cur_meteo_condition;
 	
 	$articles_active = ( is_home() || (is_single() && !in_category('31')) || (is_archive() && !is_category('31')) );
 	$notes_active = ( is_category('31') || (is_single() && in_category('31')) );

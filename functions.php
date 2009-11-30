@@ -53,14 +53,16 @@ function lesintegristes_meteo_init() {
 		
 		$meteo_conditions = array("cloudy", "rain", "snow", "sunny", "night");
 		
-		$body_classes = "";
-		
 		if ( isset($_POST["change_meteo"]) && in_array($_POST["change_meteo"], $meteo_conditions) ) {
 			$cur_meteo_condition = $_POST["change_meteo"];
 			setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
 			
 		} elseif ( isset($_COOKIE['meteo']) && in_array($_COOKIE['meteo'], $meteo_conditions) ) {
 			$cur_meteo_condition = $_COOKIE['meteo'];
+			
+		} else {
+			$cur_meteo_condition = "sunny";
+			setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
 		}
 	}
 }
