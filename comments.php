@@ -66,7 +66,7 @@
 		
 		<?php if ( is_user_logged_in() ) : ?>
 		
-		<p>Vous n'êtes pas <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> ? <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Déconnexion">Déconnectez-vous</a>.</p>
+		<p>Vous n'êtes pas <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php" class="action"><?php echo $user_identity; ?></a> ? <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Déconnexion" class="action">Déconnectez-vous</a>.</p>
 		
 		<?php else : ?>
 		

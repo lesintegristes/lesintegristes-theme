@@ -6,11 +6,13 @@
   	var $imgs = $("#content article.hentry > div.content img").each(function(){
   	  var $this = $(this),
   	      thisHeight = $this.height(),
-  	      $target = ($this.parent().is("a"))? $this.parent() : $this;
+  	      $target = ($this.parent().is("a,figure"))? $this.parent() : $this;
   	  
   	  $target.css({
   	    "display": "inline-block",
   	    "marginBottom": (24 - thisHeight % 24) + "px"
+  	    
+  	    // Ajouter limite : si marginBottom <= 10, ajouter 24
   	  });
   	  
   	});

@@ -36,6 +36,10 @@
 	<div>
 	<div id="wrapper">
 		<header role="banner" id="header">
+			<p class="shortcuts">
+				<a href="#content">Accéder au contenu</a>
+				<a href="#searchform">Accéder à la recherche</a>
+			</p>
 			<div>
 				<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 				<nav role="navigation">
