@@ -10,7 +10,7 @@
 		
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
-				<p class="date"><?php the_time('j/n/y<b\r /> H\hi') ?></p>
+				<p class="date"><time datetime="<?php the_time('c'); ?>"><?php the_time('j/n/y<b\r /> H\hi') ?></time></p>
 			</header>
 			<div class="content">
 				<?php the_content(); ?>

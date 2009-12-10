@@ -7,7 +7,7 @@ wpcf7_enqueue_styles();
 get_header();
 ?>
 
-<div id="content" role="main">
+<div id="content" role="main" class="page-auteurs">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<h1><?php the_title(); ?></h1>
 		

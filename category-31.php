@@ -9,7 +9,7 @@
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
-					<p class="date"><?php the_time('j/n/y<b\r /> H\hi') ?></p>
+					<p class="date"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><time datetime="<?php the_time('c'); ?>"><?php the_time('j/n/y<b\r /> H\hi') ?></time></a></p>
 					<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 				</header>
 				<div class="content">
@@ -17,7 +17,7 @@
 				</div>
 				<footer>
 					<p>
-						<span class="author">Par <a href="link"><?php the_author_posts_link() ?></a></span>,
+						<span class="author">Par <?php the_author_posts_link() ?></span>,
 						<?php comments_popup_link('0 commentaires', '1 commentaire', '% commentaires'); ?>,
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lien permanent</a></p>
 				</footer>

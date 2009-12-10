@@ -193,16 +193,16 @@
 	/* Grid */
 	var $grid;
 	function initGrid() {
-	  $grid = $('<div class="grid">').appendTo("body").css({
+	  $grid = $('<div class="grid"><div></div></div>').appendTo("body").css({
   	  position: "absolute",
   	  top: "0",
   	  left: "0",
   	  zIndex: "9999",
   	  background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0"
-  	});
+  	}).children().css("background", "url("+$.lesintegristes.themeUrl+"/i/h-grid.png) repeat-y 50% 0");
 	};
 	function resizeGrid() {
-	  $grid.css({
+	  $grid.add($grid.children()).css({
 	    width: $("body").outerWidth(),
   	  height: $("body").outerHeight()
 	  });

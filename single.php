@@ -13,8 +13,8 @@
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-				<p class="date"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></p>
-				<p class="author">Par <strong><?php the_author_posts_link() ?></strong></p>
+				<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
+				<p class="author"><?php echo lesintegristes_get_author_link(get_the_author_ID(), array("before" => "Par <strong>", "after" => "</strong>")) ?></p>
 			</header>
 			<div class="content">
 				<?php the_content(); ?>
@@ -23,7 +23,7 @@
 				<?php wp_link_pages(array('before' => '<p><strong>Pages&nbsp;:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 				
 				<p>
-					Cet article a été publié le <?php the_time('l j F Y') ?> à <?php the_time("G\hi") ?>
+					Article rédigé par <?php the_author_posts_link() ?>, publié le <time datetime="<?php the_time('c'); ?>"><?php echo strtolower(get_the_time('l j F Y')) ?> à <?php the_time("G\hi") ?></time>
 					dans la catégorie <?php the_category(', ') ?>.
 					Vous pouvez suivre les commentaires de cet article en utilisant <?php post_comments_feed_link('le flux RSS dédié'); ?>.
 					

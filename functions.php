@@ -142,4 +142,15 @@ function getAttributeIfTrue($condition, $attribute = 'class', $value = 'active')
 	}
 }
 
+/* Get author link (with some options) */
+function lesintegristes_get_author_link($author_id, $opts = array()) {
+	
+	if (!isset($opts["before"])) $opts["before"] = "";
+	if (!isset($opts["after"]))  $opts["after"] = "";
+	
+	$author = get_userdata($author_id);
+	
+	return '<a href="'. get_bloginfo('url') .'/author/'. $author->user_nicename .'/" title="Articles par '.$author->display_name.'">'. $opts["before"]  . $author->display_name . $opts["after"] . '</a>';
+}
+
 ?>
