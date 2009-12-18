@@ -46,10 +46,10 @@ get_header();
 		<p class="invitation"><strong>Les Intégristes est un blog ouvert à tous,<br /> n’hésitez pas à nous contacter<br /> pour participer à sa rédaction. :)</strong></p>
 		
 		<section class="contact">
-			<h1>Contactez-nous</h1>
+			<h1>Contactez-nous&nbsp;!</h1>
 			<?php the_content(); ?>
 		</section>
-		
+		<script type="text/javascript">jQuery("section.contact span.wpcf7-not-valid-tip-no-ajax").closest("p").addClass("error");</script>
 	<?php endwhile; endif; ?>
 </div>
 <?php get_sidebar(); ?>

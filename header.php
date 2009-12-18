@@ -12,6 +12,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
+		<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon.png" />
+		<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/images/apple-touch-icon.png"/>
 		<!--[if !IE 6]><!--><link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="all" /><!--<![endif]-->
 		<!--[if IE 6]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/ie6-universal.0.3.css" media="all" /><![endif]-->
 		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/syntax-highlighter.css" media="all" />

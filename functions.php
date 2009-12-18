@@ -70,7 +70,8 @@ add_action("init", "lesintegristes_meteo_init");
 
 /* Remove <img> and <figure> */
 function lesintegristes_remove_img_and_figure($content) {
-	$content = preg_replace('@<figure[^>]*?>.*?</figure>@si', '', $content);
+	$content = apply_filters('the_content', $content);
+	$content = preg_replace('@<p class="wp-caption-text">.*?</p>@si', '', $content);
 	$content = preg_replace('/<img[^>]+./','', $content);
 	return $content;
 }

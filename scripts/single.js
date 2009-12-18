@@ -6,18 +6,25 @@
   	var $imgs = $("#content article.hentry > div.content img").each(function(){
   	  var $this = $(this),
   	      thisHeight = $this.height(),
-  	      $target = ($this.parent().is("a,figure"))? $this.parent() : $this,
-  	      additionnlMargin = 24 - thisHeight % 24;
+  	      $target = ($this.parent().is("a,div.wp-caption"))? $this.parent() : $this,
+  	      additionnalMargin = 24 - thisHeight % 24,
+  	      mode = "margin";
   	  
-  	  if (additionnlMargin <= 10) {
-  	    additionnlMargin += 24;
+  	  if (!$target.is(".wp-caption") && !$target.is("img.alignleft") && !$target.is("img.alignright") && additionnalMargin < 10) {
+  	    additionnalMargin += 24;
   	  }
   	  
-  	  $target.css({
-  	    "display": "inline-block",
-  	    "marginBottom": additionnlMargin + "px"
-  	  });
+  	  if ($target.is("a")) {
+  	    
+  	    if (!$target.parent().is(".img-only")) {
+  	      $target.css("display", "inline-block");
+  	    } else {
+  	      $target = $target.parent();
+  	      mode = "padding";
+  	    }
+	    }
   	  
+  	  $target.css(mode + "Bottom", additionnalMargin + "px");
   	});
     
     /* HTML Help animation */
