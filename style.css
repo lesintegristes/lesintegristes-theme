@@ -210,7 +210,7 @@ body{background:url(i/strip-shadow.png) no-repeat 50% 15px;}
 #header p a[rel=alternate]{overflow:hidden;position:absolute;top:-15px;left:445px;display:block;width:62px;height:64px;text-indent:-9999px;background:url(i/rss.png) no-repeat 0 100%;}
 #header nav{float:right;width:277px;}
 #header nav li{float:left;}
-#header nav li a{float:left;width:80px;padding:6px 0;background:#fff url(i/nav-mini.png) no-repeat 1px 0;}
+#header nav li a{float:left;width:80px;padding:6px 0;background:#fff url(i/nav-mini.png) no-repeat 1px 0;cursor:pointer;}
 #header nav li:first-child a{width:81px;}
 #header nav li a span{overflow:hidden;display:block;height:62px;text-indent:-9999px;border-right:1px dashed #dbd2c3;}
 #header nav li:first-child a span{border-left:1px dashed #dbd2c3;}
@@ -242,7 +242,7 @@ body.meteo-night #header{background-image:url(i/meteo/night/header-small.jpg);}
 /* Header - Home */
 body.home{background-position:50% 39px;}
 body.home #header{height:239px;margin-bottom:58px;padding-top:39px;}
-body.home #header h1{margin-left:10px;}
+body.home #header h1{margin-left:14px;}
 body.home #header h1 a{width:234px;background-position:0 0;}
 body.home #header h1 a:hover,
 body.home #header h1 a:focus{background-position:0 -70px;}
@@ -301,7 +301,7 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer .archives ul strong a{float:left;font-size:18px;text-decoration:none;font-style:normal;}
 #wrapper > footer .archives ul strong a:hover,
 #wrapper > footer .archives ul strong a:focus{text-decoration:underline;}
-#wrapper > footer .archives ul strong button{position:relative;z-index:2;float:left;overflow:hidden;height:27px;width:24px;margin-left:9px;text-indent:-9999px;background:url(i/archives-arrow.png) no-repeat 6px 7px;}
+#wrapper > footer .archives ul strong button{position:relative;z-index:2;float:left;overflow:hidden;height:27px;width:24px;margin-left:9px;text-indent:-9999px;background:url(i/archives-arrow.png) no-repeat 6px 7px;zoom:1;}
 #wrapper > footer .archives ul strong button:focus{outline:1px dotted #757474;}
 #wrapper > footer .archives ul strong button.expanded{background-color:#ece4d6;background-position:6px -19px;}
 #wrapper > footer .archives ul strong + div{clear:left;}
@@ -485,9 +485,9 @@ body.error404 #content > p{margin-bottom:180px;text-align:left;font-size:16px;co
 body.error404 #content > div h1{text-align:center;font:24px/24px Georgia, Times, serif;}
 
 /* Last articles */
-#content .last-articles{clear:both;float:left;width:100%;padding-top:36px;background:url(i/dashed-h.png) repeat-x 0 0;}
+#content .last-articles{clear:both;float:left;width:100%;padding-top:36px;padding-bottom:12px;background:url(i/dashed-h.png) repeat-x 0 0;}
 body.single #content .last-articles{padding-top:24px;margin-bottom:42px;border-bottom:6px solid #454545;}
-#content .last-articles li{position:relative;float:left;width:223px;margin:0 0 12px 18px;background:url(i/dashed-v.png) repeat-y 100% 0;}
+#content .last-articles li{position:relative;float:left;width:223px;margin:0 0 0 18px;background:url(i/dashed-v.png) repeat-y 100% 0;}
 #content .last-articles li:first-child{margin-left:0;width:223px;}
 #content .last-articles li + li + li{background:none;}
 #content .last-articles li dt{min-height:72px;margin-left:42px;padding-bottom:12px;line-height:24px;font-size:22px;font-family:Georgia, Times, serif;}
@@ -615,7 +615,7 @@ body.js #sidebar > .meteo form{overflow:hidden;margin:0 0 0 16px;padding-top:12p
 body.js #sidebar > .meteo form p{float:left;margin:0 0 8px 8px;}
 body.js #sidebar > .meteo form button{float:left;width:49px;height:42px;text-indent:-9999px;background:url(i/meteo-buttons.png) no-repeat 0 0;border:2px solid #857e76;}
 body.js #sidebar > .meteo form button:hover,
-body.js #sidebar > .meteo form button:focus{border:2px solid #83a10f;}
+body.js #sidebar > .meteo form button:focus{border-color:#83a10f;}
 body.js #sidebar > .meteo form button.meteo-sunny.active{background-position:-45px 0;}
 body.js #sidebar > .meteo form button.meteo-cloudy{background-position:0 -76px;}
 body.js #sidebar > .meteo form button.meteo-cloudy.active{background-position:-45px -76px;}
@@ -662,7 +662,7 @@ body.js.loading #sidebar > .meteo form button.meteo-auto{background:url(i/meteo-
 #sidebar > .newsletter .submit{margin-bottom:8px;text-align:right;}
 /* Creative Commons */
 #sidebar > .creativecommons{padding:12px 6px 12px 12px;}
-#sidebar > .creativecommons h1 a{overflow:hidden;float:left;width:81px;height:96px;margin-right:12px;text-indent:-9999px;background:url(i/creative-commons.png) no-repeat 0 0;}
+#sidebar > .creativecommons h1 a{overflow:hidden;float:left;width:81px;height:96px;margin-right:12px;text-indent:-9999px;background:url(i/creative-commons.png) no-repeat 0 0;position:relative;}
 #sidebar > .creativecommons h1 a:hover,
 #sidebar > .creativecommons h1 a:focus{color:#6d6a6a;background-position:0 -96px;}
 /* Links */

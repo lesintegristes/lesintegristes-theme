@@ -31,16 +31,17 @@
 	    
 	    var buttons = [];
 	    
-	    $("#sidebar section.meteo label").each(function(i){
+	    $("#sidebar > .meteo label").each(function(i){
         var $this = $(this);
         buttons[i] = $('<button type="button" class="'+ $this.attr("for") + " " 
                      + $this.attr("class") +'" value="'+ $this.attr("for").slice(6) +'" title="'
-                     + $this.text() +'">'+ $this.text() +'</button>').insertAfter(this)[0];
+                     + $this.text() +'"></button>').insertAfter(this)[0];
       });
+      
 	    $buttons = $(buttons);
 	    
 	    $buttons = $buttons.add(
-	        $('<p><button type="button" class="meteo-auto" value="auto" title="Auto">Auto</button></p>')
+	        $('<p><button type="button" class="meteo-auto" value="auto" title="Auto"></button></p>')
 	        .insertAfter( $buttons.filter(":last").closest("p") ).children()
 	    );
 	    
@@ -50,7 +51,7 @@
   	      ajaxCall.abort();
         }
   	    
-    	  var curMeteo = $(this).val();
+    	  var curMeteo = $(this).attr("value");
   	    
     	  $.cookies.del("meteo");
         $.cookies.del("meteo_auto");
@@ -136,12 +137,12 @@
           
           if (!$parent.hasClass("expanded")) {
             $(this).text("Replier").attr("title","Replier");
-            $parent.addClass("expanded animated").next().slideDown(150, function(){
+            $parent.removeClass("collapsed").addClass("expanded animated").next().slideDown(150, function(){
               $parent.removeClass("animated");
             });
           } else {
             $(this).text("Déplier").attr("title","Déplier");
-            $parent.removeClass("expanded").addClass("animated").next().slideUp(150, function(){
+            $parent.removeClass("expanded").addClass("collapsed animated").next().slideUp(150, function(){
               $parent.removeClass("animated");
             });
           }
@@ -162,7 +163,7 @@
   
   /* Archives toggle button */
   $('<button type="button">Replier</button>')
-    .appendTo("#wrapper > footer .archives li strong")
+    .appendTo("#footer .archives li strong")
     
     .click(function() {
       var $this = $(this).addClass("animated");
