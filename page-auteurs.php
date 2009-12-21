@@ -2,7 +2,6 @@
 /*
 Template Name: Auteurs
 */
-//wpcf7_enqueue_scripts();
 wpcf7_enqueue_styles();
 get_header();
 ?>
@@ -18,9 +17,10 @@ get_header();
 			</header>
 			<div class="content">
 				<p class="photo"><img src="http://lesintegristes.dev/wp-content/uploads/2009/11/auteur-photo.jpg" alt="" width="120" height="150" /></p>
-				<p>Qu’est-ce qui fait qu’une interface est agréable à utiliser ? Qu’elle soit intuitive, claire, que le regroupement des catégories soit logique, que les risques d’erreurs soit limités, que les messages d’information soient clairs ? Tout ça et bien d’autres choses encore. Je voudrais aujourd’hui parler plus particulièrement des boutons d’actions que ce soit des boutons de validation de formulaire ou des liens de navigations. En général et dans la plupart des sites professionnels il sont particulièrement mis en valeur (avec plus ou moins de succès).</p>
+				<p>En l'an 2003, Éric a courageusement pris la décision de consacrer toute son énergie à la réalisation d'interfaces web de <em>qualité</em>. Après avoir vaincu Internet Explorer et intégré l'inintégrable, il est parti à la recherche d'un nouveau défi&nbsp;: l'expérience utilisateur. Il a rapidement atteint le rang de Grand Chevalier de l'Ergonomie sur le Web, distinction qu'il n'a malheureusement jamais voulu reconnaître. Éric est aujourd'hui responsable du pôle intégration chez Pixmania, et apporte son expérience à l'ensemble des projets du groupe.</p>
+				<p class="desc-author"><em>Par Pierre Bertet.</em></p>
 				<ul class="links">
-					<li class="home"><a href="http://www.ericlebihan.net" class="action">www.ericlebihan.net</a></li>
+					<li class="home"><a href="http://from-scratch.pro/" class="action">from-scratch.pro</a></li>
 					<li class="twitter"><a href="http://twitter.com/eric_le_bihan" class="action">twitter.com/eric_le_bihan</a></li>
 				</ul>
 				<p class="mail">Contacter Éric : <a href="mailto:eric.ericlebihan@gmail.com" class="action">eric.ericlebihan@gmail.com</a></p>

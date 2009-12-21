@@ -450,6 +450,8 @@ body.page-id-29 #content li > div{padding:24px 12px 36px;background:#ece4d6;}
 #content.page-auteurs section.author .content{position:relative;padding:24px 24px 48px 160px;background:#ece4d6;}
 #content.page-auteurs section.author h2{position:relative;top:-6px;margin:0;font-size:14px;font-style:italic;color:#494949;}
 #content.page-auteurs section.author .photo{position:absolute;left:20px;top:-60px;}
+#content.page-auteurs section.author .desc-author{float:right;margin-top:-24px;color:#857e76;}
+#content.page-auteurs section.author .links{clear:right;}
 #content.page-auteurs section.author .links li{margin-bottom:12px;padding-left:31px;}
 #content.page-auteurs section.author .links li a{color:#857e76;}
 #content.page-auteurs section.author .links li a:hover{color:#a29b94;}
