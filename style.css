@@ -52,7 +52,7 @@ legend{color:#000;}
 header,footer,nav,article,section,legend,figure{display:block;}
 
 /* Buttons reset */
-button{position:relative;overflow:visible;padding:0;background:transparent;border:0;cursor:pointer;} /* "overflow:visible;" removes extra side padding in IE */
+button{position:relative;overflow:visible;margin:0;padding:0;background:transparent;border:0;cursor:pointer;} /* "overflow:visible;" removes extra side padding in IE */
 button::-moz-focus-inner{padding:0;border:0;} /* overrides extra padding in Firefox */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	button span{margin-top:-1px;} /* Safari and Google Chrome only - fix margins */
