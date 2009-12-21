@@ -13,15 +13,15 @@ get_header();
 		<section class="author">
 			<header>
 				<h1>Éric Le Bihan</h1>
-				<h2>Intégrateur web</h2>
+				<h2>Responsable intégration web</h2>
 			</header>
 			<div class="content">
 				<p class="photo"><img src="http://lesintegristes.dev/wp-content/uploads/2009/11/auteur-photo.jpg" alt="" width="120" height="150" /></p>
-				<p>En l'an 2003, Éric a courageusement pris la décision de consacrer toute son énergie à la réalisation d'interfaces web de <em>qualité</em>. Après avoir vaincu Internet Explorer et intégré l'inintégrable, il est parti à la recherche d'un nouveau défi&nbsp;: l'expérience utilisateur. Il a rapidement atteint le rang de Grand Chevalier de l'Ergonomie sur le Web, distinction qu'il n'a malheureusement jamais voulu reconnaître. Éric est aujourd'hui responsable du pôle intégration chez Pixmania, et apporte son expérience à l'ensemble des projets du groupe.</p>
+				<p>Il y a quelques années, Éric a courageusement pris la décision de consacrer toute son énergie à la réalisation d'interfaces web de <em>qualité</em>. Après avoir vaincu Internet Explorer et intégré l'inintégrable, il est parti à la recherche de nouveaux défis&nbsp;: l'accessibilité et l'expérience utilisateur pour le web. Il est diplomé <a href="http://www.accessiweb.org/">Expert Accessiweb</a>, et a atteint le rang de Grand Chevalier de l'Ergonomie sur le Web, distinction qu'il n'a malheureusement jamais voulu reconnaître. Éric est aujourd'hui responsable du pôle intégration chez Pixmania, et apporte son expérience à l'ensemble des projets du groupe.</p>
 				<p class="desc-author"><em>Par Pierre Bertet.</em></p>
 				<ul class="links">
 					<li class="home"><a href="http://from-scratch.pro/" class="action">from-scratch.pro</a></li>
-					<li class="twitter"><a href="http://twitter.com/eric_le_bihan" class="action">twitter.com/eric_le_bihan</a></li>
+					<li class="twitter"><a href="http://twitter.com/ericlebihan" class="action">twitter.com/ericlebihan</a></li>
 				</ul>
 				<p class="mail">Contacter Éric : <a href="mailto:eric.ericlebihan@gmail.com" class="action">eric.ericlebihan@gmail.com</a></p>
 			</div>
