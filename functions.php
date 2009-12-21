@@ -9,6 +9,10 @@
 	));
 }*/
 
+/* Do not load WP Contact Form 7 Scripts and Styles */
+define ('WPCF7_LOAD_JS', false);
+define ('WPCF7_LOAD_CSS', false);
+
 /* RSS */
 function rss_head_links() {
 	echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes" href="'. get_bloginfo('rss2_url') .'" />'."\n";
