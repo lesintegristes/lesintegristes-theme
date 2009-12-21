@@ -62,7 +62,7 @@ function lesintegristes_meteo_init() {
 			
 		} else {
 			$cur_meteo_condition = "sunny";
-			setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
+			//setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
 		}
 	}
 }

@@ -18,8 +18,8 @@
 	    initButtons();
 	    
 	    if (!$.cookies.get("meteo")) {
-    	  $buttons.filter(".meteo-auto").click();
-
+	      $buttons.filter(".meteo-auto").click();
+        
   	  } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
   	    $buttons.removeClass("active").filter(".meteo-auto").addClass("active");
   	  }
@@ -192,33 +192,65 @@
 	});
 	
 	/* Grid */
-	var $grid;
-	function initGrid() {
-	  $grid = $('<div class="grid"><div></div></div>').appendTo("body").css({
-  	  position: "absolute",
-  	  top: "0",
-  	  left: "0",
-  	  zIndex: "9999",
-  	  background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0"
-  	}).children().css("background", "url("+$.lesintegristes.themeUrl+"/i/h-grid.png) repeat-y 50% 0");
-	};
-	function resizeGrid() {
-	  $grid.add($grid.children()).css({
-	    width: $("body").outerWidth(),
-  	  height: $("body").outerHeight()
-	  });
-	}
-	$.lesintegristes.showGrid = function() {
-	  if (!$grid) {
-	    initGrid();
-    }
-    resizeGrid();
-    $grid.show();
-	};
-	$.lesintegristes.hideGrid = function() {
-	  if (!!$grid) {
-	    $grid.hide();
-	  }
-	};
+	(function(){
+  	var $grid, $gridBtn;
+  	
+  	function initGrid() {
+  	  $grid = $('<div class="grid"><div></div></div>').appendTo("body").css({
+    	  position: "absolute",
+    	  top: "0",
+    	  left: "0",
+    	  zIndex: "9998",
+    	  background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0",
+    	  cursor: "pointer",
+    	  display: "none",
+    	}).children().css("background", "url("+$.lesintegristes.themeUrl+"/i/h-grid.png) repeat-y 50% 0").end();
+  	
+    	$gridBtn = $('<button type="button">Fermer la grille</button>').appendTo('body').css({
+    	  position: "fixed",
+    	  top: "0",
+    	  right: "0",
+    	  zIndex: "9999",
+    	  padding: "10px",
+    	  color: "#fff",
+    	  background: "#494949",
+    	  display: "none"
+    	});
+  	
+    	$gridBtn.add($grid).click(function(e){
+    	  e.stopImmediatePropagation();
+    	  hideGrid();
+    	});
+  	};
+  	
+  	function resizeGrid() {
+  	  $grid.add($grid.children()).css({
+  	    width: $("body").outerWidth(),
+    	  height: $("body").outerHeight()
+  	  });
+  	};
+  	
+  	function showGrid() {
+  	  if (!$grid) {
+  	    initGrid();
+      }
+      resizeGrid();
+      $grid.add($gridBtn).fadeIn(150);
+  	};
+  	
+  	function hideGrid() {
+  	  if (!!$grid) {
+  	    $grid.add($gridBtn).fadeOut(150);
+  	  }
+  	};
+  	
+  	$.lesintegristes.toggleGrid = function() {
+  	  if (jQuery('body > .grid').is(':visible')) {
+  	    hideGrid();
+  	  } else {
+  	    showGrid();
+  	  }
+  	};
+	})();
   
 })(jQuery);
