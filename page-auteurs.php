@@ -34,7 +34,8 @@ get_header();
 			</header>
 			<div class="content">
 				<p class="photo"><img src="http://lesintegristes.dev/wp-content/uploads/2009/11/auteur-photo.jpg" alt="" width="120" height="150" /></p>
-				<p>Qu’est-ce qui fait qu’une interface est agréable à utiliser ? Qu’elle soit intuitive, claire, que le regroupement des catégories soit logique, que les risques d’erreurs soit limités, que les messages d’information soient clairs ? Tout ça et bien d’autres choses encore. Je voudrais aujourd’hui parler plus particulièrement des boutons d’actions que ce soit des boutons de validation de formulaire ou des liens de navigations. En général et dans la plupart des sites professionnels il sont particulièrement mis en valeur (avec plus ou moins de succès).</p>
+				<p>Piru Berute (ピル ベルテ) comme l'appelle les Japonais, n'épargne pas sa peine dans la voie qu'il s'est tracé, non content de se lancer dans des entreprises de tout ordre comme travailler sur une multitude de projets open source, il a décidé de se mettre à son compte et de ridiculiser ses concurrents, même si sa modestie légendaire lui interdit de se vanter d'être un des meilleurs intégrateurs actuels. Si vous ajoutez à ça qu'il fait maintenant partie du <a href="http://www.accessiweb.org/fr/groupe_travail_accessibilite_du_web/">GTA</a>, on se demande quand ce mec prends le temps de dormir ! Il faut souligner que l'intégration du nouveau thème des intégristes, c'est lui&nbsp;!</p>
+				<p class="desc-author"><em>Par Éric Le Bihan.</em></p>
 				<ul class="links">
 					<li class="home"><a href="http://www.pierrebertet.net" class="action">www.pierrebertet.net</a></li>
 					<li class="twitter"><a href="http://twitter.com/bpierre" class="action">twitter.com/bpierre</a></li>
