@@ -488,8 +488,7 @@ body.error404 #content > div h1{text-align:center;font:24px/24px Georgia, Times,
 
 /* Last articles */
 #content .last-articles{clear:both;float:left;width:100%;padding-top:36px;padding-bottom:12px;background:url(i/dashed-h.png) repeat-x 0 0;}
-body.single #content .last-articles{padding-top:24px;margin-bottom:42px;border-bottom:6px solid #454545;}
-#content .last-articles li{position:relative;float:left;width:223px;margin:0 0 0 18px;background:url(i/dashed-v.png) repeat-y 100% 0;}
+#content .last-articles li{position:relative;float:left;width:223px;margin:0 0 6px 18px;background:url(i/dashed-v.png) repeat-y 100% 0;}
 #content .last-articles li:first-child{margin-left:0;width:223px;}
 #content .last-articles li + li + li{background:none;}
 #content .last-articles li dt{min-height:72px;margin-left:42px;padding-bottom:12px;line-height:24px;font-size:22px;font-family:Georgia, Times, serif;}
@@ -500,11 +499,14 @@ body.single #content .last-articles{padding-top:24px;margin-bottom:42px;border-b
 #content .last-articles li .comments-count a:active,
 #content .last-articles li .comments-count a:focus{background:none;}
 #content .last-articles li .comments-count strong{top:0;margin-right:0;}
-#content .last-articles li.all{clear:left;float:none;width:auto;margin:0;padding-bottom:18px;text-align:right;border-top:6px solid #454545;}
+#content .last-articles li.all{clear:left;float:none;width:auto;margin:0;padding-bottom:12px;text-align:right;border-top:6px solid #454545;}
 
 /* Related posts */
 .related-posts{float:left;width:100%;}
 .related-posts h2{margin:-12px 0 0;line-height:30px;font-size:16px;color:#857e76;border-top:6px solid #454545;}
+body.single #content .last-articles{padding-top:24px;margin-bottom:42px;border-bottom:6px solid #454545;}
+body.single #content .last-articles li{margin-bottom:0;}
+
 
 /* Comments - links */
 #comments > .rss a,
