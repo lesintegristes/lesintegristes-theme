@@ -68,7 +68,7 @@ body,button,input,textarea{font:14px/24px Verdana, Helvetica, sans-serif;color:#
 pre,code{font:12px/24px "DejaVuSansMonoBook", "Courier New", monospace;color:#494949;background:#ece4d6;}
 code{display:inline-block;padding:0 6px;line-height:22px;vertical-align:bottom;}
 pre code{display:block;position:static;padding:0;line-height:24px;}
-a code{text-decoration:underline;}
+/*a code{text-decoration:underline;}*/
 a{color:#83a10f;}
 b,strong{font-weight:bold;}
 i,em{font-style:italic;}
@@ -407,6 +407,11 @@ body.single #content.note article footer{margin-left:240px;}
 
 /* Home */
 .home #content .post .content p{margin-bottom:0;}
+.home #content .post .content blockquote{display:inline;margin-bottom:0;padding:0;background:none;}
+.home #content .post .content blockquote *{display:inline;}
+.home #content .post .content blockquote:before{content:'« ';}
+.home #content .post .content blockquote:after{content:' »';}
+.home #content .post .content code{background:none;}
 
 /* Notes */
 #content.notes article header{top:0;text-align:right;}
