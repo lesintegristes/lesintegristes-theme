@@ -19,9 +19,9 @@
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<!--[if !IE 6]><!--><link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="all" /><!--<![endif]-->
 		<!--[if IE 6]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/ie6-universal.0.3.css" media="all" /><![endif]-->
-		<?php if ( is_singular() ) : ?><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/sh-min.css" media="all" /><?php endif; ?>
+		<?php if ( is_single() ) : ?><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/sh-min.css" media="all" /><?php endif; ?>
 		<?php wp_enqueue_script( 'main', '/wp-content/themes/lesintegristes/scripts/main-min.js', array('jquery'), '1.0', true ); ?>
-		<?php if ( is_singular() ) wp_enqueue_script( 'single', '/wp-content/themes/lesintegristes/scripts/single-min.js', array('jquery'), '1.0', true ); ?>
+		<?php if ( is_single() ) wp_enqueue_script( 'single', '/wp-content/themes/lesintegristes/scripts/single-min.js', array('jquery'), '1.0', true ); ?>
 		<?php wp_head(); ?>
 		<!--[if IE]>
 		<script src="<?php bloginfo('template_url'); ?>/scripts/html5.js"></script>
