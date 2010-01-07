@@ -16,15 +16,12 @@
 		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon.png" />
 		<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/images/apple-touch-icon.png"/>
+		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<!--[if !IE 6]><!--><link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="all" /><!--<![endif]-->
 		<!--[if IE 6]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/ie6-universal.0.3.css" media="all" /><![endif]-->
-		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/syntax-highlighter.css" media="all" />
-		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/sh-lesintegristes.css" media="all" />
-		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-		<?php wp_enqueue_script( 'cookies', '/wp-content/themes/lesintegristes/scripts/jquery.cookies.2.1.0.min.js', array('jquery'), '1.0', true ); ?>
-		<?php wp_enqueue_script( 'main', '/wp-content/themes/lesintegristes/scripts/main.js', array('jquery'), '1.0', true ); ?>
-		<?php if ( is_home() ) wp_enqueue_script( 'home', '/wp-content/themes/lesintegristes/scripts/home.js', array('jquery'), '1.0', true ); ?>
-		<?php if ( is_singular() ) wp_enqueue_script( 'single', '/wp-content/themes/lesintegristes/scripts/single.js', array('jquery'), '1.0', true ); ?>
+		<?php if ( is_singular() ) : ?><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/sh-min.css" media="all" /><?php endif; ?>
+		<?php wp_enqueue_script( 'main', '/wp-content/themes/lesintegristes/scripts/main-min.js', array('jquery'), '1.0', true ); ?>
+		<?php if ( is_singular() ) wp_enqueue_script( 'single', '/wp-content/themes/lesintegristes/scripts/single-min.js', array('jquery'), '1.0', true ); ?>
 		<?php wp_head(); ?>
 		<!--[if IE]>
 		<script src="<?php bloginfo('template_url'); ?>/scripts/html5.js"></script>

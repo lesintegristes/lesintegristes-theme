@@ -50,10 +50,12 @@
 			<p class="bottom-line">Thème réalisé par <a href="http://www.lefauteuil.fr/" title="le Fauteuil : Conception et réalisation de sites web.">le Fauteuil</a>. Merci <a href="http://www.wordpress.org" title="WordPress, Blog Tool and Publishing Platform" lang="en">Wordpress</a>, <a href="http://jquery.com/" title="jQuery: The Write Less, Do More, JavaScript Library" lang="en">jQuery</a>, <a href="http://php.net/" title="PHP: Hypertext Preprocessor" lang="en">PHP</a> et <a href="http://httpd.apache.org/" title="The Apache HTTP Server Project" lang="en">Apache</a>.</p>
 		</footer>
 		<?php wp_footer(); ?>
+		<?php if ( is_singular() ): ?>
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/syntax-highlighter.js"></script>
 		<script type="text/javascript">
 			SyntaxHighlighter.all();
 		</script>
+		<?php endif; ?>
   </div>
 	</div>
 	<script type="text/javascript">

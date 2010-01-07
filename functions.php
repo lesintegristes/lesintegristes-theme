@@ -9,6 +9,15 @@
 	));
 }*/
 
+function add_google_ajax_api() {
+	if (!is_admin()) {
+		wp_deregister_script('jquery');
+		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js', false, '1.3.2');
+		wp_enqueue_script('jquery');
+	}
+}
+add_action('init', 'add_google_ajax_api');
+
 /* RSS */
 function rss_head_links() {
 	echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes" href="'. get_bloginfo('rss2_url') .'" />'."\n";
