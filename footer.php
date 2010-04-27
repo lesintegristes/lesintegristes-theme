@@ -10,6 +10,7 @@
 					<section class="rss">
 						<p><?php echo lesintegristes_get_feed_link(get_bloginfo('rss2_url'), 'Flux RSS du blog (articles et notes)', false) ?></p>
 						<p><?php echo lesintegristes_get_feed_link(get_bloginfo("wpurl") .'/articles/feed/', 'Flux RSS des articles uniquement', false) ?></p>
+						<p><?php echo lesintegristes_get_feed_link(get_bloginfo("wpurl") .'/comments/feed/', 'Flux RSS de tous les commentaires', false) ?></p>
 					</section>
 				</div>
 				

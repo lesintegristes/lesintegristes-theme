@@ -20,8 +20,9 @@ add_action('init', 'add_google_ajax_api');
 
 /* RSS */
 function rss_head_links() {
-	echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes" href="'. get_bloginfo('rss2_url') .'" />'."\n";
+	echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux principal du blog" href="'. get_bloginfo('rss2_url') .'" />'."\n";
 	echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux des articles uniquement" href="'. get_bloginfo("wpurl") .'/articles/feed/" />'."\n";
+	echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux de tous les commentaires" href="'. get_bloginfo("wpurl") .'/comments/feed/" />'."\n";
 }
 add_action("wp_head", "rss_head_links");
 

@@ -8,7 +8,7 @@
 	$auteurs_active = is_page('auteurs');
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html dir="<?php bloginfo('text_direction'); ?>" lang="<?php bloginfo('language'); ?>">
 	<head>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>

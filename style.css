@@ -115,7 +115,7 @@ textarea{-moz-box-shadow:inset 2px 2px 2px #aaa;-webkit-box-shadow:inset 2px 2px
 .hentry .content dl dt{margin-left:-10px;font-weight:bold;}
 .hentry .content pre{overflow-x:auto;margin-bottom:24px;}
 .hentry .content a code{padding:0;background:none;color:inherit;}
-.hentry .content blockquote{margin-bottom:24px;padding:36px 36px 36px;font:italic 16px/24px Georgia, Times, serif;text-indent:14px;color:#857e76;background:url(i/quote-open.png) no-repeat 16px 16px;background:url(i/quote-open.png) no-repeat 16px 16px, url(i/quote-close.png) no-repeat 100% 100%;background-color:#ece4d6;}
+.hentry .content blockquote{margin-bottom:24px;padding:24px 36px;font:italic 16px/24px Georgia, Times, serif;text-indent:14px;color:#857e76;background:url(i/quote-open.png) no-repeat 16px 16px;background:url(i/quote-open.png) no-repeat 16px 16px, url(i/quote-close.png) no-repeat 100% 100%;background-color:#ece4d6;}
 #content .hentry .content blockquote p{margin:0;}
 #content .hentry .content img{position:relative;left:3px;vertical-align:bottom;outline:3px solid #ece4d6;}
 #content .hentry .content p.img-only{margin-bottom:0;}
@@ -407,7 +407,7 @@ body.single #content.note article footer{margin-left:240px;}
 
 /* Home */
 .home #content .post .content p{margin-bottom:0;}
-.home #content .post .content blockquote{display:inline;margin-bottom:0;padding:0;background:none;}
+.home #content .post .content blockquote{display:block;margin-bottom:0;padding:0;background:none;}
 .home #content .post .content blockquote *{display:inline;}
 .home #content .post .content blockquote:before{content:'« ';}
 .home #content .post .content blockquote:after{content:' »';}
