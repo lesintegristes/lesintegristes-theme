@@ -560,7 +560,7 @@ body.single #content .last-articles li{margin-bottom:0;}
 #respond p.no-comments{margin:0;font-style:normal;}
 #respond label{clear:left;float:left;width:183px;margin-top:6px;line-height:36px;white-space:nowrap;font-weight:bold;color:#857e76;}
 #respond input[type=text]{width:247px;padding:7px;line-height:24px;text-align:left;border:0;}
-#respond textarea{display:block;width:428px;height:360px;margin:9px 0;padding:3px 6px;border:0;}
+#respond textarea{display:block;width:428px;height:360px;margin:9px 0;padding:3px 6px;border:0;resize:vertical;}
 #respond input[type=text]:focus,
 #respond textarea:focus{outline:6px solid #beb6a7;}
 #respond .comment{position:relative;z-index:2;margin-bottom:0;}
