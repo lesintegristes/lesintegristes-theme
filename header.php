@@ -1,4 +1,7 @@
 <?php
+	# No direct file load
+	if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+	
 	global $cur_meteo_condition;
 	
 	$body_classes .= "meteo-" . $cur_meteo_condition;
@@ -8,10 +11,10 @@
 	$auteurs_active = is_page('auteurs');
 ?>
 <!doctype html>
-<html dir="<?php bloginfo('text_direction'); ?>" lang="<?php bloginfo('language'); ?>">
+<html <?php language_attributes(); ?>>
 	<head>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+		<title><?php wp_title('·', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon.png" />

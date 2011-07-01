@@ -4,79 +4,83 @@
   (function(){
     
     var $body = $("body"),
-  	    $buttons,
-  	    buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
-  	    ajaxCall,
-  	    preload,
-  	    $headerOverlay = $('<div class="overlay" />').appendTo("#header").css("opacity","0"),
-  	    $headerLoader = $('<div class="loader"><div></div></div>').insertAfter($headerOverlay),
-  	    loaderVisible = false;
-	  
-	  // Document ready
-	  $(function(){
-	    
-	    initButtons();
-	    
-	    if (!$.cookies.get("meteo")) {
-	      $buttons.filter(".meteo-auto").click();
+        $buttons,
+        buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
+        ajaxCall,
+        preload,
+        $headerOverlay = $('<div class="overlay" />').appendTo("#header").css("opacity","0"),
+        $headerLoader = $('<div class="loader"><div></div></div>').insertAfter($headerOverlay),
+        loaderVisible = false;
+    
+    // Document ready
+    $(function(){
+      
+      initButtons();
+      
+      if (!$.cookies.get("meteo")) {
+        $buttons.filter(".meteo-auto").click();
         
-  	  } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
-  	    $buttons.removeClass("active").filter(".meteo-auto").addClass("active");
-  	  }
-  	  
-	  });
-	  
-	  // Create buttons
-	  function initButtons() {
-	    
-	    var buttons = [];
-	    
-	    $("#sidebar > .meteo label").each(function(i){
+      } else if ($.cookies.get("meteo_auto") && $.cookies.get("meteo_auto") === "1") {
+        $buttons.removeClass("active").filter(".meteo-auto").addClass("active");
+      }
+      
+    });
+    
+    // Create buttons
+    function initButtons() {
+      
+      var buttons = [];
+      
+      $("#sidebar > .meteo label").each(function(i){
         var $this = $(this);
         buttons[i] = $('<button type="button" class="'+ $this.attr("for") + " " 
                      + $this.attr("class") +'" value="'+ $this.attr("for").slice(6) +'" title="'
                      + $this.text() +'"></button>').insertAfter(this)[0];
       });
       
-	    $buttons = $(buttons);
-	    
-	    $buttons = $buttons.add(
-	        $('<p><button type="button" class="meteo-auto" value="auto" title="Auto"></button></p>')
-	        .insertAfter( $buttons.filter(":last").closest("p") ).children()
-	    );
-	    
-  	  $buttons.click(function() {
-	      
-  	    if (!!ajaxCall) {
-  	      ajaxCall.abort();
+      $buttons = $(buttons);
+      
+      $buttons = $buttons.add(
+          $('<p><button type="button" class="meteo-auto" value="auto" title="Auto"></button></p>')
+          .insertAfter( $buttons.filter(":last").closest("p") ).children()
+      );
+      
+      $buttons.click(function() {
+        
+        if (!!ajaxCall) {
+          ajaxCall.abort();
         }
-  	    
-    	  var curMeteo = $(this).attr("value");
-  	    
-    	  $.cookies.del("meteo");
+        
+        var curMeteo = $(this).attr("value");
+        
+        $.cookies.del("meteo");
         $.cookies.del("meteo_auto");
-  	    
-    	  $buttons.removeClass("active");
-    	  $(this).addClass("active");
-  	    
-    	  if (curMeteo === "auto") {
+        
+        $buttons.removeClass("active");
+        $(this).addClass("active");
+        
+        if (curMeteo === "auto") {
           autoChangeMeteo();
           
         } else {
           changeMeteo(curMeteo);
         }
-    	});
-  	};
+      });
+    };
     
     // Auto change meteo (Yahoo Weather API)
     function autoChangeMeteo() {
       showLoading();
-      ajaxCall = $.get($.lesintegristes.themeUrl + "/meteo_service/service.php", function(data) {
-        hideLoading();
-        changeMeteo(data, {hoursToLive: 1});
-        $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
-  	  });
-  	};
+      ajaxCall = $.ajax({
+        url: $.lesintegristes.themeUrl + "/meteo_service/service.php",
+        success: function(data) {
+          hideLoading();
+          changeMeteo(data, {hoursToLive: 1});
+          $.cookies.set("meteo_auto", "1", {hoursToLive: 1});
+        },
+        cache: false
+      });
+    };
     
     // Change meteo
     function changeMeteo(weather, settings) {
@@ -97,33 +101,33 @@
     // Change body meteo class
     function updateBodyClass(weather) {
       $body
-			  .removeClass("meteo-" + buttonsData.join(" meteo-"))
-			  .addClass("meteo-" + weather);
+        .removeClass("meteo-" + buttonsData.join(" meteo-"))
+        .addClass("meteo-" + weather);
     }
-  	
-  	function showLoading() {
-  	  
-  	  loaderVisible = true;
-  	  
-  	  $headerLoader.fadeIn(100);
+    
+    function showLoading() {
+      
+      loaderVisible = true;
+      
+      $headerLoader.fadeIn(100);
       $headerOverlay.show().fadeTo(100, .55, function(){
-  	    if (loaderVisible) {
-  	      $body.addClass("loading");
-  	    }
-  		});
-  	};
-  	
-  	function hideLoading() {
-	    
-	    loaderVisible = false;
-			
-			$headerLoader.fadeOut(100);
-		  $headerOverlay.fadeOut(100, function(){
-  		  $body.removeClass("loading");
-  		});
-  	};
-  	
-	})();
+        if (loaderVisible) {
+          $body.addClass("loading");
+        }
+      });
+    };
+    
+    function hideLoading() {
+      
+      loaderVisible = false;
+      
+      $headerLoader.fadeOut(100);
+      $headerOverlay.fadeOut(100, function(){
+        $body.removeClass("loading");
+      });
+    };
+    
+  })();
   
   /* Collapsible box */
   $(function(){
@@ -182,75 +186,75 @@
     .end().filter(":first").addClass("expanded").text("Replier")
   
   /* Back to top */
-	$('#wrapper > footer nav .top a').click(function(e){
-		e.preventDefault();
-		var curHref = $(this).attr("href");
-		$('html').animate({scrollTop: 0}, 100, function(){
-			window.location.hash = curHref.slice(1);
-			$(curHref).focus();
-		});
-	});
-	
-	/* Grid */
-	(function(){
-  	var $grid, $gridBtn;
-  	
-  	function initGrid() {
-  	  $grid = $('<div class="grid"><div></div></div>').appendTo("body").css({
-    	  position: "absolute",
-    	  top: "0",
-    	  left: "0",
-    	  zIndex: "9998",
-    	  background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0",
-    	  cursor: "pointer",
-    	  display: "none"
-    	}).children().css("background", "url("+$.lesintegristes.themeUrl+"/i/h-grid.png) repeat-y 50% 0").end();
-  	
-    	$gridBtn = $('<button type="button">Fermer la grille</button>').appendTo('body').css({
-    	  position: "fixed",
-    	  top: "0",
-    	  right: "0",
-    	  zIndex: "9999",
-    	  padding: "10px",
-    	  color: "#fff",
-    	  background: "#494949",
-    	  display: "none"
-    	});
-  	
-    	$gridBtn.add($grid).click(function(e){
-    	  e.stopImmediatePropagation();
-    	  hideGrid();
-    	});
-  	};
-  	
-  	function resizeGrid() {
-  	  $grid.add($grid.children()).css({
-  	    width: $("body").outerWidth(),
-    	  height: $("body").outerHeight()
-  	  });
-  	};
-  	
-  	function showGrid() {
-  	  if (!$grid) {
-  	    initGrid();
+  $('#wrapper > footer nav .top a').click(function(e){
+    e.preventDefault();
+    var curHref = $(this).attr("href");
+    $('html').animate({scrollTop: 0}, 100, function(){
+      window.location.hash = curHref.slice(1);
+      $(curHref).focus();
+    });
+  });
+  
+  /* Grid */
+  (function(){
+    var $grid, $gridBtn;
+    
+    function initGrid() {
+      $grid = $('<div class="grid"><div></div></div>').appendTo("body").css({
+        position: "absolute",
+        top: "0",
+        left: "0",
+        zIndex: "9998",
+        background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0",
+        cursor: "pointer",
+        display: "none"
+      }).children().css("background", "url("+$.lesintegristes.themeUrl+"/i/h-grid.png) repeat-y 50% 0").end();
+    
+      $gridBtn = $('<button type="button">Fermer la grille</button>').appendTo('body').css({
+        position: "fixed",
+        top: "0",
+        right: "0",
+        zIndex: "9999",
+        padding: "10px",
+        color: "#fff",
+        background: "#494949",
+        display: "none"
+      });
+    
+      $gridBtn.add($grid).click(function(e){
+        e.stopImmediatePropagation();
+        hideGrid();
+      });
+    };
+    
+    function resizeGrid() {
+      $grid.add($grid.children()).css({
+        width: $("body").outerWidth(),
+        height: $("body").outerHeight()
+      });
+    };
+    
+    function showGrid() {
+      if (!$grid) {
+        initGrid();
       }
       resizeGrid();
       $grid.add($gridBtn).fadeIn(150);
-  	};
-  	
-  	function hideGrid() {
-  	  if (!!$grid) {
-  	    $grid.add($gridBtn).fadeOut(150);
-  	  }
-  	};
-  	
-  	$.lesintegristes.toggleGrid = function() {
-  	  if (jQuery('body > .grid').is(':visible')) {
-  	    hideGrid();
-  	  } else {
-  	    showGrid();
-  	  }
-  	};
-	})();
+    };
+    
+    function hideGrid() {
+      if (!!$grid) {
+        $grid.add($gridBtn).fadeOut(150);
+      }
+    };
+    
+    $.lesintegristes.toggleGrid = function() {
+      if (jQuery('body > .grid').is(':visible')) {
+        hideGrid();
+      } else {
+        showGrid();
+      }
+    };
+  })();
   
 })(jQuery);

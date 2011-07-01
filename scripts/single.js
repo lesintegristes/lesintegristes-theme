@@ -4,11 +4,20 @@
     var $imgs = $("#content article.hentry > div.content img").each(function(){
       var $this = $(this),
           thisHeight = $this.height(),
-          $target = ($this.parent().is("a,div.wp-caption"))? $this.parent() : $this,
+          $target = $this,
           additionnalMargin = 24 - thisHeight % 24,
           mode = "margin";
       
-      console.log(this);
+      // Image + link, image + caption, image only
+      if ($this.parent().is('a,div.wp-caption')) {
+        $target = $this.parent();
+      }
+      
+      // Image + link + caption
+      if ($this.parent().is('a'), $this.parent('a').next().is('.wp-caption-text')) {
+        $target = $this.parents('.wp-caption');
+      }
+      
       if (!$target.is(".wp-caption") && !$target.is("img.alignleft") && !$target.is("img.alignright") && additionnalMargin < 10) {
         additionnalMargin += 24;
       }

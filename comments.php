@@ -1,4 +1,7 @@
 <?php
+# No direct file load
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+
 // Do not delete these lines
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
 		die ('Please do not load this page directly. Thanks!');
@@ -29,15 +32,25 @@
 				if ( $comment->user_id === $post->post_author ) {
 					$comment_classes .= " post-author";
 				}
+				if ( $comment->comment_type === "trackback" ) {
+					$comment_classes .= " trackback";
+				}
 				
 				if ($comment_classes !== '') {
 					$comment_class_attribute = ' class="'. $comment_classes .'"';
 				}
 			?>
 			<article id="comment-<?php comment_ID() ?>"<?php echo $comment_class_attribute ?>>
-				<div class="avatar"><?php echo get_avatar( $comment->comment_author_email, $size = '43', $default = get_bloginfo('template_url') . '/images/gravatar.png' ); ?></div>
+				<div class="avatar">
+					<?php
+						$cur_author_url = get_comment_author_url();
+						if ($cur_author_url !== "") { ?><a title="<?php echo get_comment_author() ?>" href="<?php echo get_comment_author_url() ?>"><?php }
+						echo get_avatar( $comment->comment_author_email, $size = '43', $default = get_bloginfo('template_url') . '/images/gravatar.png' );
+						if ($cur_author_url !== "") { ?></a><?php }
+					?>
+				</div>
 				<?php comment_text(); ?>
-				<p class="metas">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></strong> par <strong><?php echo get_comment_author_link(); ?></strong><?php edit_comment_link("Modifier le commentaire", ". ", ".") ?></p>
+				<p class="metas"><a href="#comment-<?php comment_ID() ?>">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></a></strong> par <strong><?php echo get_comment_author_link(); ?></strong><?php edit_comment_link("Modifier le commentaire", ". ", ".") ?></p>
 			</article>
 			<?php endforeach; ?>
 		

@@ -1,9 +1,12 @@
 <?php
-	$show_veille = !is_page('veille');
-	$show_articles = ( is_archive() || (is_page() && !is_page('page-home')) || is_single() || is_404() );
-	$show_notes = !is_category('31');
-	$show_links = is_user_logged_in();
-	$show_archives_links = is_date();
+# No direct file load
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+
+$show_veille = !is_page('veille');
+$show_articles = ( is_archive() || (is_page() && !is_page('page-home')) || is_single() || is_404() );
+$show_notes = !is_category('31');
+$show_links = is_user_logged_in();
+$show_archives_links = is_date();
 ?>
 		<aside id="sidebar" role="complementary">
 		

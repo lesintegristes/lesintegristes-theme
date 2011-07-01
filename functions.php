@@ -1,4 +1,6 @@
 <?php
+# No direct file load
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
 /*if ( function_exists('register_sidebar') ) {
 	register_sidebar(array(
@@ -9,10 +11,24 @@
 	));
 }*/
 
+/* Change CSS location */
+function lesintegristes_style_replace($buffer) {
+  return str_replace(
+    '<link rel="stylesheet" href="'.get_template_directory_uri().'/style.css" type="text/css" media="all" />',
+    '<link rel="stylesheet" href="http://static.lesintegristes.net/styles/main.css" type="text/css" media="all" />',
+    $buffer
+  );
+}
+function lesintegristes_style_replace_buffer() {
+  ob_start('lesintegristes_style_replace');
+}
+add_action('template_redirect', 'lesintegristes_style_replace_buffer'); // Replaces style.css with styles/main.css
+
+/* Google Ajax API */
 function add_google_ajax_api() {
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js', false, '1.3.2');
+		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js', false, '1.4');
 		wp_enqueue_script('jquery');
 	}
 }
@@ -112,7 +128,7 @@ function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
 
 /* Exclude "Notes" in search  */
 function lesintegristes_notes_filter($query) {
-	if ( $query->is_search || is_archive() ) { 
+	if ( $query->is_search ) { 
 		$query->set('cat','-31');
 	}
 	return $query;
@@ -164,4 +180,14 @@ function lesintegristes_get_author_link($author_id, $opts = array()) {
 	return '<a href="'. get_bloginfo('url') .'/author/'. $author->user_nicename .'/" title="Articles par '.$author->display_name.'">'. $opts["before"]  . $author->display_name . $opts["after"] . '</a>';
 }
 
-?>
+// Feedburner counter in the Dashboard
+function lesintegristes_dashboard_feedburner() {
+	echo '<p>Blog : <a href="http://feeds.feedburner.com/lesintegristes"><img src="http://feeds.feedburner.com/~fc/lesintegristes?bg=F9F9F9&amp;fg=333333&amp;anim=0" height="26" width="88" style="border:0;vertical-align:middle;" alt="" /></a></p>';
+	echo '<p>Veille : <a href="http://feeds.feedburner.com/lesintegristes/veille"><img src="http://feeds.feedburner.com/~fc/lesintegristes/veille?bg=F9F9F9&amp;fg=333333&amp;anim=0" height="26" width="88" style="border:0;vertical-align:middle;" alt="" /></a></p>';
+} 
+
+// Dashboard widgets
+function lesintegristes_dashboard_widgets() {
+	wp_add_dashboard_widget('lesintegristes_dashboard_feedburner', 'Statistiques Feedburner', 'lesintegristes_dashboard_feedburner');
+} 
+add_action('wp_dashboard_setup', 'lesintegristes_dashboard_widgets' );

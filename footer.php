@@ -1,4 +1,8 @@
-  	<footer id="footer">
+<?php
+# No direct file load
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+?>
+	<footer id="footer">
 			<div>
 				
 				<div class="categories-rss-container">
@@ -10,7 +14,6 @@
 					<section class="rss">
 						<p><?php echo lesintegristes_get_feed_link(get_bloginfo('rss2_url'), 'Flux RSS du blog (articles et notes)', false) ?></p>
 						<p><?php echo lesintegristes_get_feed_link(get_bloginfo("wpurl") .'/articles/feed/', 'Flux RSS des articles uniquement', false) ?></p>
-						<p><?php echo lesintegristes_get_feed_link(get_bloginfo("wpurl") .'/comments/feed/', 'Flux RSS de tous les commentaires', false) ?></p>
 					</section>
 				</div>
 				
@@ -48,7 +51,7 @@
 					</ul>
 				</nav>
 			</div>
-			<p class="bottom-line">Thème réalisé par <a href="http://www.lefauteuil.fr/" title="le Fauteuil : Conception et réalisation de sites web.">le Fauteuil</a>. Merci <a href="http://www.wordpress.org" title="WordPress, Blog Tool and Publishing Platform" lang="en">Wordpress</a>, <a href="http://jquery.com/" title="jQuery: The Write Less, Do More, JavaScript Library" lang="en">jQuery</a>, <a href="http://php.net/" title="PHP: Hypertext Preprocessor" lang="en">PHP</a> et <a href="http://httpd.apache.org/" title="The Apache HTTP Server Project" lang="en">Apache</a>.</p>
+			<p class="bottom-line">Thème par Grégoire Dierendonck (design) et Les Intégristes (code). Merci <a href="http://www.wordpress.org" title="WordPress, Blog Tool and Publishing Platform" lang="en">Wordpress</a>, <a href="http://jquery.com/" title="jQuery: The Write Less, Do More, JavaScript Library" lang="en">jQuery</a>, <a href="http://php.net/" title="PHP: Hypertext Preprocessor" lang="en">PHP</a> et <a href="http://httpd.apache.org/" title="The Apache HTTP Server Project" lang="en">Apache</a>.</p>
 		</footer>
 		<?php wp_footer(); ?>
   </div>

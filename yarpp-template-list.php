@@ -1,4 +1,8 @@
-<?php /*
+<?php
+# No direct file load
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+
+/*
 List template
 This template returns the related posts as a comma-separated list.
 Author: mitcho (Michael Yoshitaka Erlewine)

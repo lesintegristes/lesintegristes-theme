@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+# No direct file load
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+
+get_header(); ?>
 <div id="content" role="main" class="note">
 	<p><a href="<?php bloginfo('url'); ?>/categorie/notes/" class="action">Toutes les notes</a></p>
 	<p class="pagination">
