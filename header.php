@@ -1,11 +1,11 @@
 <?php
 	# No direct file load
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
-	
+
 	global $cur_meteo_condition;
-	
-	$body_classes .= "meteo-" . $cur_meteo_condition;
-	
+
+	$body_classes = (isset($body_classes)? $body_classes : '') . 'meteo-' . $cur_meteo_condition;
+
 	$articles_active = ( is_home() || (is_single() && !in_category('31')) || (is_archive() && !is_category('31')) );
 	$notes_active = ( is_category('31') || (is_single() && in_category('31')) );
 	$auteurs_active = is_page('auteurs');
