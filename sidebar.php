@@ -107,7 +107,14 @@ $show_archives_links = is_date();
 					<li>
 						<p class="date"><time datetime="<?php the_time('c'); ?>"><?php the_time('j/m') ?></time></p>
 						<div class="content">
-							<?php the_advanced_excerpt('length=30&use_words=1') ?> <span class="more"><a href="<?php the_permalink() ?>" rel="bookmark">Lire la note</a></span>
+							<?php
+							if (function_exists('the_advanced_excerpt')) {
+								the_advanced_excerpt('length=30&use_words=1');
+							} else {
+								the_excerpt();
+							}
+							?>
+							<span class="more"><a href="<?php the_permalink() ?>" rel="bookmark">Lire la note</a></span>
 						</div>
 						<p class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></p>
 					</li>
