@@ -72,20 +72,20 @@ unset($allowedtags["acronym"]);
 /* Init meteo */
 $GLOBALS["cur_meteo_condition"] = "";
 function lesintegristes_meteo_init() {
-	
+
 	if (!is_admin()) {
-		
+
 		global $cur_meteo_condition;
-		
+
 		$meteo_conditions = array("cloudy", "rain", "snow", "sunny", "night");
-		
+
 		if ( isset($_POST["change_meteo"]) && in_array($_POST["change_meteo"], $meteo_conditions) ) {
 			$cur_meteo_condition = $_POST["change_meteo"];
 			setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
-			
+
 		} elseif ( isset($_COOKIE['meteo']) && in_array($_COOKIE['meteo'], $meteo_conditions) ) {
 			$cur_meteo_condition = $_COOKIE['meteo'];
-			
+
 		} else {
 			$cur_meteo_condition = "sunny";
 			//setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
@@ -108,10 +108,10 @@ function lesintegristes_get_articles_url() {
 }
 
 function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
-	
+
   preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
   $tags = array_unique($tags[1]);
-   
+
   if(is_array($tags) AND count($tags) > 0) {
     if($invert == FALSE) {
       return preg_replace('@<(?!(?:'. implode('|', $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
@@ -128,7 +128,7 @@ function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
 
 /* Exclude "Notes" in search  */
 function lesintegristes_notes_filter($query) {
-	if ( $query->is_search ) { 
+	if ( $query->is_search ) {
 		$query->set('cat','-31');
 	}
 	return $query;
@@ -143,20 +143,20 @@ $archives_months_query = array();
 
 function get_lesintegristes_archives_years_query() {
 	global $wpdb, $notes_term_taxonomy_id, $archives_years_query;
-	
+
 	if (!$archives_years_query) {
 		$archives_years_query = $wpdb->get_col("SELECT DISTINCT YEAR(wposts.post_date) FROM $wpdb->posts wposts INNER JOIN $wpdb->term_relationships wcategory ON wposts.ID = wcategory.object_id WHERE wposts.post_status = 'publish' AND wposts.post_type = 'post' AND wcategory.term_taxonomy_id != '".$notes_term_taxonomy_id."' ORDER BY wposts.post_date DESC");
 	}
-	
+
 	return $archives_years_query;
 }
 function get_lesintegristes_archives_months_query($year) {
 	global $wpdb, $notes_term_taxonomy_id, $archives_months_query;
-	
-	if (!$archives_months_query[$year]) {
+
+	if (!isset($archives_months_query[$year])) {
 		$archives_months_query[$year] = $wpdb->get_col("SELECT DISTINCT MONTH(wposts.post_date) FROM $wpdb->posts wposts INNER JOIN $wpdb->term_relationships wcategory ON wposts.ID = wcategory.object_id WHERE wposts.post_status = 'publish' AND wposts.post_type = 'post' AND YEAR(wposts.post_date) = '".$year."' AND wcategory.term_taxonomy_id != '".$notes_term_taxonomy_id."' ORDER BY wposts.post_date DESC");
 	}
-	
+
 	return $archives_months_query[$year];
 }
 
@@ -171,12 +171,12 @@ function getAttributeIfTrue($condition, $attribute = 'class', $value = 'active')
 
 /* Get author link (with some options) */
 function lesintegristes_get_author_link($author_id, $opts = array()) {
-	
+
 	if (!isset($opts["before"])) $opts["before"] = "";
 	if (!isset($opts["after"]))  $opts["after"] = "";
-	
+
 	$author = get_userdata($author_id);
-	
+
 	return '<a href="'. get_bloginfo('url') .'/author/'. $author->user_nicename .'/" title="Articles par '.$author->display_name.'">'. $opts["before"]  . $author->display_name . $opts["after"] . '</a>';
 }
 
@@ -184,10 +184,10 @@ function lesintegristes_get_author_link($author_id, $opts = array()) {
 function lesintegristes_dashboard_feedburner() {
 	echo '<p>Blog : <a href="http://feeds.feedburner.com/lesintegristes"><img src="http://feeds.feedburner.com/~fc/lesintegristes?bg=F9F9F9&amp;fg=333333&amp;anim=0" height="26" width="88" style="border:0;vertical-align:middle;" alt="" /></a></p>';
 	echo '<p>Veille : <a href="http://feeds.feedburner.com/lesintegristes/veille"><img src="http://feeds.feedburner.com/~fc/lesintegristes/veille?bg=F9F9F9&amp;fg=333333&amp;anim=0" height="26" width="88" style="border:0;vertical-align:middle;" alt="" /></a></p>';
-} 
+}
 
 // Dashboard widgets
 function lesintegristes_dashboard_widgets() {
 	wp_add_dashboard_widget('lesintegristes_dashboard_feedburner', 'Statistiques Feedburner', 'lesintegristes_dashboard_feedburner');
-} 
+}
 add_action('wp_dashboard_setup', 'lesintegristes_dashboard_widgets' );
