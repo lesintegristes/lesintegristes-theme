@@ -6,7 +6,11 @@ Template Name: Auteurs
 # No direct file load
 if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
-wpcf7_enqueue_styles();
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+if (function_exists('wpcf7_enqueue_styles')) {
+	wpcf7_enqueue_styles();
+}
 get_header();
 ?>
 
@@ -48,13 +52,14 @@ get_header();
 			</div>
 		</section>
 
+		<?php if (is_plugin_active('contact-form-7/wp-contact-form-7.php')): ?>
 		<p class="invitation"><strong>Les Intégristes est un blog ouvert à tous,<br /> n’hésitez pas à nous contacter<br /> pour participer à sa rédaction. :)</strong></p>
-
 		<section class="contact">
 			<h1>Contactez-nous&nbsp;!</h1>
 			<?php the_content(); ?>
 		</section>
 		<script type="text/javascript">jQuery("section.contact span.wpcf7-not-valid-tip-no-ajax").closest("p").addClass("error");</script>
+		<?php endif; ?>
 	<?php endwhile; endif; ?>
 </div>
 <?php get_sidebar(); ?>
