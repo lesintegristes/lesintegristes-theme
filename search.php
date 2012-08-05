@@ -14,7 +14,7 @@ get_header(); ?>
 				<header>
 					<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></h1>
 					<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
-					<p class="author"><?php echo lesintegristes_get_author_link(get_the_author_ID(), array("before" => "Par <strong>", "after" => "</strong>")) ?></p>
+					<p class="author"><?php echo lesintegristes_get_author_link(get_the_author_meta('ID'), array("before" => "Par <strong>", "after" => "</strong>")) ?></p>
 					<?php edit_post_link('Modifier', '<p>', '</p>'); ?>
 				</header>
 				<div class="content">

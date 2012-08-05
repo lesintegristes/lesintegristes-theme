@@ -9,11 +9,11 @@ $show_links = is_user_logged_in();
 $show_archives_links = is_date();
 ?>
 		<aside id="sidebar" role="complementary">
-		
+
 			<div class="search">
 				<?php get_search_form(); ?>
 			</div>
-			
+
 			<?php if ($show_veille): ?>
 			<div class="veille">
 				<a href="<?php echo bloginfo('url'); ?>/veille/" title="Veille : Offrez notre sélection d'infos à votre agrégateur !">
@@ -24,7 +24,7 @@ $show_archives_links = is_date();
 				</a>
 			</div>
 			<?php endif; ?>
-			
+
 			<!--[if !IE 6]><!-->
 			<section class="titled text meteo collapsible">
 				<h1><span>Météo</span></h1>
@@ -42,7 +42,7 @@ $show_archives_links = is_date();
 				</div>
 			</section>
 			<!--<![endif]-->
-			
+
 			<?php
 				/* Archives */
 				if ($show_archives_links): ?>
@@ -69,7 +69,7 @@ $show_archives_links = is_date();
 				</ul>
 			</section>
 			<?php endif; ?>
-			
+
 			<?php
 				/* Articles */
 				if ( $show_articles ): ?>
@@ -85,14 +85,14 @@ $show_archives_links = is_date();
 						<p class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></p>
 						<p class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></p>
 						<p class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></p>
-						<p class="author"><?php echo lesintegristes_get_author_link(get_the_author_ID(), array("before" => "Par <strong>", "after" => "</strong>")) ?></p>
+						<p class="author"><?php echo lesintegristes_get_author_link(get_the_author_meta('ID'), array("before" => "Par <strong>", "after" => "</strong>")) ?></p>
 					</li>
 					<?php endwhile; ?>
 				</ul>
 				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/articles/" class="all">Tous les articles</a></p>
 			</section>
 			<?php endif; ?>
-			
+
 			<?php
 				/* Notes */
 				if ( $show_notes ): ?>
@@ -116,7 +116,7 @@ $show_archives_links = is_date();
 				<p class="footer"><a href="<?php echo bloginfo('url'); ?>/categorie/notes/" class="all">Toutes les notes</a></p>
 			</section>
 			<?php endif; ?>
-			
+
 			<section class="text titled newsletter">
 				<h1>Newsletter</h1>
 				<form action="http://feedburner.google.com/fb/a/mailverify" method="get">
@@ -128,12 +128,12 @@ $show_archives_links = is_date();
 					</p>
 				</form>
 			</section>
-			
+
 			<section class="text creativecommons">
 				<h1><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">Creative Commons</a></h1>
 				<p>Sauf mention contraire, les publications de ce site sont mises à disposition sous un <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">contrat Creative Commons <abbr title="Paternité">BY</abbr> <abbr title="Pas d'utilisation commerciale">NC</abbr> <abbr title="Partage des conditions à l'identique">SA</abbr></a>.</p>
 			</section>
-			
+
 			<?php if ($show_links): ?>
 			<section class="titled text links">
 				<h1>Liens</h1>
@@ -142,5 +142,5 @@ $show_archives_links = is_date();
 				</ul>
 			</section>
 			<?php endif; ?>
-			
+
 		</aside>

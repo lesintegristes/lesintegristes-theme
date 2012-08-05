@@ -22,7 +22,7 @@ Author: mitcho (Michael Yoshitaka Erlewine)
 					<dt><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></dt>
 					<dd class="date"><time datetime="<?php the_time('c'); ?>"><span class="day"><?php the_time('j') ?></span> <?php the_time('M y'); ?></time></dd>
 					<dd class="comments-count"><a href="<?php the_permalink() ?>#comments" title="<?php comments_number('0 commentaires', '1 commentaire', '% commentaires'); ?>"><strong><span><?php comments_number('0', '1', '%'); ?></span></strong></a></dd>
-					<dd class="author"><?php echo lesintegristes_get_author_link(get_the_author_ID(), array("before" => "Par <strong>", "after" => "</strong>")) ?></dd>
+					<dd class="author"><?php echo lesintegristes_get_author_link(get_the_author_meta('ID'), array("before" => "Par <strong>", "after" => "</strong>")) ?></dd>
 				</dl>
 			</li>
 			<?php endwhile; ?>
