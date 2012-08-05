@@ -20,7 +20,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 			<p class="post-comment"><a href="#respond" class="button"><span><span><span>Poster un commentaire</span></span></span></a></p>
 				<?php endif; ?>
 		</div>
-		<p class="rss"><?php echo lesintegristes_get_feed_link(get_post_comments_feed_link( $post_id, "rss2" ), "Flux RSS des commentaires de cet article"); ?></p>
+		<p class="rss"><?php echo lesintegristes_get_feed_link(get_post_comments_feed_link( $post->ID, "rss2" ), "Flux RSS des commentaires de cet article"); ?></p>
 		<?php if ( have_comments() ) : ?>
 			<?php foreach ($comments as $comment): ?>
 			<?php
@@ -35,7 +35,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 				if ( $comment->comment_type === "trackback" ) {
 					$comment_classes .= " trackback";
 				}
-				
+
 				if ($comment_classes !== '') {
 					$comment_class_attribute = ' class="'. $comment_classes .'"';
 				}
@@ -53,11 +53,11 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 				<p class="metas"><a href="#comment-<?php comment_ID() ?>">Le <strong><?php echo comment_date("d M. Y") ?></strong> à <strong><?php echo comment_date("H\hi") ?></a></strong> par <strong><?php echo get_comment_author_link(); ?></strong><?php edit_comment_link("Modifier le commentaire", ". ", ".") ?></p>
 			</article>
 			<?php endforeach; ?>
-		
+
 		<?php else : // pas encore de commentaires ?>
-		
+
 		<?php endif; ?>
-	
+
 	<?php
 	/* Pagination */
 	/* <p class="comments-pagination"><?php previous_comments_link() ?> | <?php next_comments_link() ?></p> */
@@ -67,52 +67,52 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 
 
 <div id="respond">
-	
+
 <?php if ( comments_open() ) : ?>
-	
+
 	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-		
+
 		<p>
 			Publiez un commentaire en remplissant les champs ci-dessous.<br />
 			Les champs marqués d'une astérisque (*) sont obligatoires.
 		</p>
-		
+
 		<?php if ( is_user_logged_in() ) : ?>
-		
+
 		<p>Vous n'êtes pas <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php" class="action"><?php echo $user_identity; ?></a> ? <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Déconnexion" class="action">Déconnectez-vous</a>.</p>
-		
+
 		<?php else : ?>
-		
+
 		<p>
 			<label for="author">Nom*</label>
 			<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" <?php if ($req) echo "aria-required='true'"; ?> />
 		</p>
-		
+
 		<p>
 			<label for="email">Mail* (non publié)</label>
 			<input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ($req) echo "aria-required='true'"; ?> />
 		</p>
-		
+
 		<p>
 			<label for="url">Site web</label>
 			<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" />
 		</p>
-		
+
 		<?php endif; ?>
-		
+
 		<p class="comment">
 			<label for="comment">Commentaire*</label>
 			<textarea name="comment" id="comment" cols="70" rows="15"></textarea>
 		</p>
-		
+
 		<p class="html-help"><span>Les commentaires peuvent utiliser <strong>HTML</strong>&nbsp;; seuls ces éléments sont autorisés&nbsp;: <code><?php echo allowed_tags(); ?></code></span></p>
-		
+
 		<?php do_action('comment_form', $post->ID); ?>
-		
+
 		<p class="submit"><button type="submit"><span><span>Publier le commentaire</span></span></button></p>
-		
+
 		<?php comment_id_fields(); ?>
-		
+
 	</form>
 <?php else : // Commentaires fermés ?>
 	<p class="no-comments">Les commentaires sont fermés sur cet article.</p>
