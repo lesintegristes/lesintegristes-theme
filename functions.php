@@ -69,30 +69,30 @@ unset($allowedtags["i"]);
 unset($allowedtags["b"]);
 unset($allowedtags["acronym"]);
 
-/* Init meteo */
-$GLOBALS["cur_meteo_condition"] = "";
-function lesintegristes_meteo_init() {
+/* Init weather */
+$GLOBALS["cur_weather_condition"] = "";
+function lesintegristes_weather_init() {
 
 	if (!is_admin()) {
 
-		global $cur_meteo_condition;
+		global $cur_weather_condition;
 
-		$meteo_conditions = array("cloudy", "rain", "snow", "sunny", "night");
+		$weather_conditions = array("cloudy", "rain", "snow", "sunny", "night");
 
-		if ( isset($_POST["change_meteo"]) && in_array($_POST["change_meteo"], $meteo_conditions) ) {
-			$cur_meteo_condition = $_POST["change_meteo"];
-			setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
+		if ( isset($_POST["change_weather"]) && in_array($_POST["change_weather"], $weather_conditions) ) {
+			$cur_weather_condition = $_POST["change_weather"];
+			setcookie("weather", $cur_weather_condition, time() + 86400, "/");
 
-		} elseif ( isset($_COOKIE['meteo']) && in_array($_COOKIE['meteo'], $meteo_conditions) ) {
-			$cur_meteo_condition = $_COOKIE['meteo'];
+		} elseif ( isset($_COOKIE['weather']) && in_array($_COOKIE['weather'], $weather_conditions) ) {
+			$cur_weather_condition = $_COOKIE['weather'];
 
 		} else {
-			$cur_meteo_condition = "sunny";
-			//setcookie("meteo", $cur_meteo_condition, time() + 86400, "/");
+			$cur_weather_condition = "sunny";
+			//setcookie("weather", $cur_weather_condition, time() + 86400, "/");
 		}
 	}
 }
-add_action("init", "lesintegristes_meteo_init");
+add_action("init", "lesintegristes_weather_init");
 
 /* Remove <img> and <figure> */
 function lesintegristes_remove_img_and_figure($content) {

@@ -229,15 +229,15 @@ body{background:url(i/strip-shadow.png) no-repeat 50% 15px;}
 #header nav li + li a:active{background-position:-79px -148px;}
 #header nav li + li + li a:active{background-position:-158px -148px;}
 /* Meteo */
-body.meteo-sunny #header{background-image:url(i/meteo/sunny/header-small.jpg);}
-body.meteo-rain #header{background-image:url(i/meteo/rain/header-small.jpg);}
-body.meteo-cloudy #header{background-image:url(i/meteo/cloudy/header-small.jpg);}
-body.meteo-snow #header{background-image:url(i/meteo/snow/header-small.jpg);}
-body.meteo-night #header{background-image:url(i/meteo/night/header-small.jpg);}
-/* Loading meteo */
+body.weather-sunny #header{background-image:url(i/weather/sunny/header-small.jpg);}
+body.weather-rain #header{background-image:url(i/weather/rain/header-small.jpg);}
+body.weather-cloudy #header{background-image:url(i/weather/cloudy/header-small.jpg);}
+body.weather-snow #header{background-image:url(i/weather/snow/header-small.jpg);}
+body.weather-night #header{background-image:url(i/weather/night/header-small.jpg);}
+/* Loading weather */
 #header .overlay{display:none;position:absolute;z-index:1;top:0;left:0;width:946px;height:144px;background:#fff;}
-#header .loader{display:none;position:absolute;z-index:2;left:413px;top:57px;width:120px;background:url(i/meteo/loader/bubble.png) no-repeat 0 0;}
-#header .loader div{height:85px;background:url(i/meteo/loader/anim.gif) no-repeat 37px 50px;}
+#header .loader{display:none;position:absolute;z-index:2;left:413px;top:57px;width:120px;background:url(i/weather/loader/bubble.png) no-repeat 0 0;}
+#header .loader div{height:85px;background:url(i/weather/loader/anim.gif) no-repeat 37px 50px;}
 
 /* Header - Home */
 body.home{background-position:50% 39px;}
@@ -265,19 +265,19 @@ body.home #header nav li a:active{background-position:1px -148px;outline:0;}
 body.home #header nav li + li a:active{background-position:-91px -148px;}
 body.home #header nav li + li + li a:active{background-position:-182px -148px;}
 /* Meteo */
-body.home.meteo-sunny #header{background-image:url(i/meteo/sunny/header-large.jpg);}
-body.home.meteo-rain #header{background-image:url(i/meteo/rain/header-large.jpg);}
-body.home.meteo-cloudy #header{background-image:url(i/meteo/cloudy/header-large.jpg);}
-body.home.meteo-snow #header{background-image:url(i/meteo/snow/header-large.jpg);}
-body.home.meteo-night #header{background-image:url(i/meteo/night/header-large.jpg);}
-/* Loading meteo */
+body.home.weather-sunny #header{background-image:url(i/weather/sunny/header-large.jpg);}
+body.home.weather-rain #header{background-image:url(i/weather/rain/header-large.jpg);}
+body.home.weather-cloudy #header{background-image:url(i/weather/cloudy/header-large.jpg);}
+body.home.weather-snow #header{background-image:url(i/weather/snow/header-large.jpg);}
+body.home.weather-night #header{background-image:url(i/weather/night/header-large.jpg);}
+/* Loading weather */
 body.home #header .overlay{height:278px;}
 body.home #header .loader{top:147px;}
 body.home #header .loader div{background-position:37px 34px;}
 
 /* Footer */
 body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
-#wrapper > footer{clear:both;margin-bottom:0;padding-top:30px;color:#857e76;border-top:6px solid #857e76;background:url(i/meteo/sunny/footer.jpg) no-repeat 0 100%;}
+#wrapper > footer{clear:both;margin-bottom:0;padding-top:30px;color:#857e76;border-top:6px solid #857e76;background:url(i/weather/sunny/footer.jpg) no-repeat 0 100%;}
 #wrapper > footer > div{overflow:hidden;padding-bottom:120px;}
 #wrapper > footer a{color:#857e76;}
 #wrapper > footer a:hover,
@@ -330,10 +330,10 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer nav li + li + li a:active{background-position:-178px -144px;}
 #wrapper > footer .bottom-line{position:relative;bottom:-48px;line-height:48px;font-size:10px;text-align:center;}
 /* Meteo */
-body.meteo-rain #wrapper > footer{background-image:url(i/meteo/rain/footer.jpg);}
-body.meteo-cloudy #wrapper > footer{background-image:url(i/meteo/cloudy/footer.jpg);}
-body.meteo-snow #wrapper > footer{background-image:url(i/meteo/snow/footer.jpg);}
-body.meteo-night #wrapper > footer{background-image:url(i/meteo/night/footer.jpg);}
+body.weather-rain #wrapper > footer{background-image:url(i/weather/rain/footer.jpg);}
+body.weather-cloudy #wrapper > footer{background-image:url(i/weather/cloudy/footer.jpg);}
+body.weather-snow #wrapper > footer{background-image:url(i/weather/snow/footer.jpg);}
+body.weather-night #wrapper > footer{background-image:url(i/weather/night/footer.jpg);}
 
 /* Content */
 #content{position:relative;}
@@ -602,42 +602,42 @@ body.single #content .last-articles li{margin-bottom:0;}
 #sidebar > .veille a p strong{float:left;width:79px;text-indent:6px;font:25px/50px Georgia, Times, serif;color:#c0d43d;}
 #sidebar > .veille a p + p{float:left;width:120px;margin-top:4px;line-height:14px;font-size:12px;font-style:italic;color:#dbd2c3;}
 /* Veille - Meteo */
-body.meteo-sunny #sidebar > .veille a{background-image:url(i/meteo/sunny/veille.jpg);}
-body.meteo-rain #sidebar > .veille a{background-image:url(i/meteo/rain/veille.jpg);}
-body.meteo-cloudy #sidebar > .veille a{background-image:url(i/meteo/cloudy/veille.jpg);}
-body.meteo-snow #sidebar > .veille a{background-image:url(i/meteo/snow/veille.jpg);}
-body.meteo-night #sidebar > .veille a{background-image:url(i/meteo/night/veille.jpg);}
+body.weather-sunny #sidebar > .veille a{background-image:url(i/weather/sunny/veille.jpg);}
+body.weather-rain #sidebar > .veille a{background-image:url(i/weather/rain/veille.jpg);}
+body.weather-cloudy #sidebar > .veille a{background-image:url(i/weather/cloudy/veille.jpg);}
+body.weather-snow #sidebar > .veille a{background-image:url(i/weather/snow/veille.jpg);}
+body.weather-night #sidebar > .veille a{background-image:url(i/weather/night/veille.jpg);}
 /* Meteo */
-#sidebar > .meteo{overflow:hidden;padding-bottom:0;}
-#sidebar > .meteo h1{float:left;width:211px;line-height:47px;}
-body.js #sidebar > .meteo h1{margin:0;border-color:#ece4d6;}
-body.js #sidebar > .meteo h1.expanded{border-color:#b7c272;}
-#sidebar > .meteo h1 span{float:left;}
-#sidebar > .meteo h1 button{overflow:hidden;float:left;position:relative;top:11px;margin-left:10px;width:26px;height:26px;text-indent:-9999px;background:url(i/button-box.png) no-repeat 0 0;}
-#sidebar > .meteo h1 button:focus{outline:1px dotted #757474;}
-#sidebar > .meteo h1.expanded button{height:37px;background-position:0 -26px;}
-#sidebar > .meteo > div > p{clear:left;margin:-4px 0 12px 6px;}
-body.js #sidebar > .meteo > div{clear:left;display:none;}
-body.js #sidebar > .meteo input,
-body.js #sidebar > .meteo .submit,
-body.js #sidebar > .meteo label{display:none;}
-body.js #sidebar > .meteo form{overflow:hidden;margin:0 0 0 16px;padding-top:12px;}
-body.js #sidebar > .meteo form p{float:left;margin:0 0 8px 8px;}
-body.js #sidebar > .meteo form button{float:left;width:49px;height:42px;text-indent:-9999px;background:url(i/meteo-buttons.png) no-repeat 0 0;border:2px solid #857e76;}
-body.js #sidebar > .meteo form button:hover,
-body.js #sidebar > .meteo form button:focus{border-color:#83a10f;}
-body.js #sidebar > .meteo form button.meteo-sunny.active{background-position:-45px 0;}
-body.js #sidebar > .meteo form button.meteo-cloudy{background-position:0 -76px;}
-body.js #sidebar > .meteo form button.meteo-cloudy.active{background-position:-45px -76px;}
-body.js #sidebar > .meteo form button.meteo-rain{background-position:0 -152px;}
-body.js #sidebar > .meteo form button.meteo-rain.active{background-position:-45px -152px;}
-body.js #sidebar > .meteo form button.meteo-snow{background-position:0 -38px;}
-body.js #sidebar > .meteo form button.meteo-snow.active{background-position:-45px -38px;}
-body.js #sidebar > .meteo form button.meteo-night{background-position:0 -114px;}
-body.js #sidebar > .meteo form button.meteo-night.active{background-position:-45px -114px;}
-body.js #sidebar > .meteo form button.meteo-auto{background-position:0 -190px;}
-body.js #sidebar > .meteo form button.meteo-auto.active{background-position:-45px -190px;}
-body.js.loading #sidebar > .meteo form button.meteo-auto{background:url(i/meteo-button-load.gif) no-repeat 0 0;}
+#sidebar > .weather{overflow:hidden;padding-bottom:0;}
+#sidebar > .weather h1{float:left;width:211px;line-height:47px;}
+body.js #sidebar > .weather h1{margin:0;border-color:#ece4d6;}
+body.js #sidebar > .weather h1.expanded{border-color:#b7c272;}
+#sidebar > .weather h1 span{float:left;}
+#sidebar > .weather h1 button{overflow:hidden;float:left;position:relative;top:11px;margin-left:10px;width:26px;height:26px;text-indent:-9999px;background:url(i/button-box.png) no-repeat 0 0;}
+#sidebar > .weather h1 button:focus{outline:1px dotted #757474;}
+#sidebar > .weather h1.expanded button{height:37px;background-position:0 -26px;}
+#sidebar > .weather > div > p{clear:left;margin:-4px 0 12px 6px;}
+body.js #sidebar > .weather > div{clear:left;display:none;}
+body.js #sidebar > .weather input,
+body.js #sidebar > .weather .submit,
+body.js #sidebar > .weather label{display:none;}
+body.js #sidebar > .weather form{overflow:hidden;margin:0 0 0 16px;padding-top:12px;}
+body.js #sidebar > .weather form p{float:left;margin:0 0 8px 8px;}
+body.js #sidebar > .weather form button{float:left;width:49px;height:42px;text-indent:-9999px;background:url(i/weather-buttons.png) no-repeat 0 0;border:2px solid #857e76;}
+body.js #sidebar > .weather form button:hover,
+body.js #sidebar > .weather form button:focus{border-color:#83a10f;}
+body.js #sidebar > .weather form button.weather-sunny.active{background-position:-45px 0;}
+body.js #sidebar > .weather form button.weather-cloudy{background-position:0 -76px;}
+body.js #sidebar > .weather form button.weather-cloudy.active{background-position:-45px -76px;}
+body.js #sidebar > .weather form button.weather-rain{background-position:0 -152px;}
+body.js #sidebar > .weather form button.weather-rain.active{background-position:-45px -152px;}
+body.js #sidebar > .weather form button.weather-snow{background-position:0 -38px;}
+body.js #sidebar > .weather form button.weather-snow.active{background-position:-45px -38px;}
+body.js #sidebar > .weather form button.weather-night{background-position:0 -114px;}
+body.js #sidebar > .weather form button.weather-night.active{background-position:-45px -114px;}
+body.js #sidebar > .weather form button.weather-auto{background-position:0 -190px;}
+body.js #sidebar > .weather form button.weather-auto.active{background-position:-45px -190px;}
+body.js.loading #sidebar > .weather form button.weather-auto{background:url(i/weather-button-load.gif) no-repeat 0 0;}
 /* Notes */
 #sidebar > .notes ul{margin-top:-6px;margin-bottom:11px;}
 #sidebar > .notes li{margin:0 0 5px 6px;padding:6px 0 13px;background:url(i/dashed2-h.png) repeat-x 0 100%;}

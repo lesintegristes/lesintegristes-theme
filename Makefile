@@ -6,7 +6,7 @@ geolitecity:
 	@echo "Downloading the GeoLiteCity file..."
 	curl -o GeoLiteCity.dat.gz ${GEOCITY_URL}
 	gunzip GeoLiteCity.dat.gz
-	mv GeoLiteCity.dat ./meteo_service/
+	mv GeoLiteCity.dat ./weather_service/
 	@echo "Done."
 
 .PHONY: geolitecity
