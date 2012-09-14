@@ -1,4 +1,4 @@
-# Les intégristes
+# Les intégristes - WordPress Theme
 
 ## Installation
 
