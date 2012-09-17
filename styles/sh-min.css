@@ -7,23 +7,23 @@
 *
 * @version
 * 2.1.364 (October 15 2009)
-* 
+*
 * @copyright
 * Copyright (C) 2004-2009 Alex Gorbatchev.
 *
 * @license
 * This file is part of SyntaxHighlighter.
-* 
+*
 * SyntaxHighlighter is free software:you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published by
 * the Free Software Foundation,either version 3 of the License,or
 * (at your option) any later version.
-* 
+*
 * SyntaxHighlighter is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY;without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
-* 
+*
 * You should have received a copy of the GNU General Public License
 * along with SyntaxHighlighter. If not,see <http://www.gnu.org/copyleft/lesser.html>.
 */
@@ -67,7 +67,7 @@ position:relative !important;}
 .syntaxhighlighter .toolbar .item.printSource{background-image:url(../i/sh/printer.png) !important;}
 .syntaxhighlighter .toolbar .item.copyToClipboard{text-indent:0 !important;background:none !important;overflow:visible !important;}
 .syntaxhighlighter .toolbar .item.about{background-image:url(../i/sh/help.png) !important;}
-/** 
+/**
 * Print view.
 * Colors are based on the default theme without background.
 */
@@ -116,7 +116,7 @@ position:relative !important;}
 .syntaxhighlighter .toolbar .item.printSource,
 .syntaxhighlighter .toolbar .item.about{display:none !important;}
 .syntaxhighlighter .toolbar{padding:0 !important;}
-.syntaxhighlighter .toolbar .item.viewSource{position:absolute;left:-9999px;width:43px !important;height:45px !important;margin:0 !important;color:#857e76 !important;background-image:url(../i/show-code.png) !important;}
+.syntaxhighlighter .toolbar .item.viewSource{position:absolute;left:-9999px;width:43px !important;height:45px !important;margin:0 !important;color:#857e76 !important;background-image:url(i/show-code.png) !important;}
 .syntaxhighlighter .toolbar .item.viewSource:active{background-position:0 -45px !important;}
 .syntaxhighlighter .toolbar .item.viewSource:focus,
 .syntaxhighlighter .bar.show .toolbar .item.viewSource{left:auto;right:8px;}
