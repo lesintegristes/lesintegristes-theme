@@ -34,7 +34,7 @@
       $("#sidebar > .weather label").each(function(i){
         var $this = $(this);
         buttons[i] = $('<button type="button" class="'+ $this.attr("for") + " "
-                     + $this.attr("class") +'" value="'+ $this.attr("for").slice(6) +'" title="'
+                     + $this.attr("class") +'" value="'+ $this.attr("for").slice(8) +'" title="'
                      + $this.text() +'"></button>').insertAfter(this)[0];
       });
 
