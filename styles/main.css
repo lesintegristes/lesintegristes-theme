@@ -681,17 +681,14 @@ body.js.loading #sidebar > .weather form button.weather-auto{background:url(i/we
 
 /* Article date transition */
 #content article header .date,
-#content .last-articles .date,
-#content article header .date .day,
-#content .last-articles .date .day {
+#content article header .date .day {
   transition-property: left, top, font-size, word-spacing;
   transition-duration: 0.2s;
   transition-easing: ease-in-out;
 }
 
 @media all and (max-width: 1080px) {
-  #content article header .date,
-  #content .last-articles .date {
+  #content article header .date {
     position:absolute;
     top:-20px;
     left:0;
@@ -700,8 +697,7 @@ body.js.loading #sidebar > .weather form button.weather-auto{background:url(i/we
     font-size:14px;
     word-spacing:0;
   }
-  #content article header .date .day,
-  #content .last-articles .date .day {
+  #content article header .date .day {
     display:inline;
     margin-bottom:0;
     font-size:14px;
