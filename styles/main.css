@@ -678,3 +678,32 @@ body.js.loading #sidebar > .weather form button.weather-auto{background:url(i/we
 #sidebar > .creativecommons h1 a:focus{color:#6d6a6a;background-position:0 -96px;}
 /* Links */
 #sidebar > .links ul{margin-bottom:6px;padding-left:6px;}
+
+/* Article date transition */
+#content article header .date,
+#content .last-articles .date,
+#content article header .date .day,
+#content .last-articles .date .day {
+  transition-property: left, top, font-size, word-spacing;
+  transition-duration: 0.2s;
+  transition-easing: ease-in-out;
+}
+
+@media all and (max-width: 1080px) {
+  #content article header .date,
+  #content .last-articles .date {
+    position:absolute;
+    top:-20px;
+    left:0;
+    width: 200px;
+    text-align:left;
+    font-size:14px;
+    word-spacing:0;
+  }
+  #content article header .date .day,
+  #content .last-articles .date .day {
+    display:inline;
+    margin-bottom:0;
+    font-size:14px;
+  }
+}
