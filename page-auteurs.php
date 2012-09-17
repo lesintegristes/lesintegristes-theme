@@ -24,7 +24,7 @@ get_header();
 				<h2>Responsable intégration web</h2>
 			</header>
 			<div class="content">
-				<p class="photo author"><img src="http://0.gravatar.com/avatar/17fc96622170237e61d15e34de93faf5?size=120" alt="" width="110" height="110" /></p>
+				<p class="photo author"><img src="http://0.gravatar.com/avatar/17fc96622170237e61d15e34de93faf5?size=120" alt="" width="115" height="115" /></p>
 				<p>Il y a quelques années, Éric a courageusement pris la décision de consacrer toute son énergie à la réalisation d'interfaces web de <em>qualité</em>. Après avoir vaincu Internet Explorer et intégré l'inintégrable, il est parti à la recherche de nouveaux défis&nbsp;: l'accessibilité et l'expérience utilisateur pour le web. Il est diplomé <a href="http://www.accessiweb.org/">Expert Accessiweb</a>, et a atteint le rang de Grand Chevalier de l'Ergonomie sur le Web, distinction qu'il n'a malheureusement jamais voulu reconnaître. Éric est aujourd'hui responsable du pôle intégration chez Pixmania, et apporte son expérience à l'ensemble des projets du groupe.</p>
 				<p class="desc-author"><em>Par Pierre Bertet.</em></p>
 				<ul class="links">
