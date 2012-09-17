@@ -4,7 +4,19 @@ PLUGINS_LIST=advanced-excerpt contact-form-7 really-simple-captcha
 OK_COLOR="\x1b[32;01m"
 NO_COLOR="\x1b[0m"
 
-all: plugins geolitecity
+# JS files
+JS_FINAL_MAIN = scripts/main-min.js
+JS_FINAL_SINGLE = scripts/single-min.js
+JS_TARGETS = scripts/jquery.cookies.2.2.0.js \
+             scripts/main.js \
+             scripts/syntax-highlighter.js \
+             scripts/single.js
+JS_MINIFIED = $(JS_TARGETS:.js=.min.js)
+
+# Binaries
+UGLIFY_BIN = uglifyjs
+
+all: plugins geolitecity js
 
 geolitecity:
 	@echo "Downloading the GeoLiteCity file..."
@@ -28,4 +40,21 @@ plugins:
 	rm -rf ./$$PLUGIN; \
 	done
 
-.PHONY: geolitecity plugins
+# JavaScript
+js: $(JS_FINAL_MAIN) $(JS_FINAL_SINGLE)
+
+$(JS_FINAL_MAIN): scripts/jquery.cookies.2.2.0.min.js scripts/main.min.js
+	cat $^ >$@
+	rm -f $^
+$(JS_FINAL_SINGLE): scripts/syntax-highlighter.min.js scripts/single.min.js
+	cat $^ >$@
+	rm -f $^
+
+%.min.js: %.js
+	$(UGLIFY_BIN) -o $@ $<
+	echo >> $@
+
+clean:
+	rm -f $(JS_MINIFIED)
+
+.PHONY: geolitecity plugins js clean
