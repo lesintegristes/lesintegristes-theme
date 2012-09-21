@@ -17,44 +17,39 @@ get_header();
 <div id="content" role="main" class="page-auteurs">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<h1><?php the_title(); ?></h1>
-
+		
+		<?php
+		$blog_authors = lesintegristes_authors_ordered_by_last_post();
+		foreach ($blog_authors as $author): ?>
 		<section class="author">
 			<header>
-				<h1>Éric Le Bihan</h1>
-				<h2>Responsable intégration web</h2>
+				<h1><?php echo $author->display_name ?></h1>
+				<?php if ($author->li_profession): ?>
+				<h2><?php echo $author->li_profession ?></h2>
+				<?php endif ?>
 			</header>
 			<div class="content">
 				<p class="photo">
-					<?php echo get_avatar( 'eric.ericlebihan@gmail.com', $size = '110' ); ?>
+					<?php echo get_avatar($author->user_email, $size = '110'); ?>
 				</p>
-				<p>Il y a quelques années, Éric a courageusement pris la décision de consacrer toute son énergie à la réalisation d'interfaces web de <em>qualité</em>. Après avoir vaincu Internet Explorer et intégré l'inintégrable, il est parti à la recherche de nouveaux défis&nbsp;: l'accessibilité et l'expérience utilisateur pour le web. Il est diplomé <a href="http://www.accessiweb.org/">Expert Accessiweb</a>, et a atteint le rang de Grand Chevalier de l'Ergonomie sur le Web, distinction qu'il n'a malheureusement jamais voulu reconnaître. Éric est aujourd'hui responsable du pôle intégration chez Pixmania, et apporte son expérience à l'ensemble des projets du groupe.</p>
-				<p class="desc-author"><em>Par Pierre Bertet.</em></p>
+				<?php if ($author->li_description): ?>
+				<p>
+					<?php echo $author->li_description ?>
+				</p>
+				<?php endif ?>
+				
 				<ul class="links">
-					<li class="home"><a href="http://www.ericlebihan.net" class="action">ericlebihan.net</a></li>
-					<li class="twitter"><a href="http://twitter.com/ericlebihan" class="action">twitter.com/ericlebihan</a></li>
+					<?php if ($author->user_url): ?>
+					<li class="home"><a href="<?php echo $author->user_url ?>" class="action"><?php echo $author->li_display_url ?></a></li>
+					<?php endif ?>
+					<?php if ($author->li_twitter): ?>
+						<li class="twitter"><a href="https://twitter.com/<?php echo $author->li_twitter ?>" class="action">twitter.com/<?php echo $author->li_twitter ?></a></li>
+					<?php endif ?>
 				</ul>
-				<p class="mail">Contacter Éric : <a href="mailto:eric.ericlebihan@gmail.com" class="action">eric.ericlebihan@gmail.com</a></p>
+				<p class="mail">Contacter <?php echo $author->li_first_name ?> : <a href="mailto:" class="action"><?php echo $author->user_email ?></a></p>
 			</div>
 		</section>
-
-		<section class="author">
-			<header>
-				<h1>Pierre Bertet</h1>
-				<h2>Intégrateur web</h2>
-			</header>
-			<div class="content">
-				<p class="photo">
-					<?php echo get_avatar( 'bonjour@pierrebertet.net', $size = '110' ); ?>
-				</p>
-				<p>Piru Berute (ピル ベルテ) comme l'appellent les Japonais, n'épargne pas sa peine dans la voie qu'il s'est tracée : non content de se lancer dans des entreprises de tout ordre comme travailler sur une multitude de projets open source, il a décidé de se mettre à son compte et de ridiculiser ses concurrents, même si sa modestie légendaire lui interdit de se vanter d'être un des meilleurs intégrateurs actuels. Si vous ajoutez à ça qu'il fait maintenant partie du <a href="http://www.accessiweb.org/fr/groupe_travail_accessibilite_du_web/">GTA</a>, on se demande quand ce mec prend le temps de dormir ! Il faut souligner que l'intégration du nouveau thème des intégristes, c'est lui&nbsp;!</p>
-				<p class="desc-author"><em>Par Éric Le Bihan.</em></p>
-				<ul class="links">
-					<li class="home"><a href="http://www.pierrebertet.net" class="action">www.pierrebertet.net</a></li>
-					<li class="twitter"><a href="http://twitter.com/bpierre" class="action">twitter.com/bpierre</a></li>
-				</ul>
-				<p class="mail">Contacter Pierre : <a href="mailto:bonjour@pierrebertet.net" class="action">bonjour@pierrebertet.net</a></p>
-			</div>
-		</section>
+		<?php endforeach ?>
 
 		<?php if (is_plugin_active('contact-form-7/wp-contact-form-7.php')): ?>
 		<p class="invitation"><strong>Les Intégristes est un blog ouvert à tous,<br /> n’hésitez pas à nous contacter<br /> pour participer à sa rédaction. :)</strong></p>

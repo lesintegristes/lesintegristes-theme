@@ -242,3 +242,52 @@ add_action('show_user_profile', 'lesintegristes_add_profile_fields');
 add_action('edit_user_profile', 'lesintegristes_add_profile_fields');
 add_action('personal_options_update', 'lesintegristes_save_profile_fields');
 add_action('edit_user_profile_update', 'lesintegristes_save_profile_fields');
+
+/* Get published authors ordered by last post date */
+function lesintegristes_authors_ordered_by_last_post() {
+  $blog_authors_all = get_users('fields=all');
+  $blog_authors = array();
+
+  // Published authors only
+  foreach ($blog_authors_all as $author) {
+    $author->posts_count = count_user_posts($author->ID);
+
+    if ($author->posts_count) {
+      $metas = get_user_meta($author->ID);
+      $last_post = get_posts('showposts=1&author='.$author->ID);
+
+      $author->li_twitter = NULL; // li_ = "les integristes" prefix
+      $author->li_first_name = NULL;
+      $author->li_description = NULL;
+      $author->li_profession = NULL;
+      $author->li_last_post_date = $last_post[0]->post_date;
+
+      // http://example.com => example.com
+      $author->li_display_url = str_replace(parse_url($author->user_url, PHP_URL_SCHEME) . '://', '', $author->user_url);
+
+      if (!empty($metas['lesintegristes-profession']) && $metas['lesintegristes-profession'][0] != '') {
+        $author->li_profession = $metas['lesintegristes-profession'][0];
+      }
+      if (!empty($metas['lesintegristes-twitter']) && $metas['lesintegristes-twitter'][0] != '') {
+        $author->li_twitter = $metas['lesintegristes-twitter'][0];
+      }
+      if (!empty($metas['first_name']) && $metas['first_name'][0] != '') {
+        $author->li_first_name = $metas['first_name'][0];
+      }
+      if (!empty($metas['description']) && $metas['description'][0] != '') {
+        $author->li_description = $metas['description'][0];
+      }
+      $blog_authors[] = $author;
+    }
+  }
+
+  // Order by last post date
+  usort($blog_authors, function($a, $b){
+    if ($a->li_last_post_date == $b->li_last_post_date) {
+      return 0;
+    }
+    return ($a->li_last_post_date > $b->li_last_post_date)? -1 : 1;
+  });
+
+  return $blog_authors;
+}
