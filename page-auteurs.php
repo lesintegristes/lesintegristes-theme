@@ -37,7 +37,11 @@ get_header();
 					<?php echo $author->li_description ?>
 				</p>
 				<?php endif ?>
-				
+				<?php if ($author->li_description_by): ?>
+				<p class="desc-author">
+					<em>Par <?php echo $author->li_description_by ?>.</em>
+				</p>
+				<?php endif ?>
 				<ul class="links">
 					<?php if ($author->user_url): ?>
 					<li class="home"><a href="<?php echo $author->user_url ?>" class="action"><?php echo $author->li_display_url ?></a></li>

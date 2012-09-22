@@ -187,6 +187,11 @@ add_action('wp_dashboard_setup', 'lesintegristes_dashboard_widgets' );
 
 /* User profile: additional fields */
 $lesintegristes_additional_fields = array(
+  'description_by' => array(
+    'name' => 'Description par',
+    'help' => 'Auteur de votre description / bio',
+    'placeholder' => 'Éric Le Bihan'
+  ),
   'profession' => array(
     'name' => 'Profession',
     'help' => 'Votre profession',
@@ -243,6 +248,14 @@ add_action('edit_user_profile', 'lesintegristes_add_profile_fields');
 add_action('personal_options_update', 'lesintegristes_save_profile_fields');
 add_action('edit_user_profile_update', 'lesintegristes_save_profile_fields');
 
+function lesintegristes_get_custom_field($name, $metas, $prefix = 'lesintegristes-') {
+  if (!empty($metas[$prefix.$name]) && $metas[$prefix.$name][0] != '') {
+    return $metas[$prefix.$name][0];
+  } else {
+    return NULL;
+  }
+}
+
 /* Get published authors ordered by last post date */
 function lesintegristes_authors_ordered_by_last_post() {
   $blog_authors_all = get_users('fields=all');
@@ -256,27 +269,17 @@ function lesintegristes_authors_ordered_by_last_post() {
       $metas = get_user_meta($author->ID);
       $last_post = get_posts('showposts=1&author='.$author->ID);
 
-      $author->li_twitter = NULL; // li_ = "les integristes" prefix
-      $author->li_first_name = NULL;
-      $author->li_description = NULL;
-      $author->li_profession = NULL;
+      // li_ = "les integristes" prefix
+      $author->li_twitter = lesintegristes_get_custom_field('twitter', $metas);
+      $author->li_first_name = lesintegristes_get_custom_field('first_name', $metas, '');
+      $author->li_description = lesintegristes_get_custom_field('description', $metas, '');
+      $author->li_description_by = lesintegristes_get_custom_field('description_by', $metas);
+      $author->li_profession = lesintegristes_get_custom_field('profession', $metas);
       $author->li_last_post_date = $last_post[0]->post_date;
 
       // http://example.com => example.com
       $author->li_display_url = str_replace(parse_url($author->user_url, PHP_URL_SCHEME) . '://', '', $author->user_url);
 
-      if (!empty($metas['lesintegristes-profession']) && $metas['lesintegristes-profession'][0] != '') {
-        $author->li_profession = $metas['lesintegristes-profession'][0];
-      }
-      if (!empty($metas['lesintegristes-twitter']) && $metas['lesintegristes-twitter'][0] != '') {
-        $author->li_twitter = $metas['lesintegristes-twitter'][0];
-      }
-      if (!empty($metas['first_name']) && $metas['first_name'][0] != '') {
-        $author->li_first_name = $metas['first_name'][0];
-      }
-      if (!empty($metas['description']) && $metas['description'][0] != '') {
-        $author->li_description = $metas['description'][0];
-      }
       $blog_authors[] = $author;
     }
   }
