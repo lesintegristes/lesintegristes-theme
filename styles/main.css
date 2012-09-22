@@ -466,7 +466,7 @@ body.page-id-29 #content li > div{padding:24px 12px 36px;background:#ece4d6;}
 #content.page-auteurs section.author .links .home{background:url(i/icon-home.png) no-repeat 0 2px;}
 #content.page-auteurs section.author .links .twitter{background:url(i/icon-twitter.png) no-repeat 0 2px;}
 #content.page-auteurs section.author .mail{margin:36px 0 0 -42px;padding-left:42px;background:url(i/icon-mail.png) no-repeat 0 3px;}
-#content.page-auteurs section.author + .author header{padding-top:24px;}
+#content.page-auteurs section.author + .author header{min-height:72px;padding-top:24px;}
 #content.page-auteurs p.invitation{margin:0 0 36px;padding:26px 0 28px;text-align:center;color:#c2bbaf;background:url(i/dashed-h.png) repeat-x 0 0;border:6px solid #494949;border-width:0 0 6px;}
 #content.page-auteurs p.invitation strong{font:italic 28px/36px Georgia, Times, serif;}
 #content.page-auteurs section.contact h1{margin-bottom:36px;text-align:center;}
