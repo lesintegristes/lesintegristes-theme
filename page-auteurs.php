@@ -50,7 +50,7 @@ get_header();
 						<li class="twitter"><a href="https://twitter.com/<?php echo $author->li_twitter ?>" class="action">twitter.com/<?php echo $author->li_twitter ?></a></li>
 					<?php endif ?>
 				</ul>
-				<p class="mail">Contacter <?php echo $author->li_first_name ?> : <a href="mailto:" class="action"><?php echo $author->user_email ?></a></p>
+				<p class="mail">Contacter <?php echo $author->li_first_name ?> : <a href="mailto:<?php echo $author->user_email ?>" class="action"><?php echo $author->user_email ?></a></p>
 			</div>
 		</section>
 		<?php endforeach ?>
