@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Les Intégristes - Notes
+Plugin Name: Les intégristes - Notes
 Plugin URI: http://
 Description: Remplit automatiquement le titre des notes.
 Author: Pierre Bertet

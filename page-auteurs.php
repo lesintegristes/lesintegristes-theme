@@ -56,7 +56,7 @@ get_header();
 		<?php endforeach ?>
 
 		<?php if (is_plugin_active('contact-form-7/wp-contact-form-7.php')): ?>
-		<p class="invitation"><strong>Les Intégristes est un blog ouvert à tous,<br /> n’hésitez pas à nous contacter<br /> pour participer à sa rédaction. :)</strong></p>
+		<p class="invitation"><strong>Les intégristes est un blog ouvert à tous,<br /> n’hésitez pas à nous contacter<br /> pour participer à sa rédaction. :)</strong></p>
 		<section class="contact">
 			<h1>Contactez-nous&nbsp;!</h1>
 			<?php the_content(); ?>
