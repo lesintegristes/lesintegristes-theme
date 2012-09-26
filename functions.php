@@ -7,6 +7,9 @@ add_action('after_setup_theme', function(){
   load_theme_textdomain('lesintegristes', get_template_directory().'/languages');
 });
 
+/* Notes */
+require_once get_template_directory().'/lib/notes.php';
+
 /* Change CSS location */
 function lesintegristes_style_replace($buffer) {
   // LESINTEGRISTES_CSS_URL is a production setting (should be defined in wp-config.php)
@@ -123,16 +126,6 @@ function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
   }
   return $text;
 }
-
-/* Exclude "Notes" in search  */
-function lesintegristes_notes_filter($query) {
-  if ( $query->is_search ) {
-    $query->set('cat','-31');
-  }
-  return $query;
-}
-add_filter('pre_get_posts','lesintegristes_notes_filter');
-
 
 /* Archives nav */
 $notes_term_taxonomy_id = "36";
