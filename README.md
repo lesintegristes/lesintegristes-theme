@@ -2,8 +2,32 @@
 
 ## Installation
 
-- Install WordPress
-- Clone this repository in the `themes` directory: `git clone git@github.com:lesintegristes/lesintegristes-theme.git ./wp-content/themes/lesintegristes`
-- Download the GeoLiteCity file (IP-to-location) and install the required plugins: run `make` in the theme directory
-- Add two pages with the following slugs: `auteurs`, `veille`
-- Hack!
+### Step 1: Install WordPress and the theme.
+
+[Install WordPress](http://codex.wordpress.org/Installing_WordPress) as usual.
+
+Clone this theme in the wordpress `themes` directory.
+
+```shell
+$ git clone git@github.com:lesintegristes/lesintegristes-theme.git ./wp-content/themes/lesintegristes
+```
+
+### Step 2: GeoLiteCity file, WordPress plugins.
+
+The GeoLiteCity file is required to localize the IP of the visitors (to display the night or the weather in the header).
+
+You also need to install the required plugins (Advanced Excerpt, Contact Form 7, Really Simple Captcha).
+
+Just run `make` in the theme directory:
+
+```shell
+$ make
+```
+
+### Step 3: Specific pages
+
+Add two pages with the following slugs: `auteurs`, `veille`.
+
+## License
+
+MIT, see the LICENSE file.
