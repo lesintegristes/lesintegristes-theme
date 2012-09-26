@@ -21,10 +21,11 @@ You also need to install the required plugins (Advanced Excerpt, Contact Form 7,
 Just run `make` in the theme directory:
 
 ```shell
+$ cd wp-content/themes/lesintegristes
 $ make
 ```
 
-### Step 3: Specific pages
+### Step 3: Specific pages (optional).
 
 Add two pages with the following slugs: `auteurs`, `veille`.
 
