@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Les intégristes
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Les intégristes Theme 1\n"
+"Report-Msgid-Bugs-To: bonjour@pierrebertet.net\n"
+"POT-Creation-Date: 2012-09-26 02:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/notes.php:8
+msgctxt "note type"
+msgid "Notes"
+msgstr ""
+
+#: lib/notes.php:9
+msgctxt "note type"
+msgid "Note"
+msgstr ""
+
+#: lib/notes.php:10
+msgctxt "note type"
+msgid "Add New"
+msgstr ""
+
+#: lib/notes.php:11
+msgctxt "note type"
+msgid "Add a new note"
+msgstr ""
+
+#: lib/notes.php:12
+msgctxt "note type"
+msgid "Edit note"
+msgstr ""
+
+#: lib/notes.php:13
+msgctxt "note type"
+msgid "New Note"
+msgstr ""
+
+#: lib/notes.php:14
+msgctxt "note type"
+msgid "View Note"
+msgstr ""
+
+#: lib/notes.php:15
+msgctxt "note type"
+msgid "Search Notes"
+msgstr ""
+
+#: lib/notes.php:16
+msgctxt "note type"
+msgid "No notes found"
+msgstr ""
+
+#: lib/notes.php:17
+msgctxt "note type"
+msgid "No notes found in Trash"
+msgstr ""

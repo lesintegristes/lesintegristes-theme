@@ -2,6 +2,11 @@
 # No direct file load
 if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
+/* i18n */
+add_action('after_setup_theme', function(){
+  load_theme_textdomain('lesintegristes', get_template_directory().'/languages');
+});
+
 /* Change CSS location */
 function lesintegristes_style_replace($buffer) {
   // LESINTEGRISTES_CSS_URL is a production setting (should be defined in wp-config.php)
