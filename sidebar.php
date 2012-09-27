@@ -100,7 +100,7 @@ $show_archives_links = is_date();
 				<h1>Dernières Notes</h1>
 				<ul>
 					<?php
-						$notes_query = new WP_Query('cat=31&posts_per_page=3');
+						$notes_query = new WP_Query('post_type=lesintegristes_note&posts_per_page=3');
 						while ($notes_query->have_posts()) :
 							$notes_query->the_post();
 					?>
