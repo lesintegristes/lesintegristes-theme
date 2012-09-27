@@ -106,7 +106,12 @@ function lesintegristes_remove_img_and_figure($content) {
 
 /* "Articles" URL */
 function lesintegristes_get_articles_url() {
-  return get_bloginfo("wpurl") . '/articles/';
+  return get_bloginfo('wpurl') . '/articles/';
+}
+
+/* "Notes" URL */
+function lesintegristes_get_notes_url() {
+  return get_bloginfo('wpurl') . '/notes/';
 }
 
 function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {

@@ -49,7 +49,7 @@
 				<nav role="navigation">
 					<ul>
 						<li><a href="<?php echo lesintegristes_get_articles_url() ?>"<?php echo getAttributeIfTrue($articles_active) ?>><span>Articles</span></a></li>
-						<li><a href="<?php bloginfo('url'); ?>/categorie/notes/"<?php echo getAttributeIfTrue($notes_active) ?>><span>Notes</span></a></li>
+						<li><a href="<?php echo lesintegristes_get_notes_url() ?>"<?php echo getAttributeIfTrue($notes_active) ?>><span>Notes</span></a></li>
 						<li><a href="<?php bloginfo('url'); ?>/auteurs/"<?php echo getAttributeIfTrue($auteurs_active) ?>><span>Auteurs</span></a></li>
 					</ul>
 				</nav>
