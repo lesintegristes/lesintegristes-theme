@@ -16,7 +16,7 @@ function lesintegristes_notes_title_intercept($postID, $post) {
     $post_excerpt   = mb_substr(strip_tags($post->post_content), 0, 50, 'utf-8');
     $new_post_title = "Note&nbsp;: " . $post_excerpt . "&nbsp;[…]";
     $new_post_name  = sanitize_title($post_excerpt);
-    if ( $post->post_title !== $new_post_title && $post->post_name !== $new_post_name ) {
+    if ( $post->post_title !== $new_post_title || $post->post_name !== $new_post_name ) {
       wp_update_post(array(
         "ID" => $postID,
         "post_title" => $new_post_title,
