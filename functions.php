@@ -36,26 +36,27 @@ function add_google_ajax_api() {
 add_action('init', 'add_google_ajax_api');
 
 /* RSS */
-function rss_head_links() {
+add_action('wp_head', function() {
   echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux principal du blog" href="'. get_bloginfo('rss2_url') .'" />'."\n";
   echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux des articles uniquement" href="'. get_bloginfo("wpurl") .'/articles/feed/" />'."\n";
   echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux de tous les commentaires" href="'. get_bloginfo("wpurl") .'/comments/feed/" />'."\n";
-}
-add_action("wp_head", "rss_head_links");
+});
 
-/* Articles RSS */
-function create_articles_feed() {
-  load_template( TEMPLATEPATH . '/feed-articles.php');
-}
-add_action('do_feed_articles', 'create_articles_feed', 10, 1);
+/* Main RSS: articles + notes */
+add_filter('request', function($qv) {
+  if (isset($qv['feed']) && !isset($qv['post_type'])) {
+    $qv['post_type'] = array('lesintegristes_note', 'post');
+  }
+  return $qv;
+});
 
-function articles_feed_rewrite($rules) {
-  return array(
-    'articles/feed'=> 'index.php?feed=articles'
-  ) + $rules;
-}
-add_filter('rewrite_rules_array','articles_feed_rewrite');
+/* Articles-only RSS */
+add_filter('rewrite_rules_array', function($rules) use($wp_rewrite) {
+  $new_rules = array('^articles/feed\/?$' => 'index.php?feed=rss2&post_type=post');
+  return $new_rules + $rules;
+});
 
+/* Template helper: RSS link */
 function lesintegristes_get_feed_link($url, $text, $title_attr = true) {
   $title_attribute = ($title_attr)? ' title="'. $text .'"' : '';
   return '<a href="'. $url .'"'.$title_attribute.' rel="alternate" type="application/rss+xml">'. $text .'</a>';
