@@ -30,8 +30,6 @@ geolitecity:
 
 plugins:
 	@echo $(OK_COLOR)Installing the required plugins...$(NO_COLOR)
-	@echo $(OK_COLOR)Installing lesintegristes-notes...$(NO_COLOR)
-	cp "./plugins/lesintegristes-notes.php" "${PLUGINS_PATH}/lesintegristes-notes.php"
 	@for PLUGIN in $(PLUGINS_LIST); do \
 	echo $(OK_COLOR)Installing $${PLUGIN}...$(NO_COLOR); \
 	curl -o $$PLUGIN.zip http://downloads.wordpress.org/plugin/$$PLUGIN.zip; \
