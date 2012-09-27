@@ -25,9 +25,17 @@ $ cd wp-content/themes/lesintegristes
 $ make
 ```
 
-### Step 3: Specific pages (optional).
+### Step 3: Specific pages.
 
-Add two pages with the following slugs: `auteurs`, `veille`.
+If you want to use the special homepage, you need to create two pages with the following slugs: `home` and `articles`.
+
+Now, in *Settings* => *Reading*:
+
+- Enable “A static page”
+- Select the `home` page you created in the “Front page” menu
+- Select the `articles` page you cretaed in the “Posts page” menu.
+
+If you want to use the “Auteurs” and “Veille” page, add two empty pages with the following slugs: `auteurs`, `veille`.
 
 ## License
 
