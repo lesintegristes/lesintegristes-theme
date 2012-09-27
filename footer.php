@@ -45,8 +45,8 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 				<nav role="navigation">
 					<p class="top"><a href="#header">Haut de la page</a></p>
 					<ul>
-						<li><a href="<?php bloginfo('url'); ?>/articles/">Articles</a></li>
-						<li><a href="<?php bloginfo('url'); ?>/categorie/notes/">Notes</a></li>
+						<li><a href="<?php echo lesintegristes_get_articles_url() ?>">Articles</a></li>
+						<li><a href="<?php echo lesintegristes_get_notes_url() ?>">Notes</a></li>
 						<li><a href="<?php bloginfo('url'); ?>/auteurs/">Auteurs</a></li>
 					</ul>
 				</nav>

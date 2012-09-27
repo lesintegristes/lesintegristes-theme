@@ -2,6 +2,14 @@
 # No direct file load
 if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
+/* i18n */
+add_action('after_setup_theme', function(){
+  load_theme_textdomain('lesintegristes', get_template_directory().'/languages');
+});
+
+/* Notes */
+require_once get_template_directory().'/lib/notes.php';
+
 /* Change CSS location */
 function lesintegristes_style_replace($buffer) {
   // LESINTEGRISTES_CSS_URL is a production setting (should be defined in wp-config.php)
@@ -28,26 +36,27 @@ function add_google_ajax_api() {
 add_action('init', 'add_google_ajax_api');
 
 /* RSS */
-function rss_head_links() {
+add_action('wp_head', function() {
   echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux principal du blog" href="'. get_bloginfo('rss2_url') .'" />'."\n";
   echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux des articles uniquement" href="'. get_bloginfo("wpurl") .'/articles/feed/" />'."\n";
   echo '<link rel="alternate" type="application/rss+xml" title="Les intégristes &raquo; Flux de tous les commentaires" href="'. get_bloginfo("wpurl") .'/comments/feed/" />'."\n";
-}
-add_action("wp_head", "rss_head_links");
+});
 
-/* Articles RSS */
-function create_articles_feed() {
-  load_template( TEMPLATEPATH . '/feed-articles.php');
-}
-add_action('do_feed_articles', 'create_articles_feed', 10, 1);
+/* Main RSS: articles + notes */
+add_filter('request', function($qv) {
+  if (isset($qv['feed']) && !isset($qv['post_type'])) {
+    $qv['post_type'] = array('lesintegristes_note', 'post');
+  }
+  return $qv;
+});
 
-function articles_feed_rewrite($rules) {
-  return array(
-    'articles/feed'=> 'index.php?feed=articles'
-  ) + $rules;
-}
-add_filter('rewrite_rules_array','articles_feed_rewrite');
+/* Articles-only RSS */
+add_filter('rewrite_rules_array', function($rules) use($wp_rewrite) {
+  $new_rules = array('^articles/feed\/?$' => 'index.php?feed=rss2&post_type=post');
+  return $new_rules + $rules;
+});
 
+/* Template helper: RSS link */
 function lesintegristes_get_feed_link($url, $text, $title_attr = true) {
   $title_attribute = ($title_attr)? ' title="'. $text .'"' : '';
   return '<a href="'. $url .'"'.$title_attribute.' rel="alternate" type="application/rss+xml">'. $text .'</a>';
@@ -97,7 +106,12 @@ function lesintegristes_remove_img_and_figure($content) {
 
 /* "Articles" URL */
 function lesintegristes_get_articles_url() {
-  return get_bloginfo("wpurl") . '/articles/';
+  return get_bloginfo('wpurl') . '/articles/';
+}
+
+/* "Notes" URL */
+function lesintegristes_get_notes_url() {
+  return get_bloginfo('wpurl') . '/notes/';
 }
 
 function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
@@ -118,16 +132,6 @@ function lesintegristes_strip_tags_content($text, $tags = '', $invert = FALSE) {
   }
   return $text;
 }
-
-/* Exclude "Notes" in search  */
-function lesintegristes_notes_filter($query) {
-  if ( $query->is_search ) {
-    $query->set('cat','-31');
-  }
-  return $query;
-}
-add_filter('pre_get_posts','lesintegristes_notes_filter');
-
 
 /* Archives nav */
 $notes_term_taxonomy_id = "36";

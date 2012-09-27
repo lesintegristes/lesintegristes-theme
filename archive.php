@@ -19,7 +19,7 @@ get_header(); ?>
 	
 	<?php
 		if (in_array(get_the_time("n"), array("4", "8", "10"))) {
-			$month_prefix = "d'";
+			$month_prefix = "d’";
 		} else {
 			$month_prefix = "de ";
 		} ?>

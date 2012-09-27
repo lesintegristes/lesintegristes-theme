@@ -4,7 +4,6 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 
 get_header(); ?>
 <div id="content" role="main" class="notes">
-	
 	<?php if (have_posts()) : ?>
 	
 	<h1>Toutes les notes</h1>
@@ -23,7 +22,8 @@ get_header(); ?>
 					<p>
 						<span class="author">Par <?php the_author_posts_link() ?></span>,
 						<?php comments_popup_link('0 commentaires', '1 commentaire', '% commentaires'); ?>,
-						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lien permanent</a></p>
+						<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Lien permanent</a>
+					</p>
 				</footer>
 			</article>
 		<?php endwhile; ?>

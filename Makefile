@@ -30,8 +30,6 @@ geolitecity:
 
 plugins:
 	@echo $(OK_COLOR)Installing the required plugins...$(NO_COLOR)
-	@echo $(OK_COLOR)Installing lesintegristes-notes...$(NO_COLOR)
-	cp "./plugins/lesintegristes-notes.php" "${PLUGINS_PATH}/lesintegristes-notes.php"
 	@for PLUGIN in $(PLUGINS_LIST); do \
 	echo $(OK_COLOR)Installing $${PLUGIN}...$(NO_COLOR); \
 	curl -o $$PLUGIN.zip http://downloads.wordpress.org/plugin/$$PLUGIN.zip; \
@@ -39,6 +37,25 @@ plugins:
 	mv ./$$PLUGIN "${PLUGINS_PATH}/$$PLUGIN"; \
 	rm -rf ./$$PLUGIN; \
 	done
+
+# Gettext
+GETTEXT_DIR=./languages
+GETTEXT_TPL=lesintegristes.pot
+i18n: i18n-pot i18n-mo i18n-po
+
+i18n-pot:
+	# Updates the template
+	find . -iname "*.php" | xargs xgettext --keyword=__ --keyword=_e --keyword=_x:2c,1 --language=php \
+		--default-domain=lesintegristes --output="${GETTEXT_DIR}/${GETTEXT_TPL}" --package-name="Les intégristes Theme" \
+		--package-version="1" --copyright-holder="Les intégristes" --msgid-bugs-address="bonjour@pierrebertet.net"
+
+i18n-po:
+	# Merge the template in the .po file
+	msgmerge --no-fuzzy-matching --backup=off -s -U "${GETTEXT_DIR}/fr_FR.po" "${GETTEXT_DIR}/${GETTEXT_TPL}"
+
+i18n-mo:
+	# Convert the .po to .mo
+	msgfmt -c -v -o "${GETTEXT_DIR}/fr_FR.mo" "${GETTEXT_DIR}/fr_FR.po"
 
 # JavaScript
 js: $(JS_FINAL_MAIN) $(JS_FINAL_SINGLE)
