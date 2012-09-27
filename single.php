@@ -2,10 +2,7 @@
 # No direct file load
 if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
-if (in_category(31)):
-	include(TEMPLATEPATH . '/single-note.php');
-else:
-	get_header();
+get_header();
 ?>
 <div id="content" role="main">
 	

@@ -6,7 +6,7 @@ get_header(); ?>
 <div id="content" role="main">
 <?php
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		query_posts("cat=-31&paged=$paged");
+		query_posts("post_type=post&paged=$paged");
 		if (have_posts()) :
 ?>
 	<h1>Tous les articles</h1>

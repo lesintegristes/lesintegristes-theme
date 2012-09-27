@@ -4,7 +4,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 
 $show_veille = !is_page('veille');
 $show_articles = ( is_archive() || (is_page() && !is_page('page-home')) || is_single() || is_404() );
-$show_notes = !is_category('31');
+$show_notes = !is_post_type_archive('lesintegristes_note');
 $show_links = is_user_logged_in();
 $show_archives_links = is_date();
 ?>
@@ -77,7 +77,7 @@ $show_archives_links = is_date();
 				<h1>Derniers articles</h1>
 				<ul>
 					<?php
-						$articles_query = new WP_Query('cat=-31&posts_per_page=3');
+						$articles_query = new WP_Query('post_type=post&posts_per_page=3');
 						while ($articles_query->have_posts()) :
 							$articles_query->the_post();
 					?>

@@ -9,7 +9,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 get_header(); ?>
 
 <div id="content" role="main">
-<?php query_posts("cat=-31"); ?>
+<?php query_posts('post_type=post'); ?>
 <?php if (have_posts()) : ?>
 	
 	<h1>Derniers articles</h1>

@@ -8,7 +8,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 				<div class="categories-rss-container">
 					<section class="categories">
 						<h1>Catégories</h1>
-						<p><?php echo substr_replace(str_replace('<br />', ', ', wp_list_categories('show_count=0&exclude=31&title_li=<h1>Catégories</h1>&style=none&echo=0')) , "", -3); ?></p>
+						<p><?php echo substr_replace(str_replace('<br />', ', ', wp_list_categories('show_count=0&title_li=<h1>Catégories</h1>&style=none&echo=0')) , "", -3); ?></p>
 					</section>
 					
 					<section class="rss">
