@@ -6,8 +6,8 @@
 
 	$body_classes = (isset($body_classes)? $body_classes : '') . 'weather-' . $cur_weather_condition;
 
-	$articles_active = ( is_home() || (is_single() && !in_category('31')) || (is_archive() && !is_category('31')) );
-	$notes_active = ( is_category('31') || (is_single() && in_category('31')) );
+	$articles_active = ( is_home() || (is_single() && !is_singular('lesintegristes_note')) || (is_archive() && !is_post_type_archive('lesintegristes_note')) );
+	$notes_active = ( is_post_type_archive('lesintegristes_note') || is_singular('lesintegristes_note') );
 	$auteurs_active = is_page('auteurs');
 ?>
 <!doctype html>
