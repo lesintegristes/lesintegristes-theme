@@ -57,17 +57,19 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 				Merci <a href="http://www.wordpress.org" title="WordPress, Blog Tool and Publishing Platform" lang="en">Wordpress</a>, <a href="http://jquery.com/" title="jQuery: The Write Less, Do More, JavaScript Library" lang="en">jQuery</a>, <a href="http://php.net/" title="PHP: Hypertext Preprocessor" lang="en">PHP</a> et <a href="http://httpd.apache.org/" title="The Apache HTTP Server Project" lang="en">Apache</a>.
 			</p>
 		</footer>
-		<?php wp_footer(); ?>
-  </div>
 	</div>
-	<script type="text/javascript">
+	</div>
+	<?php wp_footer(); ?>
+	<?php if (defined('GOOGLE_ANALYTICS_ID')): // Define this in wp-config.php ?>
+	<script>
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 	</script>
-	<script type="text/javascript">
+	<script>
 	try {
-	var pageTracker = _gat._getTracker("UA-2044060-1");
+	var pageTracker = _gat._getTracker("<?php echo GOOGLE_ANALYTICS_ID ?>");
 	pageTracker._trackPageview();
 	} catch(err) {}</script>
+	<?php endif ?>
 	</body>
 </html>
