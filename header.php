@@ -13,7 +13,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 	<head>
-		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+		<meta charset="<?php bloginfo('charset'); ?>" />
 		<title><?php wp_title('·', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
@@ -21,18 +21,10 @@
 		<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/images/apple-touch-icon.png"/>
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
-		<?php if ( is_single() ) : ?><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles/sh-min.css" media="all" /><?php endif; ?>
-		<?php wp_enqueue_script( 'main', '/wp-content/themes/lesintegristes/scripts/main-min.js', array('jquery'), '1.0', true ); ?>
-		<?php if ( is_single() ) wp_enqueue_script( 'single', '/wp-content/themes/lesintegristes/scripts/single-min.js', array('jquery'), '1.0', true ); ?>
 		<?php wp_head(); ?>
-		<script>
-			jQuery.lesintegristes = {
-				themeUrl: "<?php bloginfo('template_url'); ?>"
-			};
-		</script>
 	</head>
 	<body <?php body_class($body_classes); ?>>
-	<script type="text/javascript">document.body.className += " js"</script>
+	<script>document.body.className += ' js'</script>
 	<div>
 	<div id="wrapper">
 		<header role="banner" id="header">
