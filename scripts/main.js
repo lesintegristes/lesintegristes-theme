@@ -1,4 +1,4 @@
-;(function($){
+;(function($, LESINTEGRISTES){
 
   /* Weather */
   (function(){
@@ -72,7 +72,7 @@
     function autoChangeWeather() {
       showLoading();
       ajaxCall = $.ajax({
-        url: $.lesintegristes.themeUrl + "/weather_service/service.php",
+        url: LESINTEGRISTES.themeUrl + "/weather_service/service.php",
         success: function(data) {
           hideLoading();
           changeWeather(data, {hoursToLive: 1});
@@ -205,10 +205,10 @@
         top: "0",
         left: "0",
         zIndex: "9998",
-        background: "url("+$.lesintegristes.themeUrl+"/styles/i/grid.png) repeat 0 0",
+        background: "url("+ LESINTEGRISTES.themeUrl +"/styles/i/grid.png) repeat 0 0",
         cursor: "pointer",
         display: "none"
-      }).children().css("background", "url("+$.lesintegristes.themeUrl+"/styles/i/h-grid.png) repeat-y 50% 0").end();
+      }).children().css("background", "url("+ LESINTEGRISTES.themeUrl +"/styles/i/h-grid.png) repeat-y 50% 0").end();
 
       $gridBtn = $('<button type="button">Fermer la grille</button>').appendTo('body').css({
         position: "fixed",
@@ -247,8 +247,9 @@
         $grid.add($gridBtn).fadeOut(150);
       }
     };
-
-    $.lesintegristes.toggleGrid = function() {
+    
+    $.lesintegristes = {}; // compat
+    LESINTEGRISTES.grid = $.lesintegristes.toggleGrid = function() {
       if (jQuery('body > .grid').is(':visible')) {
         hideGrid();
       } else {
@@ -257,4 +258,4 @@
     };
   })();
 
-})(jQuery);
+})(jQuery, LESINTEGRISTES);

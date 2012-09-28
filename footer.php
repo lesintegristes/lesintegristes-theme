@@ -59,6 +59,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 		</footer>
 	</div>
 	</div>
+	<script>var LESINTEGRISTES = { themeUrl: "<?php bloginfo('template_url'); ?>" }</script>
 	<?php wp_footer(); ?>
 	<?php if (defined('GOOGLE_ANALYTICS_ID')): // Define this in wp-config.php ?>
 	<script>
