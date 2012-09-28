@@ -205,10 +205,10 @@
         top: "0",
         left: "0",
         zIndex: "9998",
-        background: "url("+$.lesintegristes.themeUrl+"/i/grid.png) repeat 0 0",
+        background: "url("+$.lesintegristes.themeUrl+"/styles/i/grid.png) repeat 0 0",
         cursor: "pointer",
         display: "none"
-      }).children().css("background", "url("+$.lesintegristes.themeUrl+"/i/h-grid.png) repeat-y 50% 0").end();
+      }).children().css("background", "url("+$.lesintegristes.themeUrl+"/styles/i/h-grid.png) repeat-y 50% 0").end();
 
       $gridBtn = $('<button type="button">Fermer la grille</button>').appendTo('body').css({
         position: "fixed",
