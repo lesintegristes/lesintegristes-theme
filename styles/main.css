@@ -85,7 +85,7 @@ i,em{font-style:italic;}
 #wrapper .action a:focus{color:#fff;background:#6d6a6a;}
 
 /* Layout */
-body{padding-bottom:40px;}
+body{padding-bottom:72px;}
 #wrapper{width:946px;margin:0 auto;}
 #content{float:left;width:705px;margin-right:18px;margin-bottom:72px;border-top:6px solid #494949;}
 #sidebar{float:left;width:223px;margin-bottom:72px;}
@@ -328,7 +328,7 @@ body > div{background:url(i/footer-shadow.png) no-repeat 50% 100%;}
 #wrapper > footer nav li + li + li a:hover,
 #wrapper > footer nav li + li + li a:focus{background-position:-89px -144px;}
 #wrapper > footer nav li + li + li a:active{background-position:-178px -144px;}
-#wrapper > footer .bottom-line{position:relative;bottom:-48px;line-height:48px;font-size:10px;text-align:center;}
+#wrapper > footer .bottom-line{position:relative;bottom:-60px;line-height:18px;font-size:10px;text-align:center;}
 /* Meteo */
 body.weather-rain #wrapper > footer{background-image:url(i/weather/rain/footer.jpg);}
 body.weather-cloudy #wrapper > footer{background-image:url(i/weather/cloudy/footer.jpg);}
