@@ -25,7 +25,6 @@ $show_archives_links = is_date();
 			</div>
 			<?php endif; ?>
 
-			<!--[if !IE 6]><!-->
 			<section class="titled text weather collapsible">
 				<h1><span>Météo</span></h1>
 				<div>
@@ -41,7 +40,6 @@ $show_archives_links = is_date();
 					<p>Faites la pluie et le beau temps (sélection valable 24h).</p>
 				</div>
 			</section>
-			<!--<![endif]-->
 
 			<?php
 				/* Archives */
