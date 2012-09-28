@@ -15,8 +15,8 @@ function lesintegristes_style_replace($buffer) {
   // LESINTEGRISTES_CSS_URL is a production setting (should be defined in wp-config.php)
   $css_url = (defined('LESINTEGRISTES_CSS_URL'))? LESINTEGRISTES_CSS_URL : get_template_directory_uri().'/styles/main.css';
   return str_replace(
-    '<link rel="stylesheet" href="'.get_template_directory_uri().'/style.css" type="text/css" media="all" />',
-    '<link rel="stylesheet" href="'.$css_url.'" type="text/css" media="all" />',
+    '<link rel="stylesheet" href="'.get_template_directory_uri().'/style.css" />',
+    '<link rel="stylesheet" href="'.$css_url.'" />',
     $buffer
   );
 }
