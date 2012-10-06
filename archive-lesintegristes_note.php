@@ -5,10 +5,10 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 get_header(); ?>
 <div id="content" role="main" class="notes">
 	<?php if (have_posts()) : ?>
-	
-	<h1>Toutes les notes</h1>
+
+	<h1><?php echo lesintegristes_page_title("Toutes les notes"); ?></h1>
 	<p class="rss"><?php echo lesintegristes_get_feed_link(get_category_feed_link($cat, "rss2"), "Flux RSS des notes") ?></p>
-		
+
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
@@ -27,7 +27,7 @@ get_header(); ?>
 				</footer>
 			</article>
 		<?php endwhile; ?>
-		
+
 		<?php
 			$next_page_exists = (get_next_posts_link() !== NULL);
 			$prev_page_exists = (get_previous_posts_link() !== NULL);
@@ -42,7 +42,7 @@ get_header(); ?>
 			<?php endif; ?>
 		</p>
 		<?php endif; ?>
-		
+
 	<?php else : ?>
 		<h2>Désolé, aucune note n'a encore été publiée.</h2>
 	<?php endif; ?>

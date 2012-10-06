@@ -15,7 +15,7 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>" />
-		<title><?php wp_title('·', true, 'right'); if($paged) { echo " page $paged · "; } bloginfo('name'); ?></title>
+		<title><?php wp_title('·', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon.png" />
@@ -34,7 +34,7 @@
 				<a href="#searchform">Accéder à la recherche</a>
 			</p>
 			<div>
-				<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); if($paged) { echo " · page $paged"; } ?></a></h1>
+				<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 				<nav role="navigation">
 					<ul>
 						<li><a href="<?php echo lesintegristes_get_articles_url() ?>"<?php echo getAttributeIfTrue($articles_active) ?>><span>Articles</span></a></li>

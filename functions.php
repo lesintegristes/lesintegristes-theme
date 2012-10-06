@@ -319,6 +319,25 @@ function lesintegristes_authors_ordered_by_last_post() {
 
 /* Get current page number */
 function lesintegristes_get_current_page_number() {
-  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  return $paged;
+  return (get_query_var('paged')) ? get_query_var('paged') : 1;
+}
+
+// Filter the page's title, add page's number if paged
+function lesintegristes_filter_wp_title($title, $sep, $seplocation) {
+  if(is_paged()) {
+    $paged = lesintegristes_get_current_page_number();
+    $title = str_replace($sep, '', $title);
+    return "$title (page $paged) $sep " . get_bloginfo('name');
+  }
+  return $title;
+}
+add_filter('wp_title', 'lesintegristes_filter_wp_title', 10, 3);
+
+/* Build a custom page title */
+function lesintegristes_page_title($page_title) {
+  if(is_paged()) {
+    $paged = lesintegristes_get_current_page_number();
+    return "$page_title (page $paged)";
+  }
+  return $page_title;
 }
