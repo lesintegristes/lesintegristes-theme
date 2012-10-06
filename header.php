@@ -9,6 +9,7 @@
 	$articles_active = ( is_home() || (is_single() && !is_singular('lesintegristes_note')) || (is_archive() && !is_post_type_archive('lesintegristes_note')) );
 	$notes_active = ( is_post_type_archive('lesintegristes_note') || is_singular('lesintegristes_note') );
 	$auteurs_active = is_page('auteurs');
+	if(is_paged()) { $paged = lesintegristes_get_current_page_number(); }
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>

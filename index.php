@@ -5,13 +5,12 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME'])
 get_header(); ?>
 <div id="content" role="main">
 <?php
-		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		query_posts("post_type=post&paged=$paged");
 		if (have_posts()) :
 ?>
-	<h1>Tous les articles</h1>
+	<h1><?php echo lesintegristes_page_title("Tous les articles"); ?></h1>
 	<p class="rss"><?php echo lesintegristes_get_feed_link( get_bloginfo("wpurl").'/articles/feed/', 'Flux RSS des articles') ?></p>
-	
+
 	<?php
 		global $more;
 		$more = 0;
@@ -32,7 +31,7 @@ get_header(); ?>
 			</footer>
 		</article>
 		<?php endwhile; ?>
-		
+
 		<?php
 			$next_page_exists = (get_next_posts_link() !== NULL);
 			$prev_page_exists = (get_previous_posts_link() !== NULL);
@@ -47,13 +46,13 @@ get_header(); ?>
 			<?php endif; ?>
 		</p>
 		<?php endif; ?>
-		
+
 <?php else : ?>
-	
+
 	<h2>Not Found</h2>
 	<p>Sorry, but you are looking for something that isn't here.</p>
 	<?php get_search_form(); ?>
-	
+
 <?php endif; ?>
 </div>
 
