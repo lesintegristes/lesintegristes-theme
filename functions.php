@@ -329,7 +329,7 @@ function lesintegristes_filter_wp_title($title, $sep, $seplocation) {
     $title = str_replace($sep, '', $title);
     return "$title (page $paged) $sep " . get_bloginfo('name');
   }
-  return $title;
+  return $title . get_bloginfo('name');
 }
 add_filter('wp_title', 'lesintegristes_filter_wp_title', 10, 3);
 
