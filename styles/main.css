@@ -379,7 +379,7 @@ body.single #content article footer a:focus{color:#fff;background:#a29b94;}
 #content .last-articles li.all a:active,
 #content .last-articles li.all a:focus{color:#fff;background:#6d6a6a;}
 
-				article header .infos .author,
+article header .infos .author,
 article header .infos .date {
 	display: table-cell;
 	vertical-align: middle;
