@@ -40,10 +40,11 @@ add_action('wp_enqueue_scripts', function() {
 
   // Single script
   if (is_single()) {
-    if (WP_DEBUG) { // Script added to single-min.js (see Makefile)
-      wp_enqueue_script('syntax-highlighter', $js_prefix.'syntax-highlighter'.$js_suffix, array(), '2.1.364', TRUE);
+    if (WP_DEBUG) {
+      // JS added to single-min.js (see Makefile)
+      wp_enqueue_script('prism', $js_prefix.'prism.js', array(), '1', TRUE);
     }
-    wp_enqueue_style('syntax-highlighter', $css_prefix.'sh-min.css', array(), '2.1.364');
+    wp_enqueue_style('prism', $css_prefix.'prism.css', array(), '1');
     wp_enqueue_script('single', $js_prefix.'single'.$js_suffix, array('jquery'), '1.0', TRUE);
   }
 

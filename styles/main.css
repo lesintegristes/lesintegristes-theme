@@ -113,7 +113,7 @@ textarea{-moz-box-shadow:inset 2px 2px 2px #aaa;-webkit-box-shadow:inset 2px 2px
 .hentry .content ol li{list-style:inside decimal;}
 .hentry .content dl{padding-left:40px;}
 .hentry .content dl dt{margin-left:-10px;font-weight:bold;}
-.hentry .content pre{overflow-x:auto;margin-bottom:24px;}
+.hentry .content pre{overflow-x:auto;margin:24px 0;padding:24px;}
 .hentry .content a code{padding:0;background:none;color:inherit;}
 .hentry .content blockquote{margin-bottom:24px;padding:24px 36px;font:italic 16px/24px Georgia, Times, serif;text-indent:14px;color:#857e76;background:url(i/quote-open.png) no-repeat 16px 16px;background:url(i/quote-open.png) no-repeat 16px 16px, url(i/quote-close.png) no-repeat 100% 100%;background-color:#ece4d6;}
 #content .hentry .content blockquote p{margin:0;}
@@ -702,4 +702,59 @@ body.js.loading #sidebar > .weather form button.weather-auto{background:url(i/we
     margin-bottom:0;
     font-size:14px;
   }
+}
+
+/* Prism */
+.content code[class*="language-"],
+.content pre[class*="language-"] {
+  color: #494949;
+  text-shadow: 0 1px #eee;
+}
+.content :not(pre) > code[class*="language-"],
+.content pre[class*="language-"] {
+  background: #ECE4D6;
+  border-radius: 0;
+}
+.content :not(pre) > code[class*="language-"] {
+  padding: 2px 8px;
+}
+.content .token.comment,
+.content .token.prolog,
+.content .token.doctype,
+.content .token.cdata {
+  color: #568AC5;
+}
+.content .token.atrule,
+.content .token.attr-value,
+.content .token.keyword {
+  color: #8A569D;
+}
+.content .token.punctuation {
+  color: #857E76;
+}
+.content .token.selector,
+.content .token.attr-name,
+.content .token.string {
+  color: #96b713;
+}
+.content .token.property,
+.content .token.tag,
+.content .token.boolean,
+.content .token.number {
+  color: #83A10F;
+}
+.content .token.operator,
+.content .token.entity,
+.content .token.url,
+.content .language-css .token.string,
+.content .style .token.string {
+  color: #494949;
+  background: none;
+}
+.content .line-highlight {
+  background: hsla(24, 20%, 50%,.08);
+}
+.content .line-highlight:before,
+.content .line-highlight[data-end]:after {
+  font: 11px/14px Consolas, Monaco, 'Andale Mono', monospace;
 }
