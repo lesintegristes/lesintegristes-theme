@@ -386,7 +386,10 @@ article header .infos .date {
 	line-height: 15px;
 }
 
-article header .infos .date { padding-right: 14px; }
+article header .infos .date {
+	padding-right: 14px;
+	white-space: nowrap;
+}
 
 article header .infos .author a,
 article header .infos .date {
@@ -394,18 +397,22 @@ article header .infos .date {
 	word-spacing: -0.2em;
 	font-weight: bold;
 	font-family:"Helvetica Neue", "Helvetica", Arial, sans-serif;
-	color:#b7b2ac;
+	color: #b7b2ac;
 	text-decoration: none;
 }
 
-article header .infos .author {
+article header .infos .author a {
+	display: inline-block;
 	padding-left: 30px;
 	background: url(i/write.png) no-repeat 0 0;
 }
 
-article header .infos .author a { display: inline-block; }
 article header .infos .author a:hover,
-article header .infos .author a:focus { text-decoration: underline; }
+article header .infos .author a:focus {
+	color: #b7b2ac !important;
+	background: url(i/write.png) no-repeat 0 0 transparent !important;
+	text-decoration: underline;
+}
 
 article header .infos svg {
 	float: left;

@@ -28,7 +28,7 @@ get_header(); ?>
 			<header>
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 				<div class="infos">
-					<time title="<?php the_time('H:i'); ?>" class="date" datetime="<?php the_time('c'); ?>">
+					<time title="Le <?php the_time('j F Y'); ?> à <?php the_time('H\hi'); ?>" class="date" datetime="<?php the_time('c'); ?>">
 					<svg width="24" height="24" viewBox="-12.5 -12 24 24">
 						<circle cx="0" cy="0" r="10" stroke="#b7b2ac" fill="white" stroke-width="3"  />
 						<rect x="-1"  y="-7" width="2" height="2" fill="#b7b2ac" />
