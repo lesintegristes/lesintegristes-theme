@@ -1,0 +1,20 @@
+{
+  "main": {
+    "version": "1.0",
+    "files": [
+      "scripts/jquery.cookies.2.2.0.js",
+      "scripts/main.js"
+    ],
+    "concat": "scripts/dist/main-all.js",
+    "min": "scripts/dist/main-all.min.js"
+  },
+  "single": {
+    "version": "1.0",
+    "files": [
+      "scripts/syntax-highlighter.js",
+      "scripts/single.js"
+    ],
+    "concat": "scripts/dist/single-all.js",
+    "min": "scripts/dist/single-all.min.js"
+  }
+}
