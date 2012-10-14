@@ -1,14 +1,14 @@
 <?php
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 
 get_header(); ?>
 <div id="content" role="main">
 	<?php if (have_posts()) : ?>
-		
+
 		<h1><?php echo $wp_query->found_posts ?> articles répondent à votre recherche</h1>
 		<p class="rss"><?php echo lesintegristes_get_feed_link(get_search_feed_link(get_search_query(), "rss2"), "Flux RSS de la recherche «&nbsp;". get_search_query() ."&nbsp;»"); ?></p>
-		
+
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
@@ -26,7 +26,7 @@ get_header(); ?>
 				</footer>
 			</article>
 		<?php endwhile; ?>
-		
+
 		<?php
 			$next_page_exists = (get_next_posts_link() !== NULL);
 			$prev_page_exists = (get_previous_posts_link() !== NULL);
@@ -41,12 +41,12 @@ get_header(); ?>
 			<?php endif; ?>
 		</p>
 		<?php endif; ?>
-		
+
 	<?php else : ?>
-		
+
 		<h2>No posts found. Try a different search?</h2>
 		<?php get_search_form(); ?>
-		
+
 	<?php endif; ?>
 </div>
 <?php get_sidebar(); ?>
