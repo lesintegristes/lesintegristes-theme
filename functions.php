@@ -27,24 +27,30 @@ add_action('template_redirect', 'lesintegristes_style_replace_buffer'); // Repla
 
 /* Scripts and styles */
 add_action('wp_enqueue_scripts', function() {
-  $js_prefix = get_bloginfo('template_url').'/scripts/';
-  $css_prefix = get_bloginfo('template_url').'/styles/';
-  $js_suffix = WP_DEBUG? '.js' : '-min.js';
-  $jquery_suffix = WP_DEBUG? '.js' : '.min.js';
+  $prefix = get_bloginfo('template_url');
+  $css_prefix = $prefix.'/styles/';
+  $global_deps = array('jquery');
+  $js_groups = json_decode(file_get_contents(__DIR__.'/scripts/groups.json'));
 
-  // Main script
-  if (WP_DEBUG) { // Script added to main-min.js (see Makefile)
-    wp_enqueue_script('jquery.cookies', $js_prefix.'jquery.cookies.2.2.0'.$js_suffix, array('jquery'), '2.2', TRUE);
+  // Main script (all pages)
+  if (WP_DEBUG) {
+    foreach ($js_groups->main->files as $file) {
+      wp_enqueue_script(basename($file, '.js'), "{$prefix}/{$file}", $global_deps, $js_groups->main->version, TRUE);
+    }
+  } else {
+    wp_enqueue_script('main', "{$prefix}/{$js_groups->main->min}", $global_deps, $js_groups->main->version, TRUE);
   }
-  wp_enqueue_script('main', $js_prefix.'main'.$js_suffix, array('jquery'), '1.1', TRUE);
 
-  // Single script
+  // Single script (single pages)
   if (is_single()) {
-    if (WP_DEBUG) { // Script added to single-min.js (see Makefile)
-      wp_enqueue_script('syntax-highlighter', $js_prefix.'syntax-highlighter'.$js_suffix, array(), '2.1.364', TRUE);
+    if (WP_DEBUG) {
+      foreach ($js_groups->single->files as $file) {
+        wp_enqueue_script(basename($file, '.js'), "{$prefix}/{$file}", $global_deps, $js_groups->single->version, TRUE);
+      }
+    } else {
+      wp_enqueue_script('single', "{$prefix}/{$js_groups->single->min}", $global_deps, $js_groups->single->version, TRUE);
     }
     wp_enqueue_style('syntax-highlighter', $css_prefix.'sh-min.css', array(), '2.1.364');
-    wp_enqueue_script('single', $js_prefix.'single'.$js_suffix, array('jquery'), '1.0', TRUE);
   }
 
   // Google AJAX API

@@ -1,3 +1,4 @@
+/* global jQuery:false, LESINTEGRISTES:false */
 ;(function($, LESINTEGRISTES){
 
   /* Weather */
@@ -7,7 +8,6 @@
         $buttons,
         buttonsData = ["sunny", "rain", "cloudy", "snow", "night", "auto"],
         ajaxCall,
-        preload,
         $headerOverlay = $('<div class="overlay" />').appendTo("#header").css("opacity","0"),
         $headerLoader = $('<div class="loader"><div></div></div>').insertAfter($headerOverlay),
         loaderVisible = false;
@@ -66,7 +66,7 @@
           changeWeather(curWeather);
         }
       });
-    };
+    }
 
     // Auto change weather (Yahoo Weather API)
     function autoChangeWeather() {
@@ -80,7 +80,7 @@
         },
         cache: false
       });
-    };
+    }
 
     // Change weather
     function changeWeather(weather, settings) {
@@ -96,7 +96,7 @@
       updateBodyClass(weather);
 
       $.cookies.set("weather", weather, settings);
-    };
+    }
 
     // Change body weather class
     function updateBodyClass(weather) {
@@ -110,12 +110,12 @@
       loaderVisible = true;
 
       $headerLoader.fadeIn(100);
-      $headerOverlay.show().fadeTo(100, .55, function(){
+      $headerOverlay.show().fadeTo(100, 0.55, function(){
         if (loaderVisible) {
           $body.addClass("loading");
         }
       });
-    };
+    }
 
     function hideLoading() {
 
@@ -125,32 +125,35 @@
       $headerOverlay.fadeOut(100, function(){
         $body.removeClass("loading");
       });
-    };
+    }
 
   })();
 
   /* Collapsible box */
   $(function(){
     $("#sidebar section.collapsible").each(function(){
-      $button = $('<button type="button" title="Déplier">Déplier</button>').appendTo($(this).children("h1").addClass("collapsed"))
+      var $button = $('<button type="button" title="Déplier">Déplier</button>'),
+          $title = $(this).children("h1");
 
-        .click(function() {
+      $title.addClass("collapsed");
+      $button.appendTo($title);
 
-          var $this = $(this),
-              $parent = $this.parent();
+      $button.click(function() {
+        var $this = $(this),
+            $parent = $this.parent();
 
-          if (!$parent.hasClass("expanded")) {
-            $(this).text("Replier").attr("title","Replier");
-            $parent.removeClass("collapsed").addClass("expanded animated").next().slideDown(150, function(){
-              $parent.removeClass("animated");
-            });
-          } else {
-            $(this).text("Déplier").attr("title","Déplier");
-            $parent.removeClass("expanded").addClass("collapsed animated").next().slideUp(150, function(){
-              $parent.removeClass("animated");
-            });
-          }
-        }).parent().next().hide();
+        if (!$parent.hasClass("expanded")) {
+          $(this).text("Replier").attr("title","Replier");
+          $parent.removeClass("collapsed").addClass("expanded animated").next().slideDown(150, function(){
+            $parent.removeClass("animated");
+          });
+        } else {
+          $(this).text("Déplier").attr("title","Déplier");
+          $parent.removeClass("expanded").addClass("collapsed animated").next().slideUp(150, function(){
+            $parent.removeClass("animated");
+          });
+        }
+      }).parent().next().hide();
     });
   });
 
@@ -183,7 +186,7 @@
       }
     })
     .filter(":not(:first)").parent().next().hide().end().end()
-    .end().filter(":first").addClass("expanded").text("Replier")
+    .end().filter(":first").addClass("expanded").text("Replier");
 
   /* Back to top */
   $('#wrapper > footer nav .top a').click(function(e){
@@ -225,14 +228,14 @@
         e.stopImmediatePropagation();
         hideGrid();
       });
-    };
+    }
 
     function resizeGrid() {
       $grid.add($grid.children()).css({
         width: $("body").outerWidth(),
         height: $("body").outerHeight()
       });
-    };
+    }
 
     function showGrid() {
       if (!$grid) {
@@ -240,13 +243,13 @@
       }
       resizeGrid();
       $grid.add($gridBtn).fadeIn(150);
-    };
+    }
 
     function hideGrid() {
       if (!!$grid) {
         $grid.add($gridBtn).fadeOut(150);
       }
-    };
+    }
     
     $.lesintegristes = {}; // compat
     LESINTEGRISTES.grid = $.lesintegristes.toggleGrid = function() {
