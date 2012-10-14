@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!defined('WP_USE_THEMES')) return;
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
 # Copyright 2009 Maxmind LLC All Rights Reserved
 $GEOIP_REGION_NAME = array(

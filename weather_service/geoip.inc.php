@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!defined('WP_USE_THEMES')) return;
+if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
 
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 2; tab-width: 2 -*- */
 /* geoip.inc
