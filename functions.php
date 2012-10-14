@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 
 /* i18n */
 add_action('after_setup_theme', function(){

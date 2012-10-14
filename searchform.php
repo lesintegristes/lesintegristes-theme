@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); } ?>
+if (!defined('WP_USE_THEMES')) return; ?>
 <form method="get" id="searchform" action="<?php echo bloginfo('url'); ?>/" role="search">
 	<div>
 		<label class="screen-reader-text" for="s">Recherche pour:</label>

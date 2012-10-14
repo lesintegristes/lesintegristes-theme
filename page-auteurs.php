@@ -4,7 +4,7 @@ Template Name: Auteurs
 */
 
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -17,7 +17,7 @@ get_header();
 <div id="content" role="main" class="page-auteurs">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<h1><?php the_title(); ?></h1>
-		
+
 		<?php
 		$blog_authors = lesintegristes_authors_ordered_by_last_post();
 		foreach ($blog_authors as $author): ?>
