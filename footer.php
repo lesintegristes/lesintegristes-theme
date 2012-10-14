@@ -1,22 +1,22 @@
 <?php
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 ?>
 	<footer id="footer">
 			<div>
-				
+
 				<div class="categories-rss-container">
 					<section class="categories">
 						<h1>Catégories</h1>
 						<p><?php echo substr_replace(str_replace('<br />', ', ', wp_list_categories('show_count=0&title_li=<h1>Catégories</h1>&style=none&echo=0')) , "", -3); ?></p>
 					</section>
-					
+
 					<section class="rss">
 						<p><?php echo lesintegristes_get_feed_link(get_bloginfo('rss2_url'), 'Flux RSS du blog (articles et notes)', false) ?></p>
 						<p><?php echo lesintegristes_get_feed_link(get_bloginfo("wpurl") .'/articles/feed/', 'Flux RSS des articles uniquement', false) ?></p>
 					</section>
 				</div>
-				
+
 				<section class="archives">
 					<h1>Archives</h1>
 					<ul>

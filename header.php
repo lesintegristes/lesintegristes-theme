@@ -1,6 +1,6 @@
 <?php
 	# No direct file load
-	if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+	if (!defined('WP_USE_THEMES')) return;
 
 	global $cur_weather_condition;
 

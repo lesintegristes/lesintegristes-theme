@@ -4,26 +4,26 @@ Template Name: Home
 */
 
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 
 get_header(); ?>
 
 <div id="content" role="main">
 <?php query_posts('post_type=post'); ?>
 <?php if (have_posts()) : ?>
-	
+
 	<h1>Derniers articles</h1>
-	
+
 	<?php
 		$posts_num = 0;
 		global $more;
 		$more = 0;
 		while (have_posts() && $posts_num < 7) :
 		the_post();
-		
+
 		if ($posts_num < 4):
 		?>
-		
+
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
 				<h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
@@ -39,7 +39,7 @@ get_header(); ?>
 				<p class="comments-count"><?php comments_popup_link('<strong><span>0</span></strong> <span>commentaires</span>', '<strong><span>1</span></strong> <span>commentaire</span>', '<strong><span>%</span></strong> <span>commentaires</span>'); ?></p>
 			</footer>
 		</article>
-		
+
 	<?php else: ?>
 		<?php if ($posts_num === 4): ?>
 	<ul class="last-articles">
@@ -58,7 +58,7 @@ get_header(); ?>
 		endwhile; ?>
 		<li class="all"><a href="<?php echo lesintegristes_get_articles_url() ?>">Tous les articles</a></li>
 	</ul>
-	
+
 <?php else : ?>
 
 	<h2>Not Found</h2>

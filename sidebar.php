@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 
 $show_veille = !is_page('veille');
 $show_articles = ( is_archive() || (is_page() && !is_page('page-home')) || is_single() || is_404() );

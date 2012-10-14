@@ -1,11 +1,11 @@
 <?php
 # No direct file load
-if (!empty($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) { die(); }
+if (!defined('WP_USE_THEMES')) return;
 
 get_header(); ?>
 <div id="content" role="main">
 	<?php if (have_posts()) : ?>
-	
+
 	<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 	<?php /* If this is a category archive */ if (is_category()) { ?>
 	<h1>Articles de la catégorie «&nbsp;<?php single_cat_title(); ?>&nbsp;»</h1>
@@ -16,7 +16,7 @@ get_header(); ?>
 	<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
 	<h1>Articles du <?php the_time('F jS, Y'); ?></h1>
 	<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-	
+
 	<?php
 		if (in_array(get_the_time("n"), array("4", "8", "10"))) {
 			$month_prefix = "d’";
@@ -24,7 +24,7 @@ get_header(); ?>
 			$month_prefix = "de ";
 		} ?>
 	<h1>Articles du mois <?php echo $month_prefix ?><?php the_time('F Y'); ?></h1>
-	
+
 	<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
 	<h1>Articles de l'année <?php the_time('Y'); ?></h1>
 	<?php /* If this is an author archive */ } elseif (is_author()) { ?>
@@ -32,7 +32,7 @@ get_header(); ?>
 	<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
 	<h1>Archives</h1>
 	<?php } ?>
-		
+
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
@@ -50,7 +50,7 @@ get_header(); ?>
 				</footer>
 			</article>
 		<?php endwhile; ?>
-		
+
 		<?php
 			$next_page_exists = (get_next_posts_link() !== NULL);
 			$prev_page_exists = (get_previous_posts_link() !== NULL);
@@ -65,7 +65,7 @@ get_header(); ?>
 			<?php endif; ?>
 		</p>
 		<?php endif; ?>
-		
+
 	<?php else :
 
 		if ( is_category() ) { // If this is a category archive
@@ -78,7 +78,7 @@ get_header(); ?>
 		} else {
 			echo("<h2>Pas d'articles trouvés.</h2>");
 		}
-		
+
 	endif;
 ?>
 	</div>
