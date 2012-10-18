@@ -6,8 +6,8 @@ get_header(); ?>
 <div id="content" role="main" class="note">
 	<p><a href="<?php bloginfo('url'); ?>/categorie/notes/" class="action">Toutes les notes</a></p>
 	<p class="pagination">
-		<span class="previous"><?php previous_post_link('%link', 'Note précédente', TRUE); ?></span>
-		<span class="next"><?php next_post_link('%link', 'Note suivante', TRUE); ?></span>
+		<span class="previous"><?php previous_post_link('%link', 'Note précédente'); ?></span>
+		<span class="next"><?php next_post_link('%link', 'Note suivante'); ?></span>
 	</p>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
