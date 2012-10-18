@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!defined('WP_USE_THEMES')) return;
+if (!defined('ABSPATH')) return;
 ?>
 	<footer id="footer">
 			<div>

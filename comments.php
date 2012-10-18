@@ -1,6 +1,6 @@
 <?php
 # No direct file load
-if (!defined('WP_USE_THEMES')) return;
+if (!defined('ABSPATH')) return;
 
 // Do not delete these lines
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))

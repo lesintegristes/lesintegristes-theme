@@ -4,7 +4,7 @@ Template Name: Home
 */
 
 # No direct file load
-if (!defined('WP_USE_THEMES')) return;
+if (!defined('ABSPATH')) return;
 
 get_header(); ?>
 

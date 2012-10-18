@@ -4,7 +4,7 @@ Template Name: Auteurs
 */
 
 # No direct file load
-if (!defined('WP_USE_THEMES')) return;
+if (!defined('ABSPATH')) return;
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
