@@ -37,7 +37,7 @@ get_header();
 					<?php echo $author->li_description ?>
 				</p>
 				<?php endif ?>
-				<?php if ($author->li_description_by): ?>
+				<?php if ($author->li_description_by && $author->li_description): ?>
 				<p class="desc-author">
 					<em>Par <?php echo $author->li_description_by ?>.</em>
 				</p>
@@ -61,7 +61,7 @@ get_header();
 			<h1>Contactez-nous&nbsp;!</h1>
 			<?php the_content(); ?>
 		</section>
-		<script type="text/javascript">jQuery("section.contact span.wpcf7-not-valid-tip-no-ajax").closest("p").addClass("error");</script>
+		<script>jQuery("section.contact span.wpcf7-not-valid-tip-no-ajax").closest("p").addClass("error");</script>
 		<?php endif; ?>
 	<?php endwhile; endif; ?>
 </div>

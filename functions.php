@@ -280,16 +280,19 @@ function lesintegristes_get_custom_field($name, $metas, $prefix = 'lesintegriste
 
 /* Get published authors ordered by last post date */
 function lesintegristes_authors_ordered_by_last_post() {
+  global $wpdb;
+
   $blog_authors_all = get_users('fields=all');
   $blog_authors = array();
+  $author_last_post_sql = "SELECT post_date FROM {$wpdb->posts} WHERE post_author = %d AND (post_type = 'post' OR post_type = 'lesintegristes_note') AND post_status = 'publish' ORDER BY post_date DESC LIMIT 1";
 
   // Published authors only
   foreach ($blog_authors_all as $author) {
-    $author->posts_count = count_user_posts($author->ID);
 
-    if ($author->posts_count) {
+    $last_post = $wpdb->get_row($wpdb->prepare($author_last_post_sql, array($author->ID)), OBJECT);
+
+    if ($last_post) {
       $metas = get_user_meta($author->ID);
-      $last_post = get_posts('showposts=1&author='.$author->ID);
 
       // li_ = "les integristes" prefix
       $author->li_twitter = lesintegristes_get_custom_field('twitter', $metas);
@@ -297,7 +300,7 @@ function lesintegristes_authors_ordered_by_last_post() {
       $author->li_description = lesintegristes_get_custom_field('description', $metas, '');
       $author->li_description_by = lesintegristes_get_custom_field('description_by', $metas);
       $author->li_profession = lesintegristes_get_custom_field('profession', $metas);
-      $author->li_last_post_date = $last_post[0]->post_date;
+      $author->li_last_post_date = $last_post->post_date;
 
       // http://example.com => example.com
       $author->li_display_url = str_replace(parse_url($author->user_url, PHP_URL_SCHEME) . '://', '', $author->user_url);
