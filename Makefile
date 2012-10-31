@@ -9,7 +9,7 @@ JS_FINAL_MAIN = scripts/main-min.js
 JS_FINAL_SINGLE = scripts/single-min.js
 JS_TARGETS = scripts/jquery.cookies.2.2.0.js \
              scripts/main.js \
-             scripts/syntax-highlighter.js \
+             scripts/prism.js \
              scripts/single.js
 JS_MINIFIED = $(JS_TARGETS:.js=.min.js)
 
@@ -63,7 +63,7 @@ js: $(JS_FINAL_MAIN) $(JS_FINAL_SINGLE)
 $(JS_FINAL_MAIN): scripts/jquery.cookies.2.2.0.min.js scripts/main.min.js
 	cat $^ >$@
 	rm -f $^
-$(JS_FINAL_SINGLE): scripts/syntax-highlighter.min.js scripts/single.min.js
+$(JS_FINAL_SINGLE): scripts/prism.min.js scripts/single.min.js
 	cat $^ >$@
 	rm -f $^
 
