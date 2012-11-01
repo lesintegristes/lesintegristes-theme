@@ -1,5 +1,8 @@
 <?php
 
+# No direct file load
+if (!defined('ABSPATH')) return;
+
 /* Notes custom type */
 add_action('init', function(){
   register_post_type('lesintegristes_note',
