@@ -331,9 +331,9 @@ function lesintegristes_filter_wp_title($title, $sep, $seplocation) {
   if(is_paged()) {
     $paged = lesintegristes_get_current_page_number();
     $title = str_replace($sep, '', $title);
-    return "$title (page $paged) $sep " . get_bloginfo('name');
+    return "$title (page $paged) $sep ";
   }
-  return $title . get_bloginfo('name');
+  return $title;
 }
 add_filter('wp_title', 'lesintegristes_filter_wp_title', 10, 3);
 

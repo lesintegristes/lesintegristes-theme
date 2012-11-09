@@ -15,7 +15,7 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>" />
-		<title><?php wp_title('·', true, 'right'); ?></title>
+		<title><?php wp_title('·', true, 'right'); bloginfo('name'); ?></title>
 		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 		<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon.png" />
