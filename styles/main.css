@@ -99,6 +99,7 @@ h4{font-size:14px;}
 ::-moz-selection{color:#fff;background:#857e76;}
 ::selection{color:#fff;background:#857e76;}
 input[type=text],
+input[type=email],
 textarea{-moz-box-shadow:inset 2px 2px 2px #aaa;-webkit-box-shadow:inset 2px 2px 2px #aaa;}
 
 /* Hentry */
@@ -474,9 +475,11 @@ body.page-id-29 #content li > div{padding:24px 12px 36px;background:#ece4d6;}
 #content.page-auteurs section.contact form p{position:relative;overflow:hidden;width:473px;line-height:48px;margin-bottom:12px;}
 #content.page-auteurs section.contact form p.form-info{margin-left:13px;margin-bottom:36px;line-height:24px;color:#857e76;}
 #content.page-auteurs section.contact form label{clear:left;float:left;width:84px;margin-top:6px;padding-left:10px;line-height:36px;white-space:nowrap;font-weight:bold;color:#857e76;}
-#content.page-auteurs section.contact form input[type=text]{width:247px;padding:7px;line-height:24px;text-align:left;border:0;}
+#content.page-auteurs section.contact form input[type=text],
+#content.page-auteurs section.contact form input[type=email]{width:247px;padding:7px;line-height:24px;text-align:left;border:0;}
 #content.page-auteurs section.contact form textarea{display:block;width:335px;height:240px;margin:9px 0;padding:3px 7px;border:0;} /* WIDTH A REVOIR */
 #content.page-auteurs section.contact form input[type=text]:focus,
+#content.page-auteurs section.contact form input[type=email]:focus,
 #content.page-auteurs section.contact form textarea:focus{outline:6px solid #beb6a7;}
 #content.page-auteurs section.contact form p.submit{text-align:right;}
 #content.page-auteurs section.contact form .wpcf7-validation-errors{background:#4a4a4a url(i/icon-error.png) no-repeat 437px 9px;}
@@ -484,7 +487,8 @@ body.page-id-29 #content li > div{padding:24px 12px 36px;background:#ece4d6;}
 #content.page-auteurs section.contact form p.error label{color:#ece4d6;}
 #content.page-auteurs section.contact form p.error .wpcf7-form-control-wrap{position:static;}
 #content.page-auteurs section.contact form p.error .wpcf7-not-valid-tip-no-ajax{position:absolute;right:0;top:0;width:45px;height:48px;text-indent:-9999px;background:url(i/icon-error.png) no-repeat 9px 9px;}
-#content.page-auteurs section.contact form p.error input[type=text]:focus{outline:0;}
+#content.page-auteurs section.contact form p.error input[type=text]:focus,
+#content.page-auteurs section.contact form p.error input[type=email]:focus{outline:0;}
 #content.page-auteurs section.contact form .wpcf7-response-output{position:absolute;top:-36px;left:30px;width:449px;margin:0;padding:12px;font-style:normal;font-weight:bold;color:#ece4d6;background-color:#4a4a4a;border:0;}
 
 /* 404 */
@@ -561,9 +565,11 @@ body.single #content .last-articles li{margin-bottom:0;}
 #respond p:first-child{margin-bottom:36px;line-height:24px;color:#857e76;}
 #respond p.no-comments{margin:0;font-style:normal;}
 #respond label{clear:left;float:left;width:183px;margin-top:6px;line-height:36px;white-space:nowrap;font-weight:bold;color:#857e76;}
-#respond input[type=text]{width:247px;padding:7px;line-height:24px;text-align:left;border:0;}
+#respond input[type=text],
+#respond input[type=email]{width:247px;padding:7px;line-height:24px;text-align:left;border:0;}
 #respond textarea{display:block;width:428px;height:360px;margin:9px 0;padding:3px 6px;border:0;resize:vertical;}
 #respond input[type=text]:focus,
+#respond input[type=email]:focus,
 #respond textarea:focus{outline:6px solid #beb6a7;}
 #respond .comment{position:relative;z-index:2;margin-bottom:0;}
 #respond .html-help{position:relative;top:-9px;z-index:1;width:440px;margin:0 0 -9px 183px;padding-top:9px;line-height:24px;font-size:12px;color:#857e76;background:#ddd2c4;}
